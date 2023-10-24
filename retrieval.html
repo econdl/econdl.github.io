@@ -32,23 +32,23 @@ title: Publication
             {% for project in site.applications.retrieval %}
             <div class="columns">
                 <div class="column is-3">
-                    <figure class="image is-16by9"><img src="{{ applications.retrieval.image_small }}"></figure>
+                    <figure class="image is-16by9"><img src="{{ project.image_small }}"></figure>
                 </div>
                 <div class="column is-9">
                     <div class="content">
                         <h3 class="publication-title">
-                            <a href="{{ applications.retrieval.url }}">{{ applications.retrieval.title }}</a>
+                            <a href="{{ project.url }}">{{ project.title }}</a>
                         </h3>
                         
-                        {% assign keywords = applications.retrieval.keywords | split: ',' %}
+                        {% assign keywords = project.keywords | split: ',' %}
                         {% for keyword in keywords %}
                         <span class="tag is-light">{{keyword}}</span>
                         {% endfor%}
 
-                        <p>{{ applications.retrieval.description | markdownify }}</p>
+                        <p>{{ project.description | markdownify }}</p>
                         
-                        {% if applications.retrieval.publications != nil %}
-                        {% assign project_name = applications.retrieval.title | strip | replace: ' ', '-' %}
+                        {% if project.publications != nil %}
+                        {% assign project_name = project.title | strip | replace: ' ', '-' %}
                         <article class="media">
                             <div class="media-content">
                                 <div class="content">
@@ -61,7 +61,7 @@ title: Publication
                                 </div>
                                 <div class="is-collapsible" id="{{ project_name }}-paper-list">
 
-                                {% for paper in applications.retrieval.publications %}
+                                {% for paper in project.publications %}
                                 <article class="media" style="padding-left: 2rem;">
                                     <p class="has-text-grey is-family-sans-serif">{{ paper | markdownify | remove: '<p>' | remove: '</p>' }}</p>
                                 </article>
