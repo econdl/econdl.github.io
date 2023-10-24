@@ -16,7 +16,11 @@
         <div class="navbar-end">
             <!-- navbar items -->
             {% for item in site.data.settings.menu %}
-            <a href="{{ item.url | default: ('/' ~ item.file) }}" class="navbar-item">{{ item.name }}</a>
+                {% if item.url %}
+                    <a href="{{ item.url }}" class="navbar-item">{{ item.name }}</a>
+                {% else %}
+                    <a href="/{{ item.file }}" class="navbar-item">{{ item.name }}</a>
+                {% endif %}
             {% endfor %}
             <div class="navbar-item">
                 {% for item in site.data.settings.social %}
