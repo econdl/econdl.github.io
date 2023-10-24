@@ -5,7 +5,7 @@
 
 menu:
 - {name: '',    file: ''}
-- {name: 'Retrieval', file: 'projects.html'}
+- {name: 'Retrieval', file: 'retrieval.html'}
 - {name: 'Clustering', file: 'projects.html'}
 - {name: 'Classification', file: 'projects.html'}
 - {name: 'Seq2seq', file: 'projects.html'}
