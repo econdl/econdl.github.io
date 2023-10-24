@@ -1,0 +1,31 @@
+---
+layout: page
+---
+
+<div class="columns">
+    <!-- <div class="column is-2 is-hidden-mobile">
+        {% include projects/menu.html %}
+    </div> -->
+    <div class="column is-12">
+            {% for resource in site.resources %}
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="{{ resource.image_small }}"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="{{ resource.url }}">{{ resource.title }}</a>
+                        </h3>
+
+                        <p>{{ resource.description | markdownify }}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        {% endfor %}
+    </div>
+</div>
+

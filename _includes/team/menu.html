@@ -1,0 +1,38 @@
+<aside class="menu">
+
+    {% for role in site.data.settings.people.roles %}
+
+    {% assign current_people = site.data.people | where: "role", role.name %}
+
+    {% capture last_names %}
+        {% for people in current_people %}
+            {{people.name | split: " " | last}}|{{people.name}}{% if forloop.last != true %},{% endif %}
+        {% endfor %}
+    {% endcapture %} 
+    {% assign last_names=last_names | split: ',' | sort %}
+
+    {% assign people_order='' | split: '' %}
+
+    {% for combined_name in last_names %}
+        {% capture name %}{{combined_name | split: "|" | last | strip }}{% endcapture %}
+        {% for person in current_people %}
+            {% if person.name==name %}
+                {% assign index = forloop.index0 |  split: '' %}
+                {% assign people_order=people_order | concat: index %}
+            {% endif%}
+        {% endfor %}
+    {% endfor %}
+
+    <p class="menu-label">
+        {{ role.name }}
+    </p>
+    {% assign total_members = current_people.size | minus: 1 %}
+    <ul class="menu-list">
+        {% for idx in (0..total_members) %}
+        {% assign person_id=people_order[idx] | times: 1 %}
+        <li><a href="#{{current_people[person_id].name}}">{{current_people[person_id].name}}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% endfor %}
+</aside>

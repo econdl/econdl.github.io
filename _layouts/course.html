@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<section class="columns">
+    <div class="column is-12">
+        <div style="text-align: justify">
+            <div class="content">
+                <h3 class="title">{{ page.title }}</h3>
+                <p>
+                    <i class="is-family-sans-serif">Offered {{ page.semester | capitalize }}</i>
+                </p>
+                {{ page.overview | markdownify }}
+            </div>
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        <div class="content">
+            <div style="text-align: justify">
+                <h4 class="title">Course Topics</h4>
+                {{ content | markdownify }}
+            </div>
+        </div>
+    </div>
+</section>
+{% include utterances.html %}
+
+
+

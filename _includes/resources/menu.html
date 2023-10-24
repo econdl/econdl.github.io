@@ -1,0 +1,15 @@
+<aside class="menu">
+
+    {% for category in site.data.settings.resources.categories %}
+    <p class="menu-label">
+        {{ category.name }}
+    </p>
+    <ul class="menu-list">
+        {% for resource in site.resources %}
+            {% if resource.category == category.name %}
+            <li><a href="#{{resource.title}}">{{resource.title}}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</aside>

@@ -1,0 +1,41 @@
+<div class="box">
+    <div class="media">
+        <div class="media-left">
+            <figure class="image is-96x96">
+                <img src="{{include.resource.image_small}}" alt="Placeholder image">
+            </figure>
+
+        </div>
+        <div class="media-content">
+            <div class="content">
+
+                <h3 class="publication-title" id="{{include.resource.title}}">{{ include.resource.title }}</h3>
+                <p>{{ include.resource.description | markdownify }}</p>
+            </div>
+
+            <nav class="level is-mobile">
+                <div class="level-left">
+                    <a class="level-item">
+                        {% for category in site.data.settings.resources.categories %}
+                            {% if category.name == include.resource.category %}
+                                {% assign category_color = category.color %}
+                            {% endif %}
+                        {% endfor%}
+                        <span class="tag {{ category_color }}">
+                            {{ include.resource.category }}
+                        </span>
+                    </a>
+                    {% for tag in site.data.settings.resources.tags%}
+                    {% if include.resource.[tag.name] != nil %}
+                    <a class="level-item" href="{{include.resource.[tag.name]}}">
+                        <span class="icon is-small has-text-dark">
+                            <i class="{{tag.icon}}" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

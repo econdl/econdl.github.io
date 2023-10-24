@@ -1,0 +1,56 @@
+# If you are not using Google Analytics, please change 'google-ID' to an empty string
+# google-ID: x
+# disqus-ID: x
+# utterances-repo: x
+
+menu:
+- {name: '',    file: ''}
+- {name: 'Retrieval', file: 'projects.html'}
+- {name: 'Clustering', file: 'projects.html'}
+- {name: 'Classification', file: 'projects.html'}
+- {name: 'Seq2seq', file: 'projects.html'}
+- {name: 'Object detection', file: 'projects.html'}
+- {name: 'Object detection', file: 'projects.html'}
+- {name: 'GNN and RL', file: 'projects.html'}
+# - {name: 'Team',     file: 'team.html'}
+
+social:
+
+publication: 
+    types:
+      - 'Publications'
+      - 'Working Papers'
+    topics:
+      - {name: 'All',            id: 'all',  description: ''}
+      - {name: 'Publications',  id: 'pub',   description: ''}
+      - {name: 'Working Papers',            id: 'wp',  description: ''}
+      - {name: 'Other',          id: 'misc', description: ''}
+    default_img: "/assets/publications/placeholder.png"
+    tag_list: 
+      - {name: "paper",  icon: "far fa-file-pdf"}
+      - {name: "website",icon: "fas fa-globe-americas"}
+      - {name: "arxiv",  icon: "ai ai-arxiv"}  
+      - {name: "poster", icon: "far fa-file-image"}
+      - {name: "video",  icon: "fab fa-youtube"}
+
+people:
+  roles: 
+    - {name: 'predocs', template: "team/full-card.html"}
+  tags: 
+    - {name: "email",  icon: "fas fa-paper-plane"}
+    - {name: "website",  icon: "fas fa-globe-americas"}
+    - {name: "google_scholar",  icon: "ai ai-google-scholar-square"}
+
+    
+resources:
+  categories:
+    - {name: 'software', color: 'is-primary'}
+  tags: 
+    - {name: "paper",  icon: "far fa-file-pdf"}
+    - {name: "website",icon: "fas fa-globe-americas"}
+    - {name: "github", icon: "fab fa-github"}  
+
+posts:
+  video: 
+    url: 
+    title: 

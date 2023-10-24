@@ -1,0 +1,42 @@
+{% assign total_members = include.people.size %}
+{% assign column_width = 12 | divided_by: include.col_number %}
+{% if include.col_number > 1 %}
+
+    {% for i in (1..total_members) %}
+
+        {% assign new_row = i | modulo: include.col_number %}
+        {% assign member_id = i | minus: 1 %}
+
+        {% if new_row == 1 %}
+        <div class="tile is-ancestor">
+        {% endif %}
+        {%if include.ordering!=nil %}
+            {% assign member_id = include.ordering[member_id] | plus: 0 %}
+        {% endif %}
+        {% assign selected_member = include.people[member_id] %}
+
+        {% include {{include.card}} people=selected_member column_width=column_width %}
+
+        {% if new_row == 0 %}
+        </div>
+        {% elsif forloop.last == true %}
+        </div>
+        {% endif %}
+
+    {% endfor%}
+
+{% else %}
+    {% for i in (1..total_members) %}
+
+        {% assign member_id = i | minus: 1 %}
+
+        <div class="tile is-ancestor">
+
+        {% assign selected_member = include.people[member_id] %}
+
+        {% include {{include.card}} people=selected_member column_width=column_width %}
+
+        </div>
+
+    {% endfor%}
+{% endif %}

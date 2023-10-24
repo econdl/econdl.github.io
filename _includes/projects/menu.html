@@ -1,0 +1,11 @@
+<aside class="menu">
+    <p class="menu-label">
+        all projects
+    </p>
+        
+    {% for project in site.projects %}
+        <ul class="menu-list">
+            <li><a href="#{{project.title}}">{{project.title}}</a></li>
+        </ul>
+    {% endfor %}
+</aside>

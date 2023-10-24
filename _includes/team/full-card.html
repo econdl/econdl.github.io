@@ -1,0 +1,37 @@
+<div class="tile is-parent is-{{include.column_width}}">
+    <div class="tile is-child">
+        {% assign member = include.people %}
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-96x96">
+                        <img src="/assets/people/{{ member.name | replace: ' ', '-' | downcase | append: '.jpg' }}"
+                            alt="{{member.name }}" style="border-radius: 0.25rem;">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4 " id="{{member.name}}"><a class="has-text-black" {% if member.website != nil %} href="{{member.website}}" {% endif %}>{{member.name}}</a></p>
+                    <p class="subtitle is-6">
+                        {{member.title}}
+                        <br>
+                        <span class="has-text-grey">{{member.institution}}</span>
+                    </p>
+
+                    <nav class="level is-mobile" style="margin-top:-0.85rem">
+                        <div class="level-left">
+                            {% for tag in site.data.settings.people.tags%}
+                            {% if member.[tag.name] != nil %}
+                            <a class="level-item" {% if tag.name == "email" %} href="mailto:{{member.[tag.name]}}" {% else %} href="{{member.[tag.name]}}" {% endif %}>
+                                <span class="icon is-small has-text-dark">
+                                    <i class="{{tag.icon}}" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

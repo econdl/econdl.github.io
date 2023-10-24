@@ -1,0 +1,36 @@
+{% assign member = include.people %}
+<div class="tile is-parent is-12">
+    <div class="tile is-child">
+        {% assign member = include.people %}
+        <div class="card-content">
+            <div class="columns">
+                <div class="column is-4">
+                    <figure class="image" style="max-width: 256px;">
+                        <img src="/assets/people/{{ member.name | replace: ' ', '-' | downcase | append: '.jpg' }}">
+                    </figure>
+                </div>
+                <div class="column is-8">
+                    <p class="title is-4"><a class="has-text-black" {% if member.website != nil %} href="{{member.website}}" {% endif %}>Principal Investigator</a></p>
+                    
+                    <nav class="level is-mobile" style="margin-top:-0.85rem">
+                        <div class="level-left">
+                            {% for tag in site.data.settings.people.tags%}
+                            {% if member.[tag.name] != nil %}
+                            <a class="level-item" {% if tag.name == "email" %} href="mailto:{{member.[tag.name]}}" {% else %} href="{{member.[tag.name]}}" {% endif %}>
+                                <span class="icon is-small has-text-dark">
+                                    <i class="{{tag.icon}}" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </nav>
+
+                    <div class="content" style="margin-top: 1rem">
+                        {{member.bio | markdownify}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

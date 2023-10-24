@@ -1,0 +1,23 @@
+---
+layout: page
+title: Teaching
+---
+
+{% for course in site.teaching %}
+<div class="columns">
+    <div class="column is-8 is-offset-2">
+        <div class="content">
+
+            <a href="{{ course.url | relative_url }}" title="{{ course.title }}">
+                <h3 class="article-list-title">{{ course.title }}</h3>
+            </a>
+            <div class="article-list-description">
+                <p>
+                    {{ course.overview | truncate: 1000 }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+{% endfor %}

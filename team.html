@@ -1,0 +1,45 @@
+---
+layout: page
+title: Team
+---
+
+<div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+        {% include team/menu.html %}          
+    </div>
+
+    <div class="column is-10">
+       
+    {% assign total_members = site.data.people.size %}
+    
+    {% for role in site.data.settings.people.roles %}
+        {% if forloop.first != true%}
+            {% include team/block.html title=role.name %}
+        {% endif %}
+        {% assign current_people = site.data.people | where: "role", role.name %}
+        
+        {% capture last_names %}
+            {% for people in current_people %}
+                {{people.name | split: " " | last}}|{{people.name}}{% if forloop.last != true %},{% endif %}
+            {% endfor %}
+        {% endcapture %} 
+        {% assign last_names=last_names | split: ',' | sort %}
+        
+        {% assign people_order='' | split: '' %}
+
+        {% for combined_name in last_names %}
+            {% capture name %}{{combined_name | split: "|" | last | strip }}{% endcapture %}
+            {% for person in current_people %}
+                {% if person.name==name %}
+                    {% assign index = forloop.index0 |  split: '' %}
+                    {% assign people_order=people_order | concat: index %}
+                {% endif%}
+            {% endfor %}
+        {% endfor %}
+
+        {% include team/grid.html people=current_people col_number=2 card=role.template ordering=people_order %}
+
+    {% endfor %}
+
+    </div>
+</div>
