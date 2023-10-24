@@ -36,6 +36,9 @@ collections:
   projects:
     output: true
     permalink: /:collection/:name 
+  retrieval:
+    output: true
+    permalink: /:collection/:name 
   resources:
     output: true
     permalink: /:collection/:name 
