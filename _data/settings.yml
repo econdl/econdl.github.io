@@ -12,7 +12,7 @@ menu:
 - {name: 'Object detection', file: 'projects.html'}
 - {name: 'Object detection', file: 'projects.html'}
 - {name: 'GNN and RL', file: 'projects.html'}
-- {name: 'Knowledge Base', file: 'https://dell-research-harvard.github.io/blog.html'}
+- {name: 'Knowledge Base', url: 'https://dell-research-harvard.github.io/blog.html'}
 
 # - {name: 'Team',     file: 'team.html'}
 
