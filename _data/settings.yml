@@ -12,7 +12,7 @@ menu:
 - {name: 'Object detection', file: 'objdet.html'}
 - {name: 'GNN and RL', file: 'gnn.html'}
 - {name: 'Datasets', file: 'datasets.html'}
-- {name: 'Knowledge Base', url: 'blog.html'}
+- {name: 'Knowledge Base', file: 'blog.html'}
 
 # - {name: 'Team',     file: 'team.html'}
 
