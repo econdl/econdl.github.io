@@ -10,8 +10,8 @@ menu:
 - {name: 'Classification', file: 'projects.html'}
 - {name: 'Seq2seq', file: 'projects.html'}
 - {name: 'Object detection', file: 'projects.html'}
-- {name: 'Object detection', file: 'projects.html'}
 - {name: 'GNN and RL', file: 'projects.html'}
+- {name: 'Datasets', file: 'projects.html'}
 - {name: 'Knowledge Base', url: 'https://dell-research-harvard.github.io/blog.html'}
 
 # - {name: 'Team',     file: 'team.html'}

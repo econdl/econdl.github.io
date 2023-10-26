@@ -2,9 +2,13 @@
 layout: project
 show_nav: true
 
-title: Quantifying Character Similarity with Vision Transformers
+title: Record Linkage with Vision
 description: >
-    Xinmei Yang, Abhishek Arora, Shao-Yu Jheng, and Melissa Dell. “Quantifying Character Similarity with Vision Transformers," [Paper](https://scholar.harvard.edu/sites/scholar.harvard.edu/files/dell/files/homoglyphs.pdf). Forthcoming *Empirical Methods on Natural Language Processing.*
+    Introducing HomoglyphsCJK, an easy-to-use python package for deep learning-assisted string matching. HomoglyphsCJK currently supports Simplified and Traditional Chinese, Korean, and Japanese. 
+
+    + [Tutorial](https://colab.research.google.com/drive/1hWiWbazsIZJUmNs2i8eTZ5BvSWfKe0fp?usp=sharing)
+    + [Package](https://pypi.org/project/HomoglyphsCJK/)
+    + [Repo](https://github.com/dell-research-harvard/HomoglyphsCJK)
 keywords: vision transformers, record linkage, contrastive learning
 image_small: /assets/publications/ancient.png
 
@@ -12,7 +16,26 @@ image_small: /assets/publications/ancient.png
 
 
 
-**Abstract:** Record linkage is a bedrock of quantitative social science, as analyses often require linking data from multiple, noisy sources. Off-the-shelf string matching methods are widely used, as they are straightforward and cheap to implement and scale. Not all character substitutions are equally probable, and for some settings there are widely used handcrafted lists denoting which string substitutions are more likely, that improve the accuracy of string matching. However, such lists do not exist for many settings, skewing research with linked datasets towards a few high-resource contexts that are not representative of the diversity of human societies. This study develops an extensible way to measure character substitution costs for OCR'ed documents, by employing large-scale self-supervised training of vision transformers (ViT) with augmented digital fonts. For each language written with the CJK script, we contrastively learn a metric space where different augmentations of the same character are represented nearby. In this space, homoglyphic characters - those with similar appearance such as ``O'' and ``0'' - have similar vector representations. Using the cosine distance between characters' representations as the substitution cost in an edit distance matching algorithm significantly improves record linkage compared to other widely used string matching methods, as OCR errors tend to be homoglyphic in nature. Homoglyphs can plausibly capture character visual similarity across \textit{any} script, including low-resource settings. We illustrate this by creating homoglyph sets for 3,000 year old ancient Chinese characters, which are highly pictorial. Fascinatingly, a ViT is able to capture relationships in how different abstract concepts were conceptualized by ancient societies, that have been noted in the archaeological literature. 
+Introducing HomoglyphsCJK, an easy-to-use python package for deep learning-assisted string matching. HomoglyphsCJK currently supports Simplified and Traditional Chinese, Korean, and Japanese. 
 
-[Paper](https://scholar.harvard.edu/sites/scholar.harvard.edu/files/dell/files/homoglyphs.pdf)
++ [Tutorial](https://colab.research.google.com/drive/1hWiWbazsIZJUmNs2i8eTZ5BvSWfKe0fp?usp=sharing)
++ [Package](https://pypi.org/project/HomoglyphsCJK/)
++ [Package Repo](https://github.com/dell-research-harvard/HomoglyphsCJK)
++ [Custom Model Training](https://github.com/dell-research-harvard/HomoglyphsCJKTraining)
+
+The basic idea is to use vision transformers – a deep neural network – to quantify character visual similarity. The model is contrastively trained to learn a metric space where different augmentations of the same character (e.g., from different fonts) are represented nearby. This figure illustrates examples of the same character rendered with different fonts. Augmentations of these comprise positive examples in the homoglyphs training data. 
+
+![](/assets/projects/Homo_font.png) 
+
+The Homoglyphs model can be used to measure the similarity *between* different characters, which we show can significantly improve string matching accuracy for OCR’ed databases. This figure illustrates the five nearest neighbors in the HOMOGLYPH embedding space for representative characters. 
+
+![](/assets/projects/Homo_ex.png) 
+
+When homoglyphic matching fails, it is often because OCR has destroyed too much information for string matching to be a realistic solution.
+
+![](/assets/projects/Homo_errors.png) 
+
+Our method for quantifying character similarity is purely self-supervised (it doesn't require human-created labels), so it can be cheaply extended to any character set. Homoglyphs for ancient Chinese characters from over 3,000 years ago capture related abstract concepts noted in the archaeological literature. This figure shows homoglyph sets constructed for ancient Chinese, with the descendent modern Chinese character and a description of the ancient character's meaning (which can differ from the descendent's meaning). 
+
+![](/assets/projects/homo_ancient.png) 
 

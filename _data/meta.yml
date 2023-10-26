@@ -1,5 +1,5 @@
 index:
-  About: >
+  about: >
     EconDL is ...(Short Description)
   research_vision: >
     (Description)..List of tutorials, accompanying paper X, etc. 
@@ -17,6 +17,7 @@ index:
     # These methods will also make valuable information more accessible to the public and those who require accessible formats.
   contact: >
     [Melissa Dell](https://dell-research-harvard.github.io/)
+    
     Department of Economics  
     Littauer Center M-24  
      
