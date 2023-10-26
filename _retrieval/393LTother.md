@@ -7,7 +7,7 @@ description: >
         LinkTransformer allows the use of language models for other common data wrangling tasks like de-duplication and clustering" [Webpage](https://linktransformer.github.io/), [Paper](https://scholar.harvard.edu/sites/scholar.harvard.edu/files/dell/files/linkt.pdf), [Github](https://github.com/dell-research-harvard/linktransformer), [Notebook](https://colab.research.google.com/drive/1OqUB8sqpUvrnC8oa_1RoOUzV6DaAKL4N)
 
 keywords: transformers, record linkage, data wrangling
-image_small: /assets/publications/lt_image.png
+image_small: /assets/linktransformers_demo.png
 
 
 

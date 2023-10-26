@@ -5,7 +5,7 @@ show_nav: true
 title: Ranking Documents using DPR
 description: >
     Coming Soon
-keywords: multimodal learning, contrastive learning, record linkage
+keywords: retrieval, nlp, dpr
 image_small: /assets/publications/rl.png
 
 

@@ -1,20 +1,12 @@
 index:
   about: >
-    EconDL is ...(Short Description)
+    EconDL is a comprehensive resource detailing applications of Deep Learning in Economics. 
   research_vision: >
-    (Description)..List of tutorials, accompanying paper X, etc. 
+    This is a companion website to the paper () and aims to be a go-to resource for Economists and other social scientists for applying tools provided by deep learning in their research.
+    All the tools covered here are a product of .....
     
-    # Over the past two centuries, we have transitioned from an overwhelmingly agricultural world to one with vastly different patterns of employment, 
-    # urbanization, and social organization. In some contexts, this transformation has faltered or been accompanied by significant social upheaval, whereas other societies have 
-    # experienced remarkably rapid, equitable growth. Understanding these experiences requires highly granular data on the trajectories of individuals, firms, and communities. 
-    # Rich disaggregated data exist but are often either
-    # scattered throughout reams of text or trapped in images or hard copy documents. Manually converting these sources into computable data 
-    # can be prohibitively costly. Because the sources of primary relevance to social scientists differ in important ways from those typically
-    # processed by the digital humanities or commercial applications, existing off-the-shelf automated processing tools
-    # typically fail to produce usable outputs.
-    # Methods targeted towards social science applications have the potential to significantly expand
-    # and democratize access to data that can elucidate pressing social science questions.
-    # These methods will also make valuable information more accessible to the public and those who require accessible formats.
+    Write one line about the knowledge base. 
+
   contact: >
     [Melissa Dell](https://dell-research-harvard.github.io/)
     <br>
@@ -42,20 +34,7 @@ sponsors:
 involved:
 
   open: >
-    # We are seeking Japanese speaking summer research assistants with an interest in data science.
-    # Responsibilities include 1)	Building training datasets for deep learning pipelines; 2) Preparing transparent, interactive data visualizations, 3) Conducting statistical analyses, 4) Literature reviews. 
-    # Full-time and part-time opportunities available. 
-    # Remote opportunities available and U.S. work authorization required. 
-    # Must be fluent in Japanese. Experience with deep learning or econometrics is not required. 
-    # Working on questions related to political economy and economic development in Japan. 
-    # Candidates for this position must be current undergraduates during the summer of 2022 and must not graduate before September 2022. 
-    # We are also open to hiring a full-time pre-doctoral fellow to work on the same set of projects, curating novel data and conducting economic analyses about long-run Japanese economic development. 
-    # Japanese fluency and programming experience (Python or R) required. 
-    # Can provide visa sponsorship but must be willing to move to Cambridge, MA for one year. 
-    # Start date flexible.    
-    # TO APPLY Please assemble all materials into a single pdf
-    # 1) Your CV, 2) A transcript (unofficial is fine), 3) A list of three references.
-    # These should be sent to Abigail Powers - abigailpowers@fas.harvard.edu – with the subject line “Japan project application”.
+    
 
   opps: > 
 footnote: 

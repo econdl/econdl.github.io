@@ -5,8 +5,8 @@ show_nav: true
 title: Entity Disambiguation
 description: >
     Coming Soon
-keywords: multimodal learning, contrastive learning, record linkage
-image_small: /assets/publications/rl.png
+keywords: entity, disambiguation, nlp
+image_small: /assets/EconDL.png
 
 
 ---
