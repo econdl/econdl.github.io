@@ -6,7 +6,7 @@ title: Ranking Documents using DPR
 description: >
     Coming Soon
 keywords: retrieval, nlp, dpr
-image_small: /assets/publications/rl.png
+image_small: /assets/coming_soon.png
 
 
 ---

@@ -6,7 +6,7 @@ title: Entity Disambiguation
 description: >
     Coming Soon
 keywords: entity, disambiguation, nlp
-image_small: /assets/EconDL.png
+image_small: /assets/coming_soon.png
 
 
 ---
