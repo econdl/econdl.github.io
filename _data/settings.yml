@@ -8,11 +8,11 @@ menu:
 - {name: 'Retrieval', file: 'retrieval.html'}
 - {name: 'Clustering', file: 'clustering.html'}
 - {name: 'Classification', file: 'classification.html'}
-- {name: 'Seq2seq', file: 'projects.html'}
-- {name: 'Object detection', file: 'projects.html'}
-- {name: 'GNN and RL', file: 'projects.html'}
-- {name: 'Datasets', file: 'projects.html'}
-- {name: 'Knowledge Base', url: 'https://dell-research-harvard.github.io/blog.html'}
+# - {name: 'Seq2seq', file: 'seq2seq.html'}
+# - {name: 'Object detection', file: 'objdet.html'}
+# - {name: 'GNN and RL', file: 'gnn.html'}
+# - {name: 'Datasets', file: 'datasets.html'}
+# - {name: 'Knowledge Base', url: 'https://dell-research-harvard.github.io/blog.html'}
 
 # - {name: 'Team',     file: 'team.html'}
 
@@ -55,4 +55,4 @@ resources:
 posts:
   video: 
     url: 
-    title: 
+    title:  
