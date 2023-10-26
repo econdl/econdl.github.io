@@ -1,0 +1,80 @@
+---
+layout: page
+title: Publication
+---
+
+<script>
+    document.addEventListener("DOMContentLoaded", () =>{
+
+        const bulmaCollapsibleInstances = bulmaCollapsible.attach('.is-collapsible');
+
+        // Loop into instances
+        bulmaCollapsibleInstances.forEach(bulmaCollapsibleInstance => {
+            // Check if current state is collapsed or not
+            console.log(bulmaCollapsibleInstance.collapsed());
+        });
+
+    });
+
+    function changeIcon(ele) {
+        x=ele.getElementsByTagName('svg')[0];
+        x.classList.toggle("fa-caret-down");
+        x.classList.toggle("fa-caret-right");
+    }
+</script>
+
+<h3 class="title">Applications</h3>
+<div class="columns">
+    <!-- <div class="column is-2 is-hidden-mobile">
+        {% include projects/menu.html %}
+    </div> -->
+    <div class="column is-12">
+            {% for project in site.seq2seq %}
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="{{ project.image_small }}"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="{{ project.url }}">{{ project.title }}</a>
+                        </h3>
+                        
+                        {% assign keywords = project.keywords | split: ',' %}
+                        {% for keyword in keywords %}
+                        <span class="tag is-light">{{keyword}}</span>
+                        {% endfor%}
+
+                        <p>{{ project.description | markdownify }}</p>
+                        
+                        {% if project.publications != nil %}
+                        {% assign project_name = project.title | strip | replace: ' ', '-' %}
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                <a class="has-text-grey-dark"
+                                    href="#{{ project_name }}-paper-list" data-action="collapse" onclick="changeIcon(this)"> 
+                                    <i class="fas fa-caret-right"></i>
+                                    &nbsp;&nbsp;
+                                    <strong><i>Data Science Papers</i>  </strong> 
+                                </a>
+                                </div>
+                                <div class="is-collapsible" id="{{ project_name }}-paper-list">
+
+                                {% for paper in project.publications %}
+                                <article class="media" style="padding-left: 2rem;">
+                                    <p class="has-text-grey is-family-sans-serif">{{ paper | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+                                </article>
+                                {% endfor %}
+                                </div>
+                            </div>
+                            </article>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        {% endfor %}
+    </div>
+</div>

@@ -2,10 +2,10 @@
 layout: project
 show_nav: true
 
-title: Entity Disambiguation
+title: Named Entity Recognition
 description: >
     Coming Soon
-keywords: multimodal learning, contrastive learning, record linkage
+keywords: ner, entity, recognition
 image_small: /assets/publications/rl.png
 
 

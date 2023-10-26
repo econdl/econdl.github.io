@@ -6,9 +6,9 @@ title: Record Linkage with Vision
 description: >
     Introducing HomoglyphsCJK, an easy-to-use python package for deep learning-assisted string matching. HomoglyphsCJK currently supports Simplified and Traditional Chinese, Korean, and Japanese. 
 
-    + [Tutorial](https://colab.research.google.com/drive/1hWiWbazsIZJUmNs2i8eTZ5BvSWfKe0fp?usp=sharing)
-    + [Package](https://pypi.org/project/HomoglyphsCJK/)
-    + [Repo](https://github.com/dell-research-harvard/HomoglyphsCJK)
+    [Tutorial](https://colab.research.google.com/drive/1hWiWbazsIZJUmNs2i8eTZ5BvSWfKe0fp?usp=sharing),
+    [Package](https://pypi.org/project/HomoglyphsCJK/),
+    [Repo](https://github.com/dell-research-harvard/HomoglyphsCJK)
 keywords: vision transformers, record linkage, contrastive learning
 image_small: /assets/publications/ancient.png
 

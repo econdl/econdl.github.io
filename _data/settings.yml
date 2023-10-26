@@ -7,7 +7,7 @@ menu:
 - {name: '',    file: ''}
 - {name: 'Retrieval', file: 'retrieval.html'}
 - {name: 'Clustering', file: 'projects.html'}
-- {name: 'Classification', file: 'projects.html'}
+- {name: 'Classification', file: 'classification.html'}
 - {name: 'Seq2seq', file: 'projects.html'}
 - {name: 'Object detection', file: 'projects.html'}
 - {name: 'GNN and RL', file: 'projects.html'}

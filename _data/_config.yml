@@ -36,12 +36,30 @@ collections:
   projects:
     output: true
     permalink: /:collection/:name 
+  project.:
+    output: true
+    permalink: /:collection/:name 
   retrieval:
     output: true
     permalink: /:collection/:name 
-classification:
-  output: true
-  permalink: /:collection/:name 
+  classification:
+    output: true
+    permalink: /:collection/:name  
+  clustering:
+    output: true
+    permalink: /:collection/:name   
+  objdet:
+    output: true
+    permalink: /:collection/:name   
+  seq2seq:
+    output: true
+    permalink: /:collection/:name   
+  gnn:
+    output: true
+    permalink: /:collection/:name    
+  datasets:
+    output: true
+    permalink: /:collection/:name    
   resources:
     output: true
     permalink: /:collection/:name 
