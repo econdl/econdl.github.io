@@ -2,9 +2,11 @@
 layout: project
 show_nav: true
 
-title: Wire Cluster
+title: Wire Clusters
 description: >
-    Coming Soon
+    Coming Soon  
+
+    Website · Huggingface · Paper · Github
 keywords: retrieval, nlp, dpr
 image_small: /assets/coming_soon.png
 

@@ -2,13 +2,13 @@
 layout: project
 show_nav: true
 
-title: Wikipedia Entities
+title: Entity Linking
 description: >
-    Coming Soon  
+    Disambiguate, conreference, and link entities with Wikipedia.  
 
     Website · Package · Paper · Github
 keywords: entity linking, disambiguation
-image_small: /assets/coming_soon.png
+image_small: /assets/publications/entity_linking.png
 
 
 ---
