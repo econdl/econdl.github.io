@@ -6,7 +6,7 @@ title: Entity Linking
 description: >
     Disambiguate, conreference, and link entities with Wikipedia.  
 
-    Website · Package · Paper · Github
+    Website · Package · [Paper](redirects/publications/entity) · Github
 keywords: entity linking, disambiguation
 image_small: /assets/publications/entity_linking.png
 
