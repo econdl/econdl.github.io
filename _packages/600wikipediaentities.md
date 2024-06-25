@@ -4,7 +4,7 @@ show_nav: true
 
 title: Entity Linking
 description: >
-    Disambiguate, conreference, and link entities with Wikipedia.  
+    Disambiguate, coreference, and link entities with Wikipedia.  
 
     Website · Package · [Paper](redirects/publications/entity) · Github
 keywords: entity linking, disambiguation
