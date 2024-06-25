@@ -1,7 +1,6 @@
 index:
   about: >
-    EconDL is a comprehensive resource detailing applications of Deep Learning in Economics. 
-  research_vision: >
+    EconDL is a comprehensive resource detailing applications of Deep Learning in Economics.  
     This is a companion website to the paper () and aims to be a go-to resource for Economists and other social scientists for applying tools provided by deep learning in their research.
     All the tools covered here are a product of .....
     
@@ -21,11 +20,11 @@ index:
       
     
   news_highlight_color: 'is-info'
-sponsors:
-  - {name: 'National Science Foundation', logo: "/assets/sponsors/nsf.png", link: 'https://nsf.gov/'}
-  - {name: 'Microsoft <br> Azure', logo: "/assets/sponsors/microsoft-azure.svg", link: 'https://azure.microsoft.com'}
-  - {name: 'Harvard Data Science Initiative', logo: "/assets/sponsors/hdsi.png", link: 'https://datascience.harvard.edu/'}
-  - {name: 'Harvard <br> Catalyst', logo: "/assets/sponsors/catalyst.png", link: 'https://catalyst.harvard.edu/'}
+# sponsors:
+#   - {name: 'National Science Foundation', logo: "/assets/sponsors/nsf.png", link: 'https://nsf.gov/'}
+#   - {name: 'Microsoft <br> Azure', logo: "/assets/sponsors/microsoft-azure.svg", link: 'https://azure.microsoft.com'}
+#   - {name: 'Harvard Data Science Initiative', logo: "/assets/sponsors/hdsi.png", link: 'https://datascience.harvard.edu/'}
+#   - {name: 'Harvard <br> Catalyst', logo: "/assets/sponsors/catalyst.png", link: 'https://catalyst.harvard.edu/'}
 
 involved:
 
