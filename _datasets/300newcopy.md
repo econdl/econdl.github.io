@@ -7,7 +7,7 @@ description: >
     Coming Soon  
 
     Website · Huggingface · Paper · Github
-keywords: retrieval, nlp, dpr
+keywords: historical newspaper, deduplication
 image_small: /assets/coming_soon.png
 
 
