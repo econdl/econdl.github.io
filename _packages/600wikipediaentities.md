@@ -5,7 +5,9 @@ show_nav: true
 title: Wikipedia Entities
 description: >
     Coming Soon
-keywords: entity linking
+
+    Website · Package · Paper · Github
+keywords: entity linking, disambiguation
 image_small: /assets/coming_soon.png
 
 
