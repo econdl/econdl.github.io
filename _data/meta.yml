@@ -7,23 +7,19 @@ index:
     
     Write one line about the knowledge base. 
 
-  contact: >
-    [Melissa Dell](https://dell-research-harvard.github.io/)
-    <br>
-    Department of Economics  
-    Littauer Center M-24  
+  # contact: >
+  #   [Melissa Dell](https://dell-research-harvard.github.io/)
+  #   <br>
+  #   Department of Economics  
+  #   Littauer Center M-24  
      
-    Cambridge, MA  02138 
+  #   Cambridge, MA  02138 
      
-    melissadell at fas.harvard.edu 
+  #   melissadell at fas.harvard.edu 
      
-    Tel:  617-384-7272
+  #   Tel:  617-384-7272
       
-    **Staff Support**
-     
-    Jamie Murray
-      
-    jamiemurray at fas.harvard.edu
+    
   news_highlight_color: 'is-info'
 sponsors:
   - {name: 'National Science Foundation', logo: "/assets/sponsors/nsf.png", link: 'https://nsf.gov/'}
