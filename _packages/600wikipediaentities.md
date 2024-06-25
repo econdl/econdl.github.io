@@ -2,10 +2,10 @@
 layout: project
 show_nav: true
 
-title: American Stories
+title: Wikipedia Entities
 description: >
     Coming Soon
-keywords: retrieval, nlp, dpr
+keywords: entity linking
 image_small: /assets/coming_soon.png
 
 
