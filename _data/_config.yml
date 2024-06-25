@@ -60,6 +60,9 @@ collections:
   resources:
     output: true
     permalink: /:collection/:name 
+  packages:
+    output: true
+    permalink: /:collection/:name
   # teaching:
   #   output: true
   #   permalink: /:collection/:name
