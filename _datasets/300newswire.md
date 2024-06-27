@@ -9,6 +9,7 @@ description: >
     [Huggingface](https://huggingface.co/datasets/dell-research-harvard/newswire) · [Paper](redirects/publications/newswire) · [Github](https://github.com/dell-research-harvard/newswire)
 keywords: historical newspaper, deduplication
 image_small: /assets/publications/newswire.png
+website: https://dell-research-harvard.github.io/wp/388newswire
 
 
 ---
