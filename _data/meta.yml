@@ -1,10 +1,16 @@
 index:
   about: >
-    EconDL is a comprehensive resource detailing applications of Deep Learning in Economics.  
-    This is a companion website to the paper () and aims to be a go-to resource for Economists and other social scientists for applying tools provided by deep learning in their research.
-    All the tools covered here are a product of .....
-    
-    Write one line about the knowledge base. 
+    EconDL is a comprehensive resource detailing applications of Deep Learning in Economics. 
+    This is a companion website to the paper *Deep Learning for Economists* and aims to be a go-to resource 
+    for economists and other social scientists for applying tools provided by deep learning in their 
+    research.  
+
+    This website contains user-friendly software and dataset resources, and a knowledge base 
+    that goes into considerably more technical depth than is feasible in a review article. The demos 
+    implement various applications explored in the paper, largely using open-source packages designed 
+    with economists in mind. They require little background and will run in the cloud with minimal compute, 
+    allowing readers with no deep learning background to gain hands-on experience implementing the 
+    applications covered in the review. 
 
   # contact: >
   #   [Melissa Dell](https://dell-research-harvard.github.io/)
