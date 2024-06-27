@@ -4,7 +4,7 @@ show_nav: true
 
 title: Entity Linking
 description: >
-    Disambiguate, coreference, and link entities with Wikipedia.  
+    Disambiguate, coreference, and link entities to Wikipedia.  
 
     [Description](https://dell-research-harvard.github.io/wp/388entity) · Website · Package · [Paper](redirects/publications/entity) · Github
 keywords: entity linking, disambiguation
