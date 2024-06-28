@@ -13,7 +13,7 @@ menu:
 # - {name: 'GNN and RL', file: 'gnn.html'}
 - {name: 'Packages', file: 'packages.html'}
 - {name: 'Datasets', file: 'datasets.html'}
-- {name: 'Knowledge Base', url: 'https://dell-research-harvard.github.io/blog.html'}
+- {name: 'Knowledge Base', file: 'blog.html'}
 
 # - {name: 'Team',     file: 'team.html'}
 
