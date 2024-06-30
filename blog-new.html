@@ -5,35 +5,6 @@ pagination:
 title: Blog
 ---
 
-<section class="columns">
-
-    <div class="column is-8">
-        <div style="text-align: justify">
-            <div class="content">
-                <h3 class="title">About</h3>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<section class="columns">
-
-    <div class="column is-8">
-        <div style="text-align: justify">
-            <div class="content">
-                {{site.data.meta.index.about | markdownify}}
-            </div>
-        </div>
-    </div>
-
-    <div class="column is-4">
-        <img src="/assets/EconDL.png">
-    </div>
-</section>
-
-<br><br>
-
 <nav class="pagination  is-small" role="navigation" aria-label="pagination" style="margin-top: -2.80rem">
     <a class="pagination-previous" {% if paginator.previous_page != nil %}href="{{ paginator.previous_page_path }}"{% else %}disabled{% endif %}>Previous</a>
     <a class="pagination-next" {% if paginator.next_page != nil %}href="{{ paginator.next_page_path }}"{% else %}disabled{% endif %}>Next page</a>

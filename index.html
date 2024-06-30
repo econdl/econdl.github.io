@@ -1,80 +1,95 @@
 ---
 layout: page
-pagination:
-  enabled: true
-title: Blog
 ---
 
 <section class="columns">
+    <div class="column is-4">
+        <img src="/assets/EconDL.png">
+    </div>
+    <div class="column is-4">
+        
+    </div>   
+    <!-- <div class="column is-4">
+        <div class="content">
+            <h3 class="title">Contact</h3>
+            {{site.data.meta.index.contact | markdownify}}
+        </div>
+    </div> -->
+    <div class="column is-3">
+        <div class="content">
+            <h3 class="title">Recent News</h3>
+            {% for news in site.data.news limit:10 %}
+            <div class="columns">
+                <div class="column is-3">
+                    <span class="tag news-time {% if news.highlight != nil %}
+                    {{ site.data.meta.index.news_highlight_color}}
+                        {% endif %}">
+                        {{ news.time }}
+                    </span>
+                </div>
+                <div class="column is-9">
+                    {{ news.title | markdownify }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
+
+<section class="columns">
     <div class="column is-8">
         <div style="text-align: justify">
             <div class="content">
                 <h3 class="title">About</h3>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<section class="columns">
-
-    <div class="column is-8">
-        <div style="text-align: justify">
-            <div class="content">
                 {{site.data.meta.index.about | markdownify}}
             </div>
         </div>
     </div>
-
-    <div class="column is-4">
-        <img src="/assets/EconDL.png">
-    </div>
+    <!-- <div class="column is-3">
+        <div class="content">
+            <h3 class="title">Recent News</h3>
+            {% for news in site.data.news limit:10 %}
+            <div class="columns">
+                <div class="column is-3">
+                    <span class="tag news-time {% if news.highlight != nil %}
+                    {{ site.data.meta.index.news_highlight_color}}
+                        {% endif %}">
+                        {{ news.time }}
+                    </span>
+                </div>
+                <div class="column is-9">
+                    {{ news.title | markdownify }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> -->
 </section>
 
-<br><br>
-
-<nav class="pagination  is-small" role="navigation" aria-label="pagination" style="margin-top: -2.80rem">
-    <a class="pagination-previous" {% if paginator.previous_page != nil %}href="{{ paginator.previous_page_path }}"{% else %}disabled{% endif %}>Previous</a>
-    <a class="pagination-next" {% if paginator.next_page != nil %}href="{{ paginator.next_page_path }}"{% else %}disabled{% endif %}>Next page</a>
-
-    <ul class="pagination-list">
-    {% if paginator.page_trail %}
-        {% for trail in paginator.page_trail %}
-        <li>    
-                {% if page.url == trail.path %}
-                <a class="pagination-link is-current" aria-label="Page {{ trail.title }}" aria-current="page" href="{{ trail.path | prepend: site.baseurl }}">{{ trail.num }}</a>
-                {% else %}
-                <a class="pagination-link" aria-label="Goto page {{ trail.title }}" href="{{ trail.path | prepend: site.baseurl }}"> {{ trail.num }}</a>
-                {% endif %}
-        </li>
-        {% endfor %}
-    {% else %}
-    <li><a class="pagination-link" aria-label="Page 1" aria-current="page" disabled>1</a></li>
-    
-    {% endif %}
-    </ul>
-</nav>
-<div class="is-divider" style="margin-top: 0.45rem; margin-bottom: 1.5rem;"></div>
-
-{% for post in paginator.posts %}
-
-<div class="columns">
-    <a href="{{ post.url }}" ><img src="{{ post.image }}" />
-    <div class="column is-8 is-offset-2">
-        <div class="content">
-            <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
-                <h3 class="article-list-title">{{ post.title }}</h3>
-            </a>
-            <div class="article-list-description">
-                <p>
-                    {{ post.description | truncate: 300 }}
-                </p>
+<!-- <section class="columns">
+    <div class="column is-9">
+        <div style="text-align: justify">
+            <div class="content">
+                <h3 class="title">Research Vision</h3>
+                {{site.data.meta.index.research_vision | markdownify}}
             </div>
-            {% include article/info-footer.html post=post %}
         </div>
     </div>
-</div>
-<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
-{% endfor %}
+</section> -->
 
+<!-- <section class="columns">
+    <div class="column is-10">
+        <h3 class="title">Research Support</h3>
+        <div class="sponsors">
+            {% for sponsor in site.data.meta.sponsors %}
+            <div class="sponsor">
+                <a class="sponsor-item" href="{{ sponsor.link }}" target="_blank" rel="nofollow" title="">
+                    <img src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" style="max-height: 3rem;">
+                </a>
+                <p>{{ sponsor.name }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section> -->
