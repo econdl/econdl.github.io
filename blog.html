@@ -6,35 +6,7 @@ title: Blog
 ---
 
 <section class="columns">
-    <div class="column is-4">
-        <img src="/assets/EconDL.png">
-    </div>
-    <div class="column is-4">
-        
-    </div>
-    <div class="column is-3">
-        <div class="content">
-            <h3 class="title">Recent News</h3>
-            {% for news in site.data.news limit:10 %}
-            <div class="columns">
-                <div class="column is-3">
-                    <span class="tag news-time {% if news.highlight != nil %}
-                    {{ site.data.meta.index.news_highlight_color}}
-                        {% endif %}">
-                        {{ news.time }}
-                    </span>
-                </div>
-                <div class="column is-9">
-                    {{ news.title | markdownify }}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
 
-
-<section class="columns">
     <div class="column is-8">
         <div style="text-align: justify">
             <div class="content">
@@ -43,7 +15,13 @@ title: Blog
             </div>
         </div>
     </div>
+
+    <div class="column is-4">
+        <img src="/assets/EconDL.png">
+    </div>
 </section>
+
+<br>
 
 <nav class="pagination  is-small" role="navigation" aria-label="pagination" style="margin-top: -2.80rem">
     <a class="pagination-previous" {% if paginator.previous_page != nil %}href="{{ paginator.previous_page_path }}"{% else %}disabled{% endif %}>Previous</a>
