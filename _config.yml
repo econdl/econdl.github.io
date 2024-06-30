@@ -25,6 +25,7 @@ plugins:
   - jekyll-feed
   - jekyll-paginate-v2
   - jekyll-archives
+  - jekyll-redirect-from
 
 sass:
     style: compressed

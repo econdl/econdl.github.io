@@ -43,6 +43,9 @@ gem "jekyll-archives", group: [:jekyll_plugins]
 
 gem 'jekyll-admin', group: [:jekyll_plugins]
 
+# Redirects landing page
+gem 'jekyll-redirect-from', group: [:jekyll_plugins]
+
 gem 'webrick'
 
 # gem 'pygments.rb'
