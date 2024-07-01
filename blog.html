@@ -82,25 +82,3 @@ title: Blog
 <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
 {% endfor %}
 
-<nav class="pagination  is-small" role="navigation" aria-label="pagination" style="margin-top: -2.80rem">
-    <a class="pagination-previous" {% if paginator.previous_page != nil %}href="{{ paginator.previous_page_path }}"{% else %}disabled{% endif %}>Previous</a>
-    <a class="pagination-next" {% if paginator.next_page != nil %}href="{{ paginator.next_page_path }}"{% else %}disabled{% endif %}>Next page</a>
-
-    <ul class="pagination-list">
-    {% if paginator.page_trail %}
-        {% for trail in paginator.page_trail %}
-        <li>    
-                {% if page.url == trail.path %}
-                <a class="pagination-link is-current" aria-label="Page {{ trail.title }}" aria-current="page" href="{{ trail.path | prepend: site.baseurl }}">{{ trail.num }}</a>
-                {% else %}
-                <a class="pagination-link" aria-label="Goto page {{ trail.title }}" href="{{ trail.path | prepend: site.baseurl }}"> {{ trail.num }}</a>
-                {% endif %}
-        </li>
-        {% endfor %}
-    {% else %}
-    <li><a class="pagination-link" aria-label="Page 1" aria-current="page" disabled>1</a></li>
-    
-    {% endif %}
-    </ul>
-</nav>
-
