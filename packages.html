@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Publication</title>
+    <meta name="description" content="">
+
+    <meta property="og:title" content="Publication">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/packages.html">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/packages.html">
+    <meta name="twitter:title" content="Publication">
+    <meta name="twitter:description" content="">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/packages.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <div class="container">
+  <script>
+    document.addEventListener("DOMContentLoaded", () =>{
+
+        const bulmaCollapsibleInstances = bulmaCollapsible.attach('.is-collapsible');
+
+        // Loop into instances
+        bulmaCollapsibleInstances.forEach(bulmaCollapsibleInstance => {
+            // Check if current state is collapsed or not
+            console.log(bulmaCollapsibleInstance.collapsed());
+        });
+
+    });
+
+    function changeIcon(ele) {
+        x=ele.getElementsByTagName('svg')[0];
+        x.classList.toggle("fa-caret-down");
+        x.classList.toggle("fa-caret-right");
+    }
+</script>
+
+<h3 class="title">Packages</h3>
+<div class="columns">
+    <!-- <div class="column is-2 is-hidden-mobile">
+        <aside class="menu">
+    <p class="menu-label">
+        all projects
+    </p>
+        
+    
+        <ul class="menu-list">
+            <li><a href="#Efficiently Digitizing World Knowledge">Efficiently Digitizing World Knowledge</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Quantifying Character Similarity with Vision Transformers">Quantifying Character Similarity with Vision Transformers</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Headlines">Headlines</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#American Stories">American Stories</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#NEWS-COPY">NEWS-COPY</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#OLALA">OLALA</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Layout Parser">Layout Parser</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#HJDataset">HJDataset</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#The Dutch Cultivation System">The Dutch Cultivation System</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Information Extraction with Complex Layouts">Information Extraction with Complex Layouts</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Trade-Induced Worker Displacement">Trade-Induced Worker Displacement</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Nation Building through Foreign Intervention">Nation Building through Foreign Intervention</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#The Historical State in Vietnam">The Historical State in Vietnam</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Trafficking Networks and the Mexican Drug War">Trafficking Networks and the Mexican Drug War</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#What Do We Learn from the Weather?">What Do We Learn from the Weather?</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Temperature Shocks and Economic Growth">Temperature Shocks and Economic Growth</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Productivity Differences">Productivity Differences</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Peru's Mining Mita">Peru's Mining Mita</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Tempearture and Income">Tempearture and Income</a></li>
+        </ul>
+    
+</aside>
+    </div> -->
+    <div class="column is-12">
+            
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/LayoutParserFigure.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="https://layout-parser.github.io">Layout Parser</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">document processing</span>
+                        
+                        <span class="tag is-light"> layout analysis</span>
+                        
+
+                        <p><p>A unified toolkit for deep learning based document image analysis.<br />
+<a href="https://dell-research-harvard.github.io/resources/layout-parser">Description</a> · <a href="[https://layout-parser.github.io">Website</a> · <a href="https://pypi.org/project/layoutparser/">Package</a> · <a href="redirects/publications/layoutparser">Paper</a> · <a href="https://github.com/Layout-Parser/layout-parser">Github</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/lt_image.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="https://linktransformer.github.io/">LinkTransformer</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">record linkage</span>
+                        
+                        <span class="tag is-light"> data wrangling</span>
+                        
+                        <span class="tag is-light"> classification</span>
+                        
+
+                        <p><p>Link dataframes, deduplicate, cluster, and perform multilingual merges with the full power of Deep Learning.<br />
+<a href="https://dell-research-harvard.github.io/resources/linktransformer">Description</a> · <a href="https://linktransformer.github.io/">Website</a> · <a href="https://pypi.org/project/linktransformer/">Package</a> · <a href="redirects/publications/linktransformer">Paper</a> · <a href="https://github.com/dell-research-harvard/linktransformer">Github</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/EffOCR_Package.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="https://effocr.github.io/">EffOCR</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">document processing</span>
+                        
+                        <span class="tag is-light"> OCR</span>
+                        
+
+                        <p><p>An optical character recognition (OCR) engine that is accurate, extremely cheap to deploy, and sample-efficient to customize to novel collections, languages, and character sets.<br />
+<a href="https://dell-research-harvard.github.io/projects/388effocrpackage">Description</a> · <a href="https://effocr.github.io/">Website</a> · <a href="https://pypi.org/project/efficient-ocr/">Package</a> · <a href="redirects/publications/effocr-package">Paper</a> · <a href="https://github.com/dell-research-harvard/effocr">Github</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/homo_cover.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="https://dell-research-harvard.github.io/resources/homoglyphscjk">Homoglyphs</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">record linkage</span>
+                        
+                        <span class="tag is-light"> multimodal</span>
+                        
+
+                        <p><p>An easy-to-use python package for deep learning-assisted string matching. Multi-modal record linkage using both textual and image information.<br />
+<a href="https://dell-research-harvard.github.io/resources/homoglyphscjk">Description</a> · Website · <a href="https://pypi.org/project/HomoglyphsCJK/">Package</a> · <a href="redirects/publications/homoglyphs">Paper</a> · <a href="https://github.com/dell-research-harvard/HomoglyphsCJK">Github</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/newsdejavu_cover.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="https://newsdejavu.github.io/about/">News Déjà Vu</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">retrieval</span>
+                        
+                        <span class="tag is-light"> semantic similarity</span>
+                        
+
+                        <p><p>Use language model to select a historical news article that is similar in its use of language to a modern news article.
+<a href="https://dell-research-harvard.github.io/projects/386newsdejavu">Description</a> · <a href="https://newsdejavu.github.io/about/">Website</a> · Package · <a href="redirects/publications/newsdejavu">Paper</a> · <a href="https://github.com/dell-research-harvard/newsdejavu">Github</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/entity_linking.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="https://dell-research-harvard.github.io/wp/388entity">Entity Linking</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">entity linking</span>
+                        
+                        <span class="tag is-light"> disambiguation</span>
+                        
+
+                        <p><p>Disambiguate, coreference, and link entities to Wikipedia.<br />
+<a href="https://dell-research-harvard.github.io/wp/388entity">Description</a> · Website · Package · <a href="redirects/publications/entity">Paper</a> · Github</p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+    </div>
+</div>
+
+</div>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

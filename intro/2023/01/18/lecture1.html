@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | An Introduction to Deep Learning</title>
+    <meta name="description" content="Lecture 1: An Introduction to Deep Learning
+">
+
+    <meta property="og:title" content="An Introduction to Deep Learning">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/intro/2023/01/18/lecture1.html">
+    <meta property="og:description" content="Lecture 1: An Introduction to Deep Learning
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/intro/2023/01/18/lecture1.html">
+    <meta name="twitter:title" content="An Introduction to Deep Learning">
+    <meta name="twitter:description" content="Lecture 1: An Introduction to Deep Learning
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/intro/2023/01/18/lecture1.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>An Introduction to Deep Learning</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        January 18, 2023
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        2 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/intro" class="article-list-item">
+            Intro
+        </a>
+        
+        
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Tags:</span>
+    
+    <span class="field">
+        
+        <a href="/tag/deep learning" class="article-list-item">
+            Deep learning
+        </a>
+        
+        
+    </span>
+</div>
+        </header>
+        <h2 id="topics">Topics</h2>
+
+<p>This post covers the first lecture in the course: “An Introduction to Deep Learning.”</p>
+
+<p>This lecture will begin by setting the stage for why deep learning is necessary. When curating data at scale, there are generally two approaches: human-designed rules and deep learning. While we’ll see throughout the course that the judicious use of rules has its place in many big data endeavors, generally the performance of rule-based methods is disappointing in comparison to deep learning. The lecture will provide a couple of case studies of deep learning applied to economic data.  We will then turn to an overview of neural networks.</p>
+
+<p>For those who need to brush up on deep learning methods, the online text Neural Networks and Deep Learning provides an introduction to the main concepts and how they relate. Deep Learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville is the standard reference in the field. It is best suited to those who have some basic familiarity with deep learning. Part I provides a solid introduction to the concepts in applied math that are required to understand deep learning (students in the course should be familiar with this material, but the book is a good refresher). I recommend the book Deep Learning with PyTorch to anyone who does not already have extensive familiarity with PyTorch.  There are also numerous lectures available for free online.</p>
+
+<h2 id="lecture-video">Lecture Video</h2>
+
+<p><a href="https://www.youtube.com/watch?v=4P_qsKMsE2E&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/4P_qsKMsE2E/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><a href="https://www.dropbox.com/s/2iu40fwpnkq7lek/Lecture_Intro_sm.pdf?dl=0">Lecture notes</a></p>
+
+<h2 id="references-cited-in-lecture-1-introduction-to-deep-learning">References Cited in Lecture 1: Introduction to Deep Learning</h2>
+
+<h4 id="academic-papers">Academic Papers</h4>
+
+<ul>
+  <li><a href="https://www.nature.com/articles/nature14539">LeCun, Yann, Yoshua Bengio, and Geoffrey Hinton. “Deep learning.” Nature 521, no. 7553 
+(2015): 436-444.</a></li>
+</ul>
+
+<h4 id="other-resources">Other Resources</h4>
+
+<p><em>Textbooks</em></p>
+<ul>
+  <li>
+    <p><a href="http://neuralnetworksanddeeplearning.com/">Nielsen, Michael. Neural Networks and Deep Learning, 2019</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.deeplearningbook.org/">Ian Goodfellow and Yoshua Bengio and Aaron Courville. Deep Learning, 2016, MIT Press </a></p>
+  </li>
+  <li>
+    <p>Stevens, Eli, Luca Antiga, and Thomas Viehmann. Deep learning with PyTorch. Manning Publications Company, 2020.</p>
+  </li>
+</ul>
+
+<p><em>Other Resources and Videos</em></p>
+<ul>
+  <li>
+    <p><a href="https://bmk.sh/2019/12/31/The-Decade-of-Deep-Learning/">The Decade of Deep Learning</a></p>
+  </li>
+  <li>
+    <p>This blog is a classic for neural networks background: <a href="https://colah.github.io/">https://colah.github.io/</a></p>
+  </li>
+  <li>
+    <p>A basic introduction to neural nets: <a href="https://www.3blue1brown.com/topics/neural-networks">https://www.3blue1brown.com/topics/neural-networks</a></p>
+  </li>
+  <li>
+    <p>Weights &amp; biases tutorials: <a href="https://wandb.ai/site/tutorials">https://wandb.ai/site/tutorials</a></p>
+  </li>
+</ul>
+
+<h4 id="code-bases">Code Bases</h4>
+
+<ul>
+  <li>PyTorch official examples: <a href="https://github.com/pytorch/examples">https://github.com/pytorch/examples</a>. Often very helpful to review relevant examples once one has a use case in mind.</li>
+</ul>
+
+<p><em>Image Source</em>: https://www.freecodecamp.org/news/want-to-know-how-deep-learning-works-heres-a-quick-guide-for-everyone-1aedeca88076/</p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

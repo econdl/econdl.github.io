@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Publication</title>
+    <meta name="description" content="">
+
+    <meta property="og:title" content="Publication">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/classification.html">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/classification.html">
+    <meta name="twitter:title" content="Publication">
+    <meta name="twitter:description" content="">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/classification.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <div class="container">
+  <script>
+    document.addEventListener("DOMContentLoaded", () =>{
+
+        const bulmaCollapsibleInstances = bulmaCollapsible.attach('.is-collapsible');
+
+        // Loop into instances
+        bulmaCollapsibleInstances.forEach(bulmaCollapsibleInstance => {
+            // Check if current state is collapsed or not
+            console.log(bulmaCollapsibleInstance.collapsed());
+        });
+
+    });
+
+    function changeIcon(ele) {
+        x=ele.getElementsByTagName('svg')[0];
+        x.classList.toggle("fa-caret-down");
+        x.classList.toggle("fa-caret-right");
+    }
+</script>
+
+<h3 class="title">Applications</h3>
+<div class="columns">
+    <!-- <div class="column is-2 is-hidden-mobile">
+        <aside class="menu">
+    <p class="menu-label">
+        all projects
+    </p>
+        
+    
+        <ul class="menu-list">
+            <li><a href="#Efficiently Digitizing World Knowledge">Efficiently Digitizing World Knowledge</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Quantifying Character Similarity with Vision Transformers">Quantifying Character Similarity with Vision Transformers</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Headlines">Headlines</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#American Stories">American Stories</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#NEWS-COPY">NEWS-COPY</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#OLALA">OLALA</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Layout Parser">Layout Parser</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#HJDataset">HJDataset</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#The Dutch Cultivation System">The Dutch Cultivation System</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Information Extraction with Complex Layouts">Information Extraction with Complex Layouts</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Trade-Induced Worker Displacement">Trade-Induced Worker Displacement</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Nation Building through Foreign Intervention">Nation Building through Foreign Intervention</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#The Historical State in Vietnam">The Historical State in Vietnam</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Trafficking Networks and the Mexican Drug War">Trafficking Networks and the Mexican Drug War</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#What Do We Learn from the Weather?">What Do We Learn from the Weather?</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Temperature Shocks and Economic Growth">Temperature Shocks and Economic Growth</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Productivity Differences">Productivity Differences</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Peru's Mining Mita">Peru's Mining Mita</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Tempearture and Income">Tempearture and Income</a></li>
+        </ul>
+    
+</aside>
+    </div> -->
+    <div class="column is-12">
+            
+    </div>
+</div>
+
+</div>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
