@@ -93,7 +93,7 @@ pagination:
 
   # Optional, the default name of the index file for generated pages (e.g. 'index.html')
   # Without file extension
-  indexpage: 'index.html'
+  indexpage: 'blog.html'
   trail: 
     before: 2 # The number of links before the current page
     after: 2  # The number of links after the current page
