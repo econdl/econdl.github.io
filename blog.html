@@ -2,37 +2,31 @@
 layout: page
 pagination:
   enabled: true
-title: Blog
+title: Knowledge Base
 ---
 
 <section class="columns">
-
     <div class="column is-7">
-        <div style="text-align: justify">
-            <div class="content">
-                <h3 class="title">About</h3>
-            </div>
+        <div class="content" style="text-align: justify;">
+            <h3 class="title">About</h3>
         </div>
     </div>
-
+    <div class="column is-5">
+        <!-- Content or leave intentionally empty -->
+    </div>
 </section>
 
 <section class="columns">
-
     <div class="column is-7">
-        <div style="text-align: justify">
-            <div class="content">
-                {{site.data.meta.index.about | markdownify}}
-            </div>
+        <div class="content" style="text-align: justify;">
+            {{site.data.meta.index.about | markdownify}}
         </div>
     </div>
-
     <div class="column is-2">
-    
+        <!-- Content or leave intentionally empty -->
     </div>
-
     <div class="column is-3">
-        <img src="/assets/EconDL.png">
+        <img src="/assets/EconDL.png" alt="Description of EconDL image">
     </div>
 </section>
 
