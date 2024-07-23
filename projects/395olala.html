@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | OLALA</title>
+    <meta name="description" content="Shen, Zejiang, Jian Zhao, Yaoliang Yu, Weining Li, and Melissa Dell. “OLALA: Object-Level Active Learning Based Layout Annotation." *EMNLP Computational Social Science Workshop* (2023). [Paper](https://scholar.harvard.edu/files/dell/files/nlpcss_1.pdf); [Code](https://github.com/lolipopshock/detectron2_al)
+">
+
+    <meta property="og:title" content="OLALA">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/projects/395olala">
+    <meta property="og:description" content="Shen, Zejiang, Jian Zhao, Yaoliang Yu, Weining Li, and Melissa Dell. “OLALA: Object-Level Active Learning Based Layout Annotation." *EMNLP Computational Social Science Workshop* (2023). [Paper](https://scholar.harvard.edu/files/dell/files/nlpcss_1.pdf); [Code](https://github.com/lolipopshock/detectron2_al)
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/projects/395olala">
+    <meta name="twitter:title" content="OLALA">
+    <meta name="twitter:description" content="Shen, Zejiang, Jian Zhao, Yaoliang Yu, Weining Li, and Melissa Dell. “OLALA: Object-Level Active Learning Based Layout Annotation." *EMNLP Computational Social Science Workshop* (2023). [Paper](https://scholar.harvard.edu/files/dell/files/nlpcss_1.pdf); [Code](https://github.com/lolipopshock/detectron2_al)
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/projects/395olala">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem; margin-bottom: 4rem">
+  <header class="article-header">
+      <div class="columns">
+        <div class="column is-12">
+          <h1 style="letter-spacing: -0.02rem">OLALA</h1>
+           
+<div class="article-list-footer">
+    
+    <!-- <span class="article-list-divider">-</span>
+    <span class="field is-grouped">
+        
+    </span> -->
+</div>
+        </div>
+      </div>
+  </header>
+  <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+  <p><strong>Abstract:</strong> Layout detection is an essential step for accurately extracting structured contents from historical documents. The intricate and varied layouts present in these document images make it expensive to label the numerous layout regions that can be densely arranged on each page. Current active learning methods typically rank and label samples at the image level, where the annotation budget is not optimally spent due to the overexposure of common objects per image. Inspired by recent progress in semi-supervised learning and self-training, we propose Olala, an Object-Level Active Learning framework for efficient document layout Annotation. Olala aims to optimize the annotation process by selectively annotating only the most ambiguous regions within an image, while using automatically generated labels for the rest. Central to Olala is a perturbation-based scoring function that determines which objects require manual annotation. Extensive experiments show that Olala can significantly boost model performance and improve annotation efficiency, facilitating the extraction of masses of structured text for downstream NLP applications.</p>
+
+<p><a href="https://scholar.harvard.edu/files/dell/files/nlpcss_1.pdf">Paper</a></p>
+
+<p><a href="https://github.com/lolipopshock/detectron2_al">Code</a></p>
+
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

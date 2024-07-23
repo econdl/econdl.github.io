@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Language Modeling, Recurrent Neural Nets and Seq2Seq</title>
+    <meta name="description" content="Lecture 3: Covers language models before transformers: RNNs, Seq2Seq, LSTM models
+">
+
+    <meta property="og:title" content="Language Modeling, Recurrent Neural Nets and Seq2Seq">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/intro/2023/01/20/lecture3.html">
+    <meta property="og:description" content="Lecture 3: Covers language models before transformers: RNNs, Seq2Seq, LSTM models
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/intro/2023/01/20/lecture3.html">
+    <meta name="twitter:title" content="Language Modeling, Recurrent Neural Nets and Seq2Seq">
+    <meta name="twitter:description" content="Lecture 3: Covers language models before transformers: RNNs, Seq2Seq, LSTM models
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/intro/2023/01/20/lecture3.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>Language Modeling, Recurrent Neural Nets and Seq2Seq</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        January 20, 2023
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        2 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/intro" class="article-list-item">
+            Intro
+        </a>
+        
+        
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Tags:</span>
+    
+    <span class="field">
+        
+        <a href="/tag/deep learning" class="article-list-item">
+            Deep learning
+        </a>
+        
+        
+    </span>
+</div>
+        </header>
+        <h2 id="topics">Topics</h2>
+
+<p>This post covers the third lecture in the course: “Language Modeling, Recurrent Neural Nets and Seq2Seq.”</p>
+
+<p>TThis lecture will cover the history of language modeling prior to transformers. Even though you
+should typically use a transformer-based language model, this lecture will provide valuable
+context for understanding NLP and how the field has evolved. It will also introduce sequence-tosequence models and attention, key pre-requisites for understanding transformers and various
+applications.</p>
+
+<p>The Lecture is broken up into three parts:</p>
+<ul>
+  <li><em>Language Modeling</em>, covering early examples of language modeling</li>
+  <li><em>Word Embeddings</em>, covering GloVe, Word2Vec, etc</li>
+  <li><em>Seq2Seq</em>, covering Sequence to Sequence models (LSTMs)</li>
+</ul>
+
+<h2 id="lecture-videos">Lecture Videos</h2>
+
+<p><em>Language Modeling</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=4P_qsKMsE2E&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/4P_qsKMsE2E/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U0zkQVQrxdw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<p><em>Word Embeddings</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=wjoDqcEXIJ8&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/wjoDqcEXIJ8/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><em>Sequence to Sequence Models</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=vYi5btbpSgI&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/vYi5btbpSgI/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p>Lecture notes: <a href="https://www.dropbox.com/s/1witjrhf87jeo4e/lecture_rnns.pdf?dl=0">Language Modeling</a>, <a href="https://www.dropbox.com/s/7ah57lns4eil9fv/lecture_words.pdf?dl=0">Word Embeddings</a>, <a href="https://www.dropbox.com/s/83wl89il8nwc2zp/lecture_seq2seq.pdf?dl=0">Seq2Seq</a></p>
+
+<h2 id="references-cited-in-lecture-3-language-modeling-recurrent-neural-nets-and-seq2seq">References Cited in Lecture 3: Language Modeling, Recurrent Neural Nets and Seq2Seq</h2>
+
+<h4 id="academic-papers">Academic Papers</h4>
+
+<ul>
+  <li>
+    <p>Jurafsky, Daniel and James Martin, <a href="https://web.stanford.edu/~jurafsky/slp3/3.pdf">“N-Gram Language Models”</a> Speech and Language
+Processing, 2020 .</p>
+  </li>
+  <li>
+    <p>Bengio, Yoshua, Patrice Simard, and Paolo Frasconi. <a href="http://www.comp.hkbu.edu.hk/~markus/teaching/comp7650/tnn-94-gradient.pdf">“Learning long-term dependencies with
+gradient descent is difficult.”</a> IEEE transactions on neural networks 5, no. 2 (1994): 157-166.</p>
+  </li>
+  <li>
+    <p>Hochreiter, Sepp, and Jürgen Schmidhuber. <a href="https://blog.xpgreat.com/file/lstm.pdf">“Long short-term memory.”</a> Neural computation 9,
+no. 8 (1997): 1735-1780.</p>
+  </li>
+  <li>
+    <p>Greff, Klaus, Rupesh K. Srivastava, Jan Koutník, Bas R. Steunebrink, and Jürgen Schmidhuber.
+<a href="https://arxiv.org/pdf/1503.04069.pdf?fbclid=IwAR377Jhphz_xGSSThcqGUlAx8OJc_gU6Zwq8dABHOdS4WNOPRXA5LcHOjUg">“LSTM: A search space odyssey.”</a> IEEE transactions on neural networks and learning
+systems 28, no. 10 (2016): 2222-2232.</p>
+  </li>
+  <li>
+    <p>Chung, Junyoung, Caglar Gulcehre, KyungHyun Cho, and Yoshua Bengio. <a href="https://arxiv.org/pdf/1412.3555">“Empirical
+evaluation of gated recurrent neural networks on sequence modeling.”</a> arXiv preprint
+arXiv:1412.3555 (2014).</p>
+  </li>
+  <li>
+    <p>Sutskever, Ilya, Oriol Vinyals, and Quoc V. Le. <a href="https://proceedings.neurips.cc/paper/2014/file/a14ac55a4f27472c5d894ec1c3c743d2-Paper.pdf">“Sequence to sequence learning with neural
+networks.”</a> arXiv preprint arXiv:1409.3215 (2014).</p>
+  </li>
+  <li>
+    <p>Bahdanau, Dzmitry, Kyunghyun Cho, and Yoshua Bengio. <a href="https://arxiv.org/pdf/1409.0473.pdf?utm_source=ColumnsChannel">“Neural machine translation by
+jointly learning to align and translate.”</a> arXiv preprint arXiv:1409.0473 (2014).</p>
+  </li>
+  <li>
+    <p>Mikolov, Tomas, Ilya Sutskever, Kai Chen, Greg S. Corrado, and Jeff Dean. <a href="https://proceedings.neurips.cc/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf">“Distributed
+representations of words and phrases and their compositionality.”</a> Advances in Neural
+Information Processing Systems 26 (2013): 3111-3119. (Notes: this paper developed the
+word2vec model commonly used in NLP)</p>
+  </li>
+  <li>
+    <p>Pennington, Jeffrey, Richard Socher, and Christopher D. Manning. <a href="https://aclanthology.org/D14-1162.pdf">“Glove: Global vectors for
+word representation.”</a> In Proceedings of the 2014 conference on empirical methods in natural
+language processing (EMNLP), pp. 1532-1543. 2014.</p>
+  </li>
+</ul>
+
+<h4 id="other-resources">Other Resources</h4>
+
+<ul>
+  <li>
+    <p>Olah, Chris, and Shan Carter. <a href="https://distill.pub/2016/augmented-rnns/">“Attention and augmented recurrent neural networks.”</a> Distill 1,
+no. 9 (2016): e1.</p>
+  </li>
+  <li>
+    <p>Olah, Christopher. <a href="https://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">“Deep Learning, NLP, and Representation”</a>, 2014.</p>
+  </li>
+</ul>
+
+<h4 id="code-bases">Code Bases</h4>
+
+<ul>
+  <li>Pytorch Examples: <a href="https://github.com/pytorch/examples/tree/main/mnist_rnn">Classifying MNIST digits with an RNN</a></li>
+</ul>
+
+<p><em>Image Source</em>: https://thorirmar.com/post/insight_into_lstm/</p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

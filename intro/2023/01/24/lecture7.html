@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Basics of Training and Optimizing Neural Networks</title>
+    <meta name="description" content="Lecture 7: Covers the basics of training and optimizing neural networks
+">
+
+    <meta property="og:title" content="Basics of Training and Optimizing Neural Networks">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/intro/2023/01/24/lecture7.html">
+    <meta property="og:description" content="Lecture 7: Covers the basics of training and optimizing neural networks
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/intro/2023/01/24/lecture7.html">
+    <meta name="twitter:title" content="Basics of Training and Optimizing Neural Networks">
+    <meta name="twitter:description" content="Lecture 7: Covers the basics of training and optimizing neural networks
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/intro/2023/01/24/lecture7.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>Basics of Training and Optimizing Neural Networks</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        January 24, 2023
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        2 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/intro" class="article-list-item">
+            Intro
+        </a>
+        
+        
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Tags:</span>
+    
+    <span class="field">
+        
+        <a href="/tag/deep learning" class="article-list-item">
+            Deep learning
+        </a>
+        
+        
+    </span>
+</div>
+        </header>
+        <h2 id="topics">Topics</h2>
+
+<p>This post covers the seventh lecture in the course: “Basics of Optimizing Neural Networks; Classification.”</p>
+
+<p>This is a kitchen sink lecture about optimizing neural nets. The Goodfellow, Bengio and Courville textbook is a very helpful reference. Here are some additional references that provide very useful insights:</p>
+
+<h2 id="lecture-video">Lecture Video</h2>
+
+<p><a href="https://www.youtube.com/watch?v=TgXkNt4Z6I0&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/TgXkNt4Z6I0/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><a href="https://www.dropbox.com/s/awi97039q0a5f32/lecture_train_nns.pdf?dl=0">Lecture notes</a></p>
+
+<h2 id="references-cited-in-lecture-7-basics-of-optimizing-neural-networks-classification">References Cited in Lecture 7: Basics of Optimizing Neural Networks; classification</h2>
+
+<p><em>Momentum</em></p>
+
+<ul>
+  <li>Goh, Gabriel. “<a href="https://distill.pub/2017/momentum/?utm_campaign=Artificial%2BIntelligence%2BWeekly&amp;utm_medium=email&amp;utm_source=Artificial_Intelligence_Weekly_59">Why momentum really works</a>.” Distill 2, no. 4 (2017): e6 (excellent treatment of momentum).</li>
+</ul>
+
+<p><em>Batch Normalization</em></p>
+
+<ul>
+  <li>
+    <p>Ioffe, Sergey, and Christian Szegedy. “<a href="http://proceedings.mlr.press/v37/ioffe15.pdf">Batch normalization: Accelerating deep network training by reducing internal covariate shift.</a>” In International conference on machine learning, pp. 448-456. PMLR, 2015.</p>
+  </li>
+  <li>
+    <p>Santurkar, Shibani, Dimitris Tsipras, Andrew Ilyas, and Aleksander Madry. “<a href="https://proceedings.neurips.cc/paper/2018/file/905056c1ac1dad141560467e0a99e1cf-Paper.pdf">How does batch normalization help optimization?.</a>” Advances in Neural Information Processing Systems (2018).</p>
+  </li>
+</ul>
+
+<p><em>Other Refinements</em></p>
+
+<ul>
+  <li>He, Tong, Zhi Zhang, Hang Zhang, Zhongyue Zhang, Junyuan Xie, and Mu Li. “<a href="https://openaccess.thecvf.com/content_CVPR_2019/papers/He_Bag_of_Tricks_for_Image_Classification_with_Convolutional_Neural_Networks_CVPR_2019_paper.pdf">Bag of tricks for image classification with convolutional neural networks.</a>” In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 558-567. 2019.</li>
+</ul>
+
+<p><em>Hyperparameter Tuning</em></p>
+
+<ul>
+  <li>
+    <p>Li, Hao, Zheng Xu, Gavin Taylor, Christoph Studer, and Tom Goldstein. “<a href="https://proceedings.neurips.cc/paper/2018/file/a41b3bb3e6b050b6c9067c67f663b915-Paper.pdf">Visualizing the loss landscape of neural nets.</a>” Advances in Neural Information Processing Systems (2018).</p>
+  </li>
+  <li>
+    <p>Li, Lisha, Kevin Jamieson, Giulia DeSalvo, Afshin Rostamizadeh, and Ameet Talwalkar. “<a href="https://www.jmlr.org/papers/volume18/16-558/16-558.pdf">Hyperband: A novel bandit-based approach to hyperparameter optimization.</a>” The Journal of Machine Learning Research 18, no. 1 (2017): 6765-6816.</p>
+  </li>
+  <li>
+    <p>Falkner, Stefan, Aaron Klein, and Frank Hutter. “<a href="http://proceedings.mlr.press/v80/falkner18a/falkner18a.pdf">BOHB: Robust and efficient hyperparameter optimization at scale.</a>” In International Conference on Machine Learning, pp. 1437-1446. PMLR, 2018.</p>
+  </li>
+  <li>
+    <p>Frankle, Jonathan, and Michael Carbin. “<a href="https://arxiv.org/pdf/1803.03635.pdf">The lottery ticket hypothesis: Finding sparse, trainable neural networks.</a>” arXiv preprint arXiv:1803.03635 (2018).</p>
+  </li>
+</ul>
+
+<h4 id="other-resources">Other Resources</h4>
+
+<ul>
+  <li>
+    <p>Use <a href="https://wandb.ai/site">Weights &amp; Biases</a></p>
+  </li>
+  <li>
+    <p>Weights and Biases: <a href="https://wandb.ai/site/articles/running-hyperparameter-sweeps-to-pick-the-best-model-using-w-b#:~:text=Weights%20and%20biases%20are%20the,each%20layer%2C%20and%20so%20on">Running Hyperparameter Sweeps to Pick the Best Model</a></p>
+  </li>
+  <li>
+    <p>Weights and Biases: <a href="https://docs.wandb.ai/guides/sweeps">Tune Hyperparameters</a></p>
+  </li>
+  <li>
+    <p>Weights and Biases: <a href="https://docs.wandb.ai/ref/app/features/panels/parameter-importance">Parameter Importance</a></p>
+  </li>
+</ul>
+
+<p><em>Image Source</em>: https://wandb.ai/</p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
