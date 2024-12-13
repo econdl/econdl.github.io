@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Diffusion and GANs</title>
+    <meta name="description" content="Lecture 17: Diffusion Models and GANs
+">
+
+    <meta property="og:title" content="Diffusion and GANs">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/intro/2023/03/25/lecture17.html">
+    <meta property="og:description" content="Lecture 17: Diffusion Models and GANs
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/intro/2023/03/25/lecture17.html">
+    <meta name="twitter:title" content="Diffusion and GANs">
+    <meta name="twitter:description" content="Lecture 17: Diffusion Models and GANs
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/intro/2023/03/25/lecture17.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>Diffusion and GANs</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        March 25, 2023
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        3 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/intro" class="article-list-item">
+            Intro
+        </a>
+        
+        
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Tags:</span>
+    
+    <span class="field">
+        
+        <a href="/tag/deep learning" class="article-list-item">
+            Deep learning
+        </a>
+        
+        
+    </span>
+</div>
+        </header>
+        <h2 id="topics">Topics</h2>
+
+<p>This post covers the seventeenth lecture in the course: “Diffusion Models and GANs.”</p>
+
+<p>Diffusion models have experienced a meteoric rise since 2021. We will cover them, as well as the models they replaced, Generative Adversarial Networks (GANs), and applications.</p>
+
+<h2 id="lecture-video">Lecture Video</h2>
+
+<p><em>Generative Adversarial Networks</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=f9eEy3_GpFc&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/f9eEy3_GpFc/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><em>Diffusion Models</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=dWCxWRnm10A&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/dWCxWRnm10A/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><a href="https://www.dropbox.com/s/uc6bdkpmw1f5idi/lecture_diffusion.pdf?dl=0">Lecture notes</a></p>
+
+<h2 id="references-cited-in-lecture-17-diffusion-and-gans">References Cited in Lecture 17: Diffusion and GANs</h2>
+
+<p><em>Background on GANs</em></p>
+
+<p>Goodfellow, Ian J., Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. “<a href="https://arxiv.org/pdf/1406.2661.pdf">Generative adversarial networks</a>.” arXiv preprint arXiv:1406.2661 (2014).</p>
+
+<p>Goodfellow, Ian. “<a href="https://arxiv.org/pdf/1701.00160.pdf">Nips 2016 tutorial: Generative adversarial networks.</a>” arXiv preprint arXiv:1701.00160 (2016).</p>
+
+<p>Gulrajani, I., Ahmed, F., Arjovsky, M., Dumoulin, V., &amp; Courville, A. C. (2017). <a href="https://arxiv.org/pdf/1704.00028.pdf">Improved training of wasserstein gans</a>. Advances in neural information processing systems, 30.</p>
+
+<p>Reed, S., Akata, Z., Yan, X., Logeswaran, L., Schiele, B., &amp; Lee, H. (2016, June). <a href="http://proceedings.mlr.press/v48/reed16.pdf">Generative adversarial text to image synthesis</a>. In International conference on machine learning (pp. 1060- 1069). PMLR.</p>
+
+<p>Zhu, Jun-Yan, Taesung Park, Phillip Isola, and Alexei A. Efros. “<a href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Zhu_Unpaired_Image-To-Image_Translation_ICCV_2017_paper.pdf">Unpaired image-to-image translation using cycle-consistent adversarial networks</a>.” In Proceedings of the IEEE international conference on computer vision, pp. 2223-2232. 2017.</p>
+
+<p>Karras, Tero, Samuli Laine, Miika Aittala, Janne Hellsten, Jaakko Lehtinen, and Timo Aila. “<a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Karras_Analyzing_and_Improving_the_Image_Quality_of_StyleGAN_CVPR_2020_paper.pdf">Analyzing and improving the image quality of stylegan</a>.” In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pp. 8110-8119. 2020.</p>
+
+<p>Alaluf, Yuval, Or Patashnik, and Daniel Cohen-Or. “<a href="http://openaccess.thecvf.com/content/ICCV2021/papers/Alaluf_ReStyle_A_Residual-Based_StyleGAN_Encoder_via_Iterative_Refinement_ICCV_2021_paper.pdf">Restyle: A residual-based stylegan encoder via iterative refinement.</a>” In Proceedings of the IEEE/CVF International Conference on Computer Vision, pp. 6711-6720. 2021.</p>
+
+<p><a href="https://medium.com/illuin/cleaning-up-dirty-scanned-documents-with-deep-learning-2e8e6de6cfa6">Cleaning Up Dirty Scanned Documents with Deep Learning</a> (Blog Post)</p>
+
+<p><em>Blog Posts on Diffusion</em></p>
+
+<p><a href="https://jalammar.github.io/illustrated-stable-diffusion/">The Illustrated Stable Diffusion</a></p>
+
+<p><a href="https://yang-song.net/blog/2021/score/">Generative Modeling by Estimating Gradients of the Data Distribution</a></p>
+
+<p><a href="ttps://benanne.github.io/2022/01/31/diffusion.html">Diffusion models are autoencoders</a></p>
+
+<p><em>Code Bases</em></p>
+
+<p><a href="https://huggingface.co/spaces/huggingface-projects/diffuse-the-rest">Huggingface Diffusion</a></p>
+
+<p><a href="https://github.com/CompVis/stable-diffusion">Stable Diffusion</a></p>
+
+<p><em>Diffusion Papers</em></p>
+
+<p>Nichol, Alexander Quinn, and Prafulla Dhariwal. “<a href="http://proceedings.mlr.press/v139/nichol21a/nichol21a.pdf">Improved denoising diffusion probabilistic models</a>.” In International Conference on Machine Learning, pp. 8162-8171. PMLR, 2021. Dhariwal, Prafulla, and Alexander Nichol. “Diffusion models beat gans on image synthesis.” Advances in Neural Information Processing Systems 34 (2021): 8780-8794. (see also https://www.youtube.com/watch?v=W-O7AZNzbzQ )</p>
+
+<p>Kwon, Gihyun, and Jong Chul Ye. “<a href="https://arxiv.org/pdf/2209.15264">Diffusion-based image translation using disentangled style and content representation.</a>” arXiv preprint arXiv:2209.15264 (2022).</p>
+
+<p>Cao, Hanqun, Cheng Tan, Zhangyang Gao, Guangyong Chen, Pheng-Ann Heng, and Stan Z. Li. “<a href="https://arxiv.org/pdf/2209.02646">A survey on generative diffusion model.</a>” arXiv preprint arXiv:2209.02646 (2022).</p>
+
+<p>Bansal, Arpit, et al. “<a href="https://arxiv.org/pdf/2208.09392">Cold diffusion: Inverting arbitrary image transforms without noise.</a>” arXiv preprint arXiv:2208.09392 (2022).</p>
+
+<p>Rombach, Robin, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer. “<a href="http://openaccess.thecvf.com/content/CVPR2022/papers/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.pdf">High-resolution image synthesis with latent diffusion models.</a>” In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 10684-10695. 2022.</p>
+
+<p>Peebles, William, and Saining Xie. “<a href="https://arxiv.org/pdf/2212.09748">Scalable Diffusion Models with Transformers.</a>” arXiv preprint arXiv:2212.09748 (2022). (DiT)</p>
+
+<p><em>Handwriting Generation</em></p>
+
+<p>Davis, Brian, Chris Tensmeyer, Brian Price, Curtis Wigington, Bryan Morse, and Rajiv Jain. “<a href="https://arxiv.org/pdf/2009.00678">Text and style conditioned gan for generation of offline handwriting lines.</a>” arXiv preprint arXiv:2009.00678 (2020).</p>
+
+<p>Bhunia, Ankan Kumar, Salman Khan, Hisham Cholakkal, Rao Muhammad Anwer, Fahad Shahbaz Khan, and Mubarak Shah. “<a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Bhunia_Handwriting_Transformers_ICCV_2021_paper.pdf">Handwriting transformers.</a>” In Proceedings of the IEEE/CVF international conference on computer vision, pp. 1086-1094. 2021. (See also https://colab.research.google.com/github/ankanbhunia/Handwriting-Transformers/blob/main/demo.ipynb )</p>
+
+<p><em>Image Source</em>: https://developer.nvidia.com/blog/improving-diffusion-models-as-an-alternative-to-gans-part-1/</p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

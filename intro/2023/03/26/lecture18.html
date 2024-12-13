@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Remote Sensing</title>
+    <meta name="description" content="Lecture 18: Remote Sensing
+">
+
+    <meta property="og:title" content="Remote Sensing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/intro/2023/03/26/lecture18.html">
+    <meta property="og:description" content="Lecture 18: Remote Sensing
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/intro/2023/03/26/lecture18.html">
+    <meta name="twitter:title" content="Remote Sensing">
+    <meta name="twitter:description" content="Lecture 18: Remote Sensing
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/intro/2023/03/26/lecture18.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>Remote Sensing</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        March 26, 2023
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        2 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/intro" class="article-list-item">
+            Intro
+        </a>
+        
+        
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Tags:</span>
+    
+    <span class="field">
+        
+        <a href="/tag/deep learning" class="article-list-item">
+            Deep learning
+        </a>
+        
+        
+    </span>
+</div>
+        </header>
+        <h2 id="topics">Topics</h2>
+
+<p>This post covers the eighteenth lecture in the course: “Remote Sensing.”</p>
+
+<p>This lecture will cover the application of deep learning methods to remote sensing (satelite imagery and other remotely-collected data).</p>
+
+<h2 id="lecture-video">Lecture Video</h2>
+<p><a href="https://www.youtube.com/watch?v=LGLZf9OI9Gw&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/LGLZf9OI9Gw/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><a href="https://www.dropbox.com/s/aw8m1m38hdj0rbt/lecture_remotesensing.pdf?dl=0">Lecture notes</a></p>
+
+<h2 id="references-cited-in-lecture-18-remote-sensing">References Cited in Lecture 18: Remote Sensing</h2>
+
+<p><em>Academic Papers</em></p>
+
+<p>Aleissaee et al. <a href="https://www.mdpi.com/2072-4292/15/7/1860">Transformers in Remote Sensing: A Survey</a>, arXiv:2209.01206 [cs.CV] https://arxiv.org/abs/2209.01206</p>
+
+<p>D. Wang, J. Zhang, B. Du, G.-S. Xia, D. Tao, “<a href="https://arxiv.org/pdf/2204.02825">An Empirical Study of Remote Sensing Pretraining</a>”, IEEE Trans. on Geoscience and Remote Sensing (TGRS), 2022 https://arxiv.org/abs/2204.02825</p>
+
+<p>Gao, Yuan, Xiaojuan Sun, and Chao Liu. “<a href="https://www.mdpi.com/2072-4292/14/19/4824/pdf">A General Self-Supervised Framework for Remote Sensing Image Classification.</a>” Remote Sensing 14.19 (2022): 4824.</p>
+
+<p>Fuller, Anthony, Koreen Millard, and James R. Green. “<a href="https://ieeexplore.ieee.org/abstract/document/9866058">SatViT: Pretraining Transformers for Earth Observation.</a>” IEEE Geoscience and Remote Sensing Letters 19 (2022): 1-5.</p>
+
+<p>Fuller, Anthony, Koreen Millard, and James R. Green. “<a href="https://arxiv.org/pdf/2209.14969">Transfer Learning with Pretrained Remote Sensing Transformers.</a>” arXiv preprint arXiv:2209.14969 (2022). (SatViT-V2)</p>
+
+<p>Zhang, Tong, et al. “<a href="https://www.mdpi.com/2072-4292/14/22/5675/pdf">Consecutive Pre-Training: A Knowledge Transfer Learning Strategy with Relevant Unlabeled Data for Remote Sensing Domain</a>” Remote Sensing 14.22 (2022): 5675.</p>
+
+<p>Bandara, Wele Gedara Chaminda, and Vishal M. Patel. “<a href="https://arxiv.org/pdf/2201.01293">A transformer-based siamese network for change detection.</a>” IGARSS 2022-2022 IEEE International Geoscience and Remote Sensing Symposium. IEEE, 2022. https://arxiv.org/abs/2201.01293</p>
+
+<p>Alosaimi, Najd, et al. “<a href="https://www.nature.com/articles/s41598-022-27313-5">Self-supervised learning for remote sensing scene classification under the few shot scenario.</a>” Scientific Reports 13.1 (2023): 433.</p>
+
+<p><em>Repos and Data Sources</em></p>
+
+<p><a href="https://github.com/robmarkcole/satellite-image-deep-learning">satellite-image-deep-learning Repo</a></p>
+
+<p><a href="https://earthengine.google.com/">Google Earth Engine</a> – API for downloading high-quality satelite images, free student version</p>
+
+<p>NASA APIs:</p>
+<ul>
+  <li><a href="https://api.nasa.gov/">LandSat 8</a> (Under “Earth”)</li>
+  <li><a href="https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+API+for+Developers">GIBS</a> (Higher Quality, harder to work with)</li>
+  <li><a href="https://www.earthdata.nasa.gov/engage/open-data-services-and-software/api">EarthData</a> (Mostly for application development, but can be used for downloads too)</li>
+</ul>
+
+<p><em>Image Source</em>: www.cnn.com</p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-12-13T17:04:29+00:00</updated><id>/feed.xml</id><title type="html">EconDL</title><subtitle>EconDL
+</subtitle><entry><title type="html">Remote Sensing</title><link href="/intro/2023/03/26/lecture18.html" rel="alternate" type="text/html" title="Remote Sensing" /><published>2023-03-26T00:00:00+00:00</published><updated>2023-03-26T00:00:00+00:00</updated><id>/intro/2023/03/26/lecture18</id><content type="html" xml:base="/intro/2023/03/26/lecture18.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the eighteenth lecture in the course: “Remote Sensing.”&lt;/p&gt;
+
+&lt;p&gt;This lecture will cover the application of deep learning methods to remote sensing (satelite imagery and other remotely-collected data).&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=LGLZf9OI9Gw&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/LGLZf9OI9Gw/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/s/aw8m1m38hdj0rbt/lecture_remotesensing.pdf?dl=0&quot;&gt;Lecture notes&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-18-remote-sensing&quot;&gt;References Cited in Lecture 18: Remote Sensing&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Academic Papers&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Aleissaee et al. &lt;a href=&quot;https://www.mdpi.com/2072-4292/15/7/1860&quot;&gt;Transformers in Remote Sensing: A Survey&lt;/a&gt;, arXiv:2209.01206 [cs.CV] https://arxiv.org/abs/2209.01206&lt;/p&gt;
+
+&lt;p&gt;D. Wang, J. Zhang, B. Du, G.-S. Xia, D. Tao, “&lt;a href=&quot;https://arxiv.org/pdf/2204.02825&quot;&gt;An Empirical Study of Remote Sensing Pretraining&lt;/a&gt;”, IEEE Trans. on Geoscience and Remote Sensing (TGRS), 2022 https://arxiv.org/abs/2204.02825&lt;/p&gt;
+
+&lt;p&gt;Gao, Yuan, Xiaojuan Sun, and Chao Liu. “&lt;a href=&quot;https://www.mdpi.com/2072-4292/14/19/4824/pdf&quot;&gt;A General Self-Supervised Framework for Remote Sensing Image Classification.&lt;/a&gt;” Remote Sensing 14.19 (2022): 4824.&lt;/p&gt;
+
+&lt;p&gt;Fuller, Anthony, Koreen Millard, and James R. Green. “&lt;a href=&quot;https://ieeexplore.ieee.org/abstract/document/9866058&quot;&gt;SatViT: Pretraining Transformers for Earth Observation.&lt;/a&gt;” IEEE Geoscience and Remote Sensing Letters 19 (2022): 1-5.&lt;/p&gt;
+
+&lt;p&gt;Fuller, Anthony, Koreen Millard, and James R. Green. “&lt;a href=&quot;https://arxiv.org/pdf/2209.14969&quot;&gt;Transfer Learning with Pretrained Remote Sensing Transformers.&lt;/a&gt;” arXiv preprint arXiv:2209.14969 (2022). (SatViT-V2)&lt;/p&gt;
+
+&lt;p&gt;Zhang, Tong, et al. “&lt;a href=&quot;https://www.mdpi.com/2072-4292/14/22/5675/pdf&quot;&gt;Consecutive Pre-Training: A Knowledge Transfer Learning Strategy with Relevant Unlabeled Data for Remote Sensing Domain&lt;/a&gt;” Remote Sensing 14.22 (2022): 5675.&lt;/p&gt;
+
+&lt;p&gt;Bandara, Wele Gedara Chaminda, and Vishal M. Patel. “&lt;a href=&quot;https://arxiv.org/pdf/2201.01293&quot;&gt;A transformer-based siamese network for change detection.&lt;/a&gt;” IGARSS 2022-2022 IEEE International Geoscience and Remote Sensing Symposium. IEEE, 2022. https://arxiv.org/abs/2201.01293&lt;/p&gt;
+
+&lt;p&gt;Alosaimi, Najd, et al. “&lt;a href=&quot;https://www.nature.com/articles/s41598-022-27313-5&quot;&gt;Self-supervised learning for remote sensing scene classification under the few shot scenario.&lt;/a&gt;” Scientific Reports 13.1 (2023): 433.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Repos and Data Sources&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/robmarkcole/satellite-image-deep-learning&quot;&gt;satellite-image-deep-learning Repo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://earthengine.google.com/&quot;&gt;Google Earth Engine&lt;/a&gt; – API for downloading high-quality satelite images, free student version&lt;/p&gt;
+
+&lt;p&gt;NASA APIs:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://api.nasa.gov/&quot;&gt;LandSat 8&lt;/a&gt; (Under “Earth”)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://wiki.earthdata.nasa.gov/display/GIBS/GIBS+API+for+Developers&quot;&gt;GIBS&lt;/a&gt; (Higher Quality, harder to work with)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.earthdata.nasa.gov/engage/open-data-services-and-software/api&quot;&gt;EarthData&lt;/a&gt; (Mostly for application development, but can be used for downloads too)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: www.cnn.com&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_18.jpg" /><media:content medium="image" url="/assets/blogs/lecture_18.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Diffusion and GANs</title><link href="/intro/2023/03/25/lecture17.html" rel="alternate" type="text/html" title="Diffusion and GANs" /><published>2023-03-25T00:00:00+00:00</published><updated>2023-03-25T00:00:00+00:00</updated><id>/intro/2023/03/25/lecture17</id><content type="html" xml:base="/intro/2023/03/25/lecture17.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the seventeenth lecture in the course: “Diffusion Models and GANs.”&lt;/p&gt;
+
+&lt;p&gt;Diffusion models have experienced a meteoric rise since 2021. We will cover them, as well as the models they replaced, Generative Adversarial Networks (GANs), and applications.&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Generative Adversarial Networks&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=f9eEy3_GpFc&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/f9eEy3_GpFc/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Diffusion Models&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=dWCxWRnm10A&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/dWCxWRnm10A/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/s/uc6bdkpmw1f5idi/lecture_diffusion.pdf?dl=0&quot;&gt;Lecture notes&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-17-diffusion-and-gans&quot;&gt;References Cited in Lecture 17: Diffusion and GANs&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Background on GANs&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Goodfellow, Ian J., Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. “&lt;a href=&quot;https://arxiv.org/pdf/1406.2661.pdf&quot;&gt;Generative adversarial networks&lt;/a&gt;.” arXiv preprint arXiv:1406.2661 (2014).&lt;/p&gt;
+
+&lt;p&gt;Goodfellow, Ian. “&lt;a href=&quot;https://arxiv.org/pdf/1701.00160.pdf&quot;&gt;Nips 2016 tutorial: Generative adversarial networks.&lt;/a&gt;” arXiv preprint arXiv:1701.00160 (2016).&lt;/p&gt;
+
+&lt;p&gt;Gulrajani, I., Ahmed, F., Arjovsky, M., Dumoulin, V., &amp;amp; Courville, A. C. (2017). &lt;a href=&quot;https://arxiv.org/pdf/1704.00028.pdf&quot;&gt;Improved training of wasserstein gans&lt;/a&gt;. Advances in neural information processing systems, 30.&lt;/p&gt;
+
+&lt;p&gt;Reed, S., Akata, Z., Yan, X., Logeswaran, L., Schiele, B., &amp;amp; Lee, H. (2016, June). &lt;a href=&quot;http://proceedings.mlr.press/v48/reed16.pdf&quot;&gt;Generative adversarial text to image synthesis&lt;/a&gt;. In International conference on machine learning (pp. 1060- 1069). PMLR.&lt;/p&gt;
+
+&lt;p&gt;Zhu, Jun-Yan, Taesung Park, Phillip Isola, and Alexei A. Efros. “&lt;a href=&quot;http://openaccess.thecvf.com/content_ICCV_2017/papers/Zhu_Unpaired_Image-To-Image_Translation_ICCV_2017_paper.pdf&quot;&gt;Unpaired image-to-image translation using cycle-consistent adversarial networks&lt;/a&gt;.” In Proceedings of the IEEE international conference on computer vision, pp. 2223-2232. 2017.&lt;/p&gt;
+
+&lt;p&gt;Karras, Tero, Samuli Laine, Miika Aittala, Janne Hellsten, Jaakko Lehtinen, and Timo Aila. “&lt;a href=&quot;https://openaccess.thecvf.com/content_CVPR_2020/papers/Karras_Analyzing_and_Improving_the_Image_Quality_of_StyleGAN_CVPR_2020_paper.pdf&quot;&gt;Analyzing and improving the image quality of stylegan&lt;/a&gt;.” In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pp. 8110-8119. 2020.&lt;/p&gt;
+
+&lt;p&gt;Alaluf, Yuval, Or Patashnik, and Daniel Cohen-Or. “&lt;a href=&quot;http://openaccess.thecvf.com/content/ICCV2021/papers/Alaluf_ReStyle_A_Residual-Based_StyleGAN_Encoder_via_Iterative_Refinement_ICCV_2021_paper.pdf&quot;&gt;Restyle: A residual-based stylegan encoder via iterative refinement.&lt;/a&gt;” In Proceedings of the IEEE/CVF International Conference on Computer Vision, pp. 6711-6720. 2021.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://medium.com/illuin/cleaning-up-dirty-scanned-documents-with-deep-learning-2e8e6de6cfa6&quot;&gt;Cleaning Up Dirty Scanned Documents with Deep Learning&lt;/a&gt; (Blog Post)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Blog Posts on Diffusion&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://jalammar.github.io/illustrated-stable-diffusion/&quot;&gt;The Illustrated Stable Diffusion&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://yang-song.net/blog/2021/score/&quot;&gt;Generative Modeling by Estimating Gradients of the Data Distribution&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;ttps://benanne.github.io/2022/01/31/diffusion.html&quot;&gt;Diffusion models are autoencoders&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Code Bases&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://huggingface.co/spaces/huggingface-projects/diffuse-the-rest&quot;&gt;Huggingface Diffusion&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/CompVis/stable-diffusion&quot;&gt;Stable Diffusion&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Diffusion Papers&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Nichol, Alexander Quinn, and Prafulla Dhariwal. “&lt;a href=&quot;http://proceedings.mlr.press/v139/nichol21a/nichol21a.pdf&quot;&gt;Improved denoising diffusion probabilistic models&lt;/a&gt;.” In International Conference on Machine Learning, pp. 8162-8171. PMLR, 2021. Dhariwal, Prafulla, and Alexander Nichol. “Diffusion models beat gans on image synthesis.” Advances in Neural Information Processing Systems 34 (2021): 8780-8794. (see also https://www.youtube.com/watch?v=W-O7AZNzbzQ )&lt;/p&gt;
+
+&lt;p&gt;Kwon, Gihyun, and Jong Chul Ye. “&lt;a href=&quot;https://arxiv.org/pdf/2209.15264&quot;&gt;Diffusion-based image translation using disentangled style and content representation.&lt;/a&gt;” arXiv preprint arXiv:2209.15264 (2022).&lt;/p&gt;
+
+&lt;p&gt;Cao, Hanqun, Cheng Tan, Zhangyang Gao, Guangyong Chen, Pheng-Ann Heng, and Stan Z. Li. “&lt;a href=&quot;https://arxiv.org/pdf/2209.02646&quot;&gt;A survey on generative diffusion model.&lt;/a&gt;” arXiv preprint arXiv:2209.02646 (2022).&lt;/p&gt;
+
+&lt;p&gt;Bansal, Arpit, et al. “&lt;a href=&quot;https://arxiv.org/pdf/2208.09392&quot;&gt;Cold diffusion: Inverting arbitrary image transforms without noise.&lt;/a&gt;” arXiv preprint arXiv:2208.09392 (2022).&lt;/p&gt;
+
+&lt;p&gt;Rombach, Robin, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer. “&lt;a href=&quot;http://openaccess.thecvf.com/content/CVPR2022/papers/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.pdf&quot;&gt;High-resolution image synthesis with latent diffusion models.&lt;/a&gt;” In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 10684-10695. 2022.&lt;/p&gt;
+
+&lt;p&gt;Peebles, William, and Saining Xie. “&lt;a href=&quot;https://arxiv.org/pdf/2212.09748&quot;&gt;Scalable Diffusion Models with Transformers.&lt;/a&gt;” arXiv preprint arXiv:2212.09748 (2022). (DiT)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Handwriting Generation&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Davis, Brian, Chris Tensmeyer, Brian Price, Curtis Wigington, Bryan Morse, and Rajiv Jain. “&lt;a href=&quot;https://arxiv.org/pdf/2009.00678&quot;&gt;Text and style conditioned gan for generation of offline handwriting lines.&lt;/a&gt;” arXiv preprint arXiv:2009.00678 (2020).&lt;/p&gt;
+
+&lt;p&gt;Bhunia, Ankan Kumar, Salman Khan, Hisham Cholakkal, Rao Muhammad Anwer, Fahad Shahbaz Khan, and Mubarak Shah. “&lt;a href=&quot;https://openaccess.thecvf.com/content/ICCV2021/papers/Bhunia_Handwriting_Transformers_ICCV_2021_paper.pdf&quot;&gt;Handwriting transformers.&lt;/a&gt;” In Proceedings of the IEEE/CVF international conference on computer vision, pp. 1086-1094. 2021. (See also https://colab.research.google.com/github/ankanbhunia/Handwriting-Transformers/blob/main/demo.ipynb )&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: https://developer.nvidia.com/blog/improving-diffusion-models-as-an-alternative-to-gans-part-1/&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_17.png" /><media:content medium="image" url="/assets/blogs/lecture_17.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OCR and Record Linkage</title><link href="/intro/2023/03/24/lecture16.html" rel="alternate" type="text/html" title="OCR and Record Linkage" /><published>2023-03-24T00:00:00+00:00</published><updated>2023-03-24T00:00:00+00:00</updated><id>/intro/2023/03/24/lecture16</id><content type="html" xml:base="/intro/2023/03/24/lecture16.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the sixteenth lecture in the course: “OCR and Record Linkage.”&lt;/p&gt;
+
+&lt;p&gt;Optical Character Recognition (OCR) is central to converting unstructured image data into structured, computable text for economic analyses&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;OCR&lt;/em&gt;
+&lt;a href=&quot;https://www.youtube.com/watch?v=JP16z1JNyLg&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/JP16z1JNyLg/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Record Linkage&lt;/em&gt;
+&lt;a href=&quot;https://www.youtube.com/watch?v=_JYhuQUA1Hg&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/_JYhuQUA1Hg/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/s/xj7d4zzyaxnbpme/lecture_OCR_linkage.pdf?dl=0&quot;&gt;Lecture notes&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-16-ocr-and-record-linkage&quot;&gt;References Cited in Lecture 16: OCR and Record Linkage&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;OCR Papers&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Carlson, Jacob, Tom Bryan, and Melissa Dell. “&lt;a href=&quot;https://arxiv.org/pdf/2304.02737.pdf&quot;&gt;Efficient OCR for Building a Diverse Digital History.&lt;/a&gt;” arXiv preprint arXiv:2304.02737 (2023).&lt;/p&gt;
+
+&lt;p&gt;B. Shi, X. Bai, C. Yao, &lt;a href=&quot;https://arxiv.org/pdf/1507.05717.pdf%E3%80%82&quot;&gt;An end-to-end trainable neural network for image-based sequence recognition and its application to scene text recognition&lt;/a&gt;, IEEE transactions on pattern analysis and machine intelligence 39, (2016).&lt;/p&gt;
+
+&lt;p&gt;Graves, Alex, Santiago Fernández, Faustino Gomez, and Jürgen Schmidhuber. “&lt;a href=&quot;http://imagine.enpc.fr/~obozinsg/teaching/mva_gm/papers/ctc.pdf&quot;&gt;Connectionist temporal classification: labelling unsegmented sequence data with recurrent neural networks.&lt;/a&gt;” In Proceedings of the 23rd international conference on Machine learning, pp. 369-376. 2006. Hannun, Awni. “Sequence modeling with ctc.” Distill 2, no. 11 (2017): e8.&lt;/p&gt;
+
+&lt;p&gt;Y. Du, Z. Chen, C. Jia, X. Yin, T. Zheng, C. Li, Y. Du, Y.-G. Jiang, &lt;a href=&quot;https://arxiv.org/pdf/2205.00159&quot;&gt;Svtr: Scene text recognition with a single visual model&lt;/a&gt;, arXiv preprint arXiv:2205.00159 (2022).&lt;/p&gt;
+
+&lt;p&gt;M. Li, T. Lv, L. Cui, Y. Lu, D. Florencio, C. Zhang, Z. Li, F. Wei, &lt;a href=&quot;https://arxiv.org/pdf/2109.10282&quot;&gt;Trocr: Transformer-based optical character recognition with pre-trained models&lt;/a&gt;, arXiv preprint arXiv:2109.10282 (2021)&lt;/p&gt;
+
+&lt;p&gt;G. Song, Y. Liu, X. Wang, &lt;a href=&quot;http://openaccess.thecvf.com/content_CVPR_2020/papers/Song_Revisiting_the_Sibling_Head_in_Object_Detector_CVPR_2020_paper.pdf&quot;&gt;Revisiting the sibling head in object detector&lt;/a&gt;, Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition pp. 11563–11572 (2020).&lt;/p&gt;
+
+&lt;p&gt;Du, Y., Li, C., Guo, R., Cui, C., Liu, W., Zhou, J., … &amp;amp; Ma, Y. (2021). &lt;a href=&quot;https://arxiv.org/pdf/2109.03144.pdf&quot;&gt;PP-OCRv2: bag of tricks for ultra lightweight OCR system.&lt;/a&gt; arXiv preprint arXiv:2109.03144. (PaddleOCR, https://arxiv.org/abs/2109.03144)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Noisy Data and Downstream tasks&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Srivastava, Ankit, Piyush Makhija, and Anuj Gupta. “&lt;a href=&quot;https://arxiv.org/pdf/2003.12932.pdf&quot;&gt;Noisy Text Data: Achilles’ Heel of BERT.&lt;/a&gt;” In Proceedings of the Sixth Workshop on Noisy User-generated Text (W-NUT 2020), pp. 16-21. 2020.&lt;/p&gt;
+
+&lt;p&gt;S. Rijhwani, A. Anastasopoulos, G. Neubig, &lt;a href=&quot;https://arxiv.org/pdf/2011.05402&quot;&gt;Ocr post correction for endangered language texts&lt;/a&gt;, arXiv preprint arXiv:2011.05402 (2020).&lt;/p&gt;
+
+&lt;p&gt;Dubey, Shiv Ram. “&lt;a href=&quot;https://arxiv.org/pdf/2012.00641&quot;&gt;A decade survey of content based image retrieval using deep learning.&lt;/a&gt;” IEEE Transactions on Circuits and Systems for Video Technology 32, no. 5 (2021): 2687-2704.&lt;/p&gt;
+
+&lt;p&gt;El-Nouby, Alaaeldin, Natalia Neverova, Ivan Laptev, and Hervé Jégou. “&lt;a href=&quot;https://arxiv.org/pdf/2102.05644&quot;&gt;Training vision transformers for image retrieval&lt;/a&gt;.” arXiv preprint arXiv:2102.05644 (2021). https://github.com/jhgan00/image-retrieval-transformers&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Multimodal Record Linking&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Arora, Abhishek, Xinmei Yang, Shao Yu Jheng, and Melissa Dell. “&lt;a href=&quot;https://arxiv.org/pdf/2304.03464.pdf&quot;&gt;Linking Representations with Multimodal Contrastive Learning&lt;/a&gt;.” arXiv preprint arXiv:2304.03464 (2023).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Popular OCR Frameworks&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/JaidedAI/EasyOCR&quot;&gt;EasyOCR&lt;/a&gt; (JaidedAI)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/PaddlePaddle/PaddleOCR&quot;&gt;PaddleOCR&lt;/a&gt; (PaddlePaddle)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/tesseract-ocr/tesseract&quot;&gt;Tesseract&lt;/a&gt; (HP, Google, Open Source)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/unilm/tree/master/trocr&quot;&gt;TrOCR&lt;/a&gt; (Microsoft)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://cloud.google.com/vision&quot;&gt;Google Cloud Vision&lt;/a&gt; (Paid API)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://intl.cloud.baidu.com/product/ocr.html&quot;&gt;Baidu OCR&lt;/a&gt; (Paid API)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: Carlson, Jacob, Tom Bryan, and Melissa Dell. (2023) Efficient OCR for Building a Diverse Digital History.&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_16.png" /><media:content medium="image" url="/assets/blogs/lecture_16.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Object Detection</title><link href="/intro/2023/03/23/lecture15.html" rel="alternate" type="text/html" title="Object Detection" /><published>2023-03-23T00:00:00+00:00</published><updated>2023-03-23T00:00:00+00:00</updated><id>/intro/2023/03/23/lecture15</id><content type="html" xml:base="/intro/2023/03/23/lecture15.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the fifteenth lecture in the course: “Object Detection and Document Image Analysis.”&lt;/p&gt;
+
+&lt;p&gt;This lecture covers object detection models, covering the Fast R-CNN series, YOLO, transformer-based backbones, and document applications. Object detection is fundamental to working with documents, a common source of unstructured data in economics.&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Object Detection&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=l2GZKbWUaOo&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/l2GZKbWUaOo/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Document Image Analysis&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=sUHvkkttaLA&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/sUHvkkttaLA/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- [Lecture notes](https://www.dropbox.com/s/oehhzqib5giwv5i/lecture_sts.pdf?dl=0) --&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-15-object-detection-and-document-image-analysis&quot;&gt;References Cited in Lecture 15: Object Detection and Document Image Analysis&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Region CNNs&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Girshick, Ross, Jeff Donahue, Trevor Darrell, and Jitendra Malik. “&lt;a href=&quot;https://openaccess.thecvf.com/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf&quot;&gt;Rich feature hierarchies for accurate object detection and semantic segmentation&lt;/a&gt;.” In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 580-587. 2014. https://doi.org/10.1109/CVPR.2014.81&lt;/p&gt;
+
+&lt;p&gt;Girshick, Ross. “&lt;a href=&quot;https://openaccess.thecvf.com/content_iccv_2015/papers/Girshick_Fast_R-CNN_ICCV_2015_paper.pdf&quot;&gt;Fast R-CNN.&lt;/a&gt;” In Proceedings of the IEEE international conference on computer vision, pp. 1440-1448. 2015. https://doi.org/10.1109/ICCV.2015.169.&lt;/p&gt;
+
+&lt;p&gt;Ren, Shaoqing, Kaiming He, Ross Girshick, and Jian Sun. “&lt;a href=&quot;https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf&quot;&gt;Faster R-CNN: Towards real-time object detection with region proposal networks.&lt;/a&gt;” IEEE transactions on pattern analysis and machine intelligence, vol. 39, no. 6, pp. 1137-1149. 2017. https://doi.org/10.1109/TPAMI.2016.2577031.&lt;/p&gt;
+
+&lt;p&gt;He, Kaiming, Georgia Gkioxari, Piotr Dollár, and Ross Girshick. “&lt;a href=&quot;http://openaccess.thecvf.com/content_ICCV_2017/papers/He_Mask_R-CNN_ICCV_2017_paper.pdf&quot;&gt;Mask R-CNN.&lt;/a&gt;” In Proceedings of the IEEE international conference on computer vision, pp. 2961-2969. 2017. https://doi.org/10.1109/ICCV.2017.322.&lt;/p&gt;
+
+&lt;p&gt;Kirillov, Alexander, Ross Girshick, Kaiming He, and Piotr Dollár. “&lt;a href=&quot;http://openaccess.thecvf.com/content_CVPR_2019/papers/Kirillov_Panoptic_Feature_Pyramid_Networks_CVPR_2019_paper.pdf&quot;&gt;Panoptic feature pyramid networks.&lt;/a&gt;” In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 6399-6408. 2019.&lt;/p&gt;
+
+&lt;p&gt;Cai, Z. and Vasconcelos, N., 2019. “&lt;a href=&quot;https://arxiv.org/pdf/1906.09756&quot;&gt;Cascade R-CNN: high quality object detection and instance segmentation.&lt;/a&gt;” IEEE transactions on pattern analysis and machine intelligence, 43(5), pp.1483-1498.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;YOLO&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Redmon, Joseph, Santosh Divvala, Ross Girshick, and Ali Farhadi. “&lt;a href=&quot;https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf&quot;&gt;You only look once: Unified, real-time object detection.&lt;/a&gt;” In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 779-788. 2016.&lt;/p&gt;
+
+&lt;p&gt;G. Jocher, &lt;a href=&quot;https://github.com/ultralytics/yolov5&quot;&gt;YOLOv5 by Ultralytics&lt;/a&gt; (2020)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Transformer Methods&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Carion, Nicolas, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, and Sergey Zagoruyko. “&lt;a href=&quot;https://arxiv.org/pdf/2005.12872.pdf,&quot;&gt;End-to-end object detection with transformers.&lt;/a&gt;” In European Conference on Computer Vision, pp. 213-229. Springer, Cham, 2020. (DETR)&lt;/p&gt;
+
+&lt;p&gt;Liu, Ze, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, and Baining Guo. “&lt;a href=&quot;http://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Swin_Transformer_Hierarchical_Vision_Transformer_Using_Shifted_Windows_ICCV_2021_paper.pdf&quot;&gt;Swin Transformer: Hierarchical vision transformer using shifted windows.&lt;/a&gt;” arXiv preprint arXiv:2103.14030 (2021). (Swin)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Semantic Segmentation&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Long, Jonathan, Evan Shelhamer, and Trevor Darrell. “&lt;a href=&quot;https://openaccess.thecvf.com/content_cvpr_2015/papers/Long_Fully_Convolutional_Networks_2015_CVPR_paper.pdf&quot;&gt;Fully convolutional networks for semantic segmentation&lt;/a&gt;.” In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 3431-3440. 2015.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Implementation&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Z. Shen, R. Zhang, M. Dell, B. C. G. Lee, J. Carlson, W. Li, &lt;a href=&quot;https://arxiv.org/pdf/2103.15348&quot;&gt;Layoutparser: A unified toolkit for deep learning based document image analysis&lt;/a&gt;, International Conference on Document Analysis and Recognition 12821 (2021).&lt;/p&gt;
+
+&lt;p&gt;Lin, Tsung-Yi, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Dollár, and C. Lawrence Zitnick. “&lt;a href=&quot;https://arxiv.org/pdf/1405.0312.pdf%090.949&quot;&gt;Microsoft coco: Common objects in context&lt;/a&gt;.” In European conference on computer vision, pp. 740-755. Springer, Cham, 2014.&lt;/p&gt;
+
+&lt;p&gt;Wu, Yuxin, Alexander Kirillov, Francisco Massa, Wan-Yen Lo, and Ross Girshick. “&lt;a href=&quot;https://github.com/facebookresearch/detectron2&quot;&gt;Detectron2.&lt;/a&gt;” 2019.&lt;/p&gt;
+
+&lt;p&gt;Chen, Kai, Jiaqi Wang, Jiangmiao Pang, Yuhang Cao, Yu Xiong, Xiaoxiao Li, Shuyang Sun et al. “&lt;a href=&quot;https://arxiv.org/pdf/1906.07155.pdf&quot;&gt;MMDetection: Open mmlab detection toolbox and benchmark&lt;/a&gt;.” arXiv preprint arXiv:1906.07155 (2019).&lt;/p&gt;
+
+&lt;p&gt;Shen, Zejiang, Kaixuan Zhang, and Melissa Dell. “&lt;a href=&quot;http://openaccess.thecvf.com/content_CVPRW_2020/papers/w34/Shen_A_Large_Dataset_of_Historical_Japanese_Documents_With_Complex_Layouts_CVPRW_2020_paper.pdf&quot;&gt;A Large Dataset of Historical Japanese Documents with Complex Layouts&lt;/a&gt;.” In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops, pp. 548-549. 2020. https://doi.org/10.1109/CVPRW50498.2020.00282.&lt;/p&gt;
+
+&lt;p&gt;Tkachenko, Maxim, Mikhail Malyuk, Nikita Shevchenko, Andrey Holmanyuk, and Nikolai Liubimov. “&lt;a href=&quot;https://github.com/heartexlabs/label-studio&quot;&gt;Label studio.&lt;/a&gt;” Software. GitHub repository. 2020.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Object discovery&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Hénaff, Olivier J., Skanda Koppula, Evan Shelhamer, Daniel Zoran, Andrew Jaegle, Andrew Zisserman, João Carreira, and Relja Arandjelović. “&lt;a href=&quot;https://arxiv.org/pdf/2203.08777&quot;&gt;Object discovery and representation networks&lt;/a&gt;.” European conference on computer vision, pp.123-143. (2022)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: www.layout-parser.github.io&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_15.png" /><media:content medium="image" url="/assets/blogs/lecture_15.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Topic and Sentiment Classification</title><link href="/intro/2023/03/22/lecture14.html" rel="alternate" type="text/html" title="Topic and Sentiment Classification" /><published>2023-03-22T00:00:00+00:00</published><updated>2023-03-22T00:00:00+00:00</updated><id>/intro/2023/03/22/lecture14</id><content type="html" xml:base="/intro/2023/03/22/lecture14.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the fourteenth lecture in the course: “Topic and Sentiment Classification.”&lt;/p&gt;
+
+&lt;p&gt;Classifying Text is key to several social science applications. This lecture covers two key applications of text classification: topic and sentiment classification.&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+
+&lt;p&gt;https://youtu.be/-oh8sWHMm8Q&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/s/5uuci8r86dlyofd/lecture_text_classification.pdf?dl=0&quot;&gt;Lecture notes&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-14-topic-and-sentiment-classification&quot;&gt;References Cited in Lecture 14: Topic and Sentiment Classification&lt;/h2&gt;
+
+&lt;p&gt;Yin, Wenpeng, Jamaal Hay, and Dan Roth. “&lt;a href=&quot;https://arxiv.org/pdf/1909.00161&quot;&gt;Benchmarking zero-shot text classification: Datasets, evaluation and entailment approach&lt;/a&gt;.” arXiv preprint arXiv:1909.00161 (2019). https://github.com/neuml/txtai, 2020.&lt;/p&gt;
+
+&lt;p&gt;Schick, Timo, and Hinrich Schütze. “&lt;a href=&quot;https://arxiv.org/pdf/2001.07676.pdf%EF%BC%89&quot;&gt;Exploiting cloze questions for few-shot text classification and natural language inference.&lt;/a&gt;” arXiv preprint arXiv:2001.07676 (2020).&lt;/p&gt;
+
+&lt;p&gt;Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. “&lt;a href=&quot;https://arxiv.org/pdf/1602.04938.pdf?&quot;&gt;“Why should i trust you?” Explaining the predictions of any classifier&lt;/a&gt;.” In Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining, pp. 1135-1144. 2016.&lt;/p&gt;
+
+&lt;p&gt;Munikar, Manish, Sushil Shakya, and Aakash Shrestha. “&lt;a href=&quot;https://arxiv.org/pdf/1910.03474&quot;&gt;Fine-grained sentiment classification using BERT.&lt;/a&gt;” In 2019 Artificial Intelligence for Transforming Business and Society (AITB), vol. 1, pp. 1-5. IEEE, 2019.&lt;/p&gt;
+
+&lt;p&gt;Hewitt, John, and Christopher D. Manning. “&lt;a href=&quot;https://aclanthology.org/N19-1419.pdf&quot;&gt;A structural probe for finding syntax in word representations.&lt;/a&gt;” In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), pp. 4129-4138. 2019.&lt;/p&gt;
+
+&lt;p&gt;Han, Jiyoung, Youngin Lee, Junbum Lee, and Meeyoung Cha. “&lt;a href=&quot;https://aclanthology.org/D19-5548.pdf&quot;&gt;The fallacy of echo chambers: Analyzing the political slants of user-generated news comments in Korean media.&lt;/a&gt;” In Proceedings of the 5th Workshop on Noisy User-generated Text (W-NUT 2019), pp. 370-374. 2019.&lt;/p&gt;
+
+&lt;p&gt;Schiller, Benjamin, Johannes Daxenberger, and Iryna Gurevych. “&lt;a href=&quot;https://link.springer.com/article/10.1007/s13218-021-00714-w&quot;&gt;Stance detection benchmark: How robust is your stance detection?&lt;/a&gt;” KI-Künstliche Intelligenz 35, no. 3 (2021): 329-341.&lt;/p&gt;
+
+&lt;p&gt;Glandt, Kyle, Sarthak Khanal, Yingjie Li, Doina Caragea, and Cornelia Caragea. “&lt;a href=&quot;https://par.nsf.gov/servlets/purl/10308843&quot;&gt;Stance detection in COVID-19 tweets.&lt;/a&gt;” In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers), pp. 1596-1611. 2021.&lt;/p&gt;
+
+&lt;p&gt;Grootendorst, Maarten. “&lt;a href=&quot;https://arxiv.org/pdf/2203.05794&quot;&gt;BERTopic: Neural topic modeling with a class-based TF-IDF procedure.&lt;/a&gt;” arXiv preprint arXiv:2203.05794 (2022).&lt;/p&gt;
+
+&lt;p&gt;Lin, Yuxiao, Yuxian Meng, Xiaofei Sun, Qinghong Han, Kun Kuang, Jiwei Li, and Fei Wu. “&lt;a href=&quot;https://arxiv.org/pdf/2105.05727&quot;&gt;Bertgcn: Transductive text classification by combining gcn and bert.&lt;/a&gt;” arXiv preprint arXiv:2105.05727 (2021).&lt;/p&gt;
+
+&lt;h2 id=&quot;other-resources&quot;&gt;Other Resources&lt;/h2&gt;
+
+&lt;p&gt;The Illustrated Bert: https://jalammar.github.io/illustrated-bert/&lt;/p&gt;
+
+&lt;p&gt;Joe Davison, &lt;a href=&quot;https://joeddav.github.io/blog/2020/05/29/ZSL.html&quot;&gt;Zero Shot Learning in Modern NLP&lt;/a&gt;”, 2020.&lt;/p&gt;
+
+&lt;p&gt;Huggingface. “&lt;a href=&quot;https://discuss.huggingface.co/t/new-pipeline-for-zero-shot-text-classification/681&quot;&gt;New Pipeline for zero-shot text classification&lt;/a&gt;” , 2020.&lt;/p&gt;
+
+&lt;p&gt;TLDRstory: https://github.com/neuml/tldrstory&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: https://prateekvjoshi.com/2013/06/06/what-is-k-means-clustering/&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_14.jpg" /><media:content medium="image" url="/assets/blogs/lecture_14.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Entity Linking</title><link href="/intro/2023/03/21/lecture13.html" rel="alternate" type="text/html" title="Entity Linking" /><published>2023-03-21T00:00:00+00:00</published><updated>2023-03-21T00:00:00+00:00</updated><id>/intro/2023/03/21/lecture13</id><content type="html" xml:base="/intro/2023/03/21/lecture13.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the thirteenth lecture in the course: “Named Entity Recognition and Entity Disambiguation.”&lt;/p&gt;
+
+&lt;p&gt;Recognizing named entities in text and either associating them with a knowledgebase (entity disambiguation) or clustering mentions of the same entity (entity coreference resolution) has a variety of downstream application&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Named Entity Recognition&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=OZ4C-YQw4wQ&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/OZ4C-YQw4wQ/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Entity Disambiguation&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=SzTmbR78AF0&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/SzTmbR78AF0/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- [Lecture notes](https://www.dropbox.com/s/oehhzqib5giwv5i/lecture_sts.pdf?dl=0) --&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-11-semantic-and-syntactic-similarity&quot;&gt;References Cited in Lecture 11: Semantic and Syntactic Similarity&lt;/h2&gt;
+
+&lt;p&gt;Wu, Ledell, Fabio Petroni, Martin Josifoski, Sebastian Riedel, and Luke Zettlemoyer. “&lt;a href=&quot;https://arxiv.org/pdf/1911.03814.pdf?fbclid=IwAR3z8-1qEsoJ6h8k3R6Q5SnSN80AlHrenUmEOYAsDfqFwqels0BZc9qmNME&amp;amp;ref=https://githubhelp.com&quot;&gt;Scalable zero-shot entity linking with dense entity retrieval&lt;/a&gt;.” arXiv preprint arXiv:1911.03814 (2019).&lt;/p&gt;
+
+&lt;p&gt;Yamada, Ikuya, Koki Washio, Hiroyuki Shindo, and Yuji Matsumoto. “&lt;a href=&quot;https://aclanthology.org/2022.naacl-main.238.pdf&quot;&gt;Global entity disambiguation with BERT&lt;/a&gt;.” In Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 3264-3271. 2022.&lt;/p&gt;
+
+&lt;p&gt;De Cao, Nicola, Gautier Izacard, Sebastian Riedel, and Fabio Petroni. “&lt;a href=&quot;https://arxiv.org/pdf/2010.00904&quot;&gt;Autoregressive entity retrieval&lt;/a&gt;.” arXiv preprint arXiv:2010.00904 (2020).&lt;/p&gt;
+
+&lt;p&gt;Kassner, Nora, Fabio Petroni, Mikhail Plekhanov, Sebastian Riedel, and Nicola Cancedda. “&lt;a href=&quot;https://arxiv.org/pdf/2205.12570&quot;&gt;EDIN: An End-to-end Benchmark and Pipeline for Unknown Entity Discovery and Indexing&lt;/a&gt;.” arXiv preprint arXiv:2205.12570 (2022).&lt;/p&gt;
+
+&lt;p&gt;Zhang, Wenzheng, Wenyue Hua, and Karl Stratos. “&lt;a href=&quot;&quot;&gt;EntQA: Entity linking as question answering&lt;/a&gt;.” arXiv preprint arXiv:2110.02369 (2021).&lt;/p&gt;
+
+&lt;p&gt;Hsu, Benjamin, and Graham Horwood. “&lt;a href=&quot;https://arxiv.org/pdf/2110.02369&quot;&gt;Contrastive Representation Learning for Cross- Document Coreference Resolution of Events and Entities&lt;/a&gt;.” arXiv preprint arXiv:2205.11438 (2022).&lt;/p&gt;
+
+&lt;p&gt;Logan IV, Robert L., Andrew McCallum, Sameer Singh, and Dan Bikel. “&lt;a href=&quot;https://aclanthology.org/2021.acl-long.364.pdf&quot;&gt;Benchmarking scalable methods for streaming cross document entity coreference&lt;/a&gt;.” In Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers), pp. 4717-4731. 2021.&lt;/p&gt;
+
+&lt;p&gt;Spitkovsky, Valentin I., and Angel X. Chang. “&lt;a href=&quot;https://research.google/pubs/pub38098.pdf&quot;&gt;A cross-lingual dictionary for english wikipedia concepts&lt;/a&gt;.” In Proceedings of the Eighth International Conference on Language Resources and Evaluation, pp. 3168–3175. (2012).&lt;/p&gt;
+
+&lt;p&gt;Stoffalette João, Renato. “&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7148058/&quot;&gt;On the Temporality of Priors in Entity Linking&lt;/a&gt;.” In European Conference on Information Retrieval, pp. 375-382. Springer, Cham, 2020.&lt;/p&gt;
+
+&lt;p&gt;Adjali, Omar, Romaric Besançon, Olivier Ferret, Hervé Le Borgne, and Brigitte Grau. “&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7148241/&quot;&gt;Multimodal entity linking for tweets.&lt;/a&gt;” In European Conference on Information Retrieval, pp. 463-478. Springer, Cham, 2020.&lt;/p&gt;
+
+&lt;p&gt;Mishra, Shubhanshu, Aman Saini, Raheleh Makki, Sneha Mehta, Aria Haghighi, and Ali Mollahosseini. “&lt;a href=&quot;https://arxiv.org/pdf/2210.08129&quot;&gt;TweetNERD–End to End Entity Linking Benchmark for Tweets.&lt;/a&gt;” arXiv preprint arXiv:2210.08129 (2022).&lt;/p&gt;
+
+&lt;p&gt;Binette, Olivier, and Rebecca C. Steorts. “&lt;a href=&quot;https://www.science.org/doi/pdf/10.1126/sciadv.abi8021&quot;&gt;(Almost) all of entity resolution.&lt;/a&gt;” Science Advances 8, no. 12 (2022): eabi8021.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: Spaniol, Marc. (2014). A Framework for Temporal Web Analytics.&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_13.png" /><media:content medium="image" url="/assets/blogs/lecture_13.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Text Retrieval</title><link href="/intro/2023/03/20/lecture12.html" rel="alternate" type="text/html" title="Text Retrieval" /><published>2023-03-20T00:00:00+00:00</published><updated>2023-03-20T00:00:00+00:00</updated><id>/intro/2023/03/20/lecture12</id><content type="html" xml:base="/intro/2023/03/20/lecture12.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the twelth lecture in the course: “Text Retrieval.”&lt;/p&gt;
+
+&lt;p&gt;Retrieval – locating relevant information in a large knowledgebase - is also core to a variety of applications, relating closely to semantic similarity (previous lecture) and entity disambiguation (following lecture). Knowledge intensive NLP is also covered.&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Intro and Question Answering&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=iprWyzVoQQY&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/iprWyzVoQQY/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Retrieval and Open Domain Question Answering&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=-FbKAMaP0sM&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/-FbKAMaP0sM/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Retrieval Augmented Language Modeling&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=XC4eFiIMOmY&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/XC4eFiIMOmY/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/s/d60x6oswis5xjnm/lecture_retrieval.pdf?dl=0&quot;&gt;Lecture notes&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-12-text-retrieval&quot;&gt;References Cited in Lecture 12: Text Retrieval&lt;/h2&gt;
+
+&lt;h4 id=&quot;academic-papers&quot;&gt;Academic Papers&lt;/h4&gt;
+
+&lt;p&gt;Karpukhin, Vladimir, Barlas Oğuz, Sewon Min, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. “&lt;a href=&quot;https://arxiv.org/pdf/2004.04906&quot;&gt;Dense passage retrieval for open-domain question answering&lt;/a&gt;.” arXiv preprint arXiv:2004.04906 (2020).&lt;/p&gt;
+
+&lt;p&gt;Khattab, Omar, and Matei Zaharia. “&lt;a href=&quot;https://dl.acm.org/doi/pdf/10.1145/3397271.3401075&quot;&gt;Colbert: Efficient and effective passage search via contextualized late interaction over bert.&lt;/a&gt;” In Proceedings of the 43rd International ACM SIGIR conference on research and development in Information Retrieval, pp. 39-48. 2020.&lt;/p&gt;
+
+&lt;p&gt;Santhanam, Keshav, Omar Khattab, Jon Saad-Falcon, Christopher Potts, and Matei Zaharia. “&lt;a href=&quot;https://arxiv.org/pdf/2112.01488&quot;&gt;Colbertv2: Effective and efficient retrieval via lightweight late interaction.&lt;/a&gt;” arXiv preprint arXiv:2112.01488 (2021).&lt;/p&gt;
+
+&lt;p&gt;Luan, Yi, Jacob Eisenstein, Kristina Toutanova, and Michael Collins. “&lt;a href=&quot;https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00369/100684&quot;&gt;Sparse, dense, and attentional representations for text retrieval.&lt;/a&gt;” Transactions of the Association for Computational Linguistics 9 (2021): 329-345.&lt;/p&gt;
+
+&lt;p&gt;Gao, Luyu, Xueguang Ma, Jimmy Lin, and Jamie Callan. “&lt;a href=&quot;https://arxiv.org/pdf/2212.10496&quot;&gt;Precise Zero-Shot Dense Retrieval without Relevance Labels.&lt;/a&gt;” arXiv preprint arXiv:2212.10496 (2022).&lt;/p&gt;
+
+&lt;p&gt;Tam, Weng Lam, Xiao Liu, Kaixuan Ji, Lilong Xue, Xingjian Zhang, Yuxiao Dong, Jiahua Liu, Maodi Hu, and Jie Tang. “&lt;a href=&quot;https://arxiv.org/pdf/2207.07087&quot;&gt;Parameter-efficient prompt tuning makes generalized and calibrated neural text retrievers.&lt;/a&gt;” arXiv preprint arXiv:2207.07087 (2022).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Self-supervised training&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Ram, Ori, Gal Shachaf, Omer Levy, Jonathan Berant, and Amir Globerson. “&lt;a href=&quot;https://arxiv.org/pdf/2112.07708&quot;&gt;Learning to retrieve passages without supervision.&lt;/a&gt;” arXiv preprint arXiv:2112.07708 (2021).&lt;/p&gt;
+
+&lt;p&gt;Sachan, Devendra Singh, Mike Lewis, Mandar Joshi, Armen Aghajanyan, Wen-tau Yih, Joelle Pineau, and Luke Zettlemoyer. “&lt;a href=&quot;&quot;&gt;Improving Passage Retrieval with Zero-Shot Question Generation.&lt;/a&gt;” arXiv preprint arXiv:2204.07496 (2022).&lt;/p&gt;
+
+&lt;p&gt;Sachan, Devendra Singh, Mike Lewis, Dani Yogatama, Luke Zettlemoyer, Joelle Pineau, and Manzil Zaheer. “&lt;a href=&quot;https://arxiv.org/pdf/2204.07496&quot;&gt;Questions are all you need to train a dense passage retriever.&lt;/a&gt;” arXiv preprint arXiv:2206.10658 (2022).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Knowledge Intensive NLP&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Lewis, Patrick, Ethan Perez, Aleksandara Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler et al. “&lt;a href=&quot;https://proceedings.neurips.cc/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf&quot;&gt;Retrieval-augmented generation for knowledge-intensive nlp tasks.&lt;/a&gt;” Advances in Neural Information Processing Systems 33 (2020): 9459-9474.&lt;/p&gt;
+
+&lt;p&gt;Borgeaud, Sebastian, Arthur Mensch, Jordan Hoffmann, Trevor Cai, Eliza Rutherford, Katie Millican, George Bm Van Den Driessche et al. “&lt;a href=&quot;https://proceedings.mlr.press/v162/borgeaud22a/borgeaud22a.pdf&quot;&gt;Improving language models by retrieving from trillions of tokens.&lt;/a&gt;” In International conference on machine learning, pp. 2206-2240. PMLR, 2022.&lt;/p&gt;
+
+&lt;h4 id=&quot;other-resources&quot;&gt;Other Resources&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/facebookresearch/DPR&quot;&gt;DPR Codebase&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ai.facebook.com/blog/-advances-toward-ubiquitous-neural-information-retrieval&quot;&gt;Advances towards ubiquitous neural information retrieval&lt;/a&gt; (Meta AI blog post)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://mitchgordon.me/ml/2022/07/01/retro-is-blazing.html&quot;&gt;RETRO Blog Post&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: Chan, D., Fisch, A., Weston, J., Bordes, A. (2017). Reading Wikipedia to Answer Open-Domain Questions.&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_12.png" /><media:content medium="image" url="/assets/blogs/lecture_12.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Semantic and Syntacting Similarity</title><link href="/intro/2023/03/02/lecture11.html" rel="alternate" type="text/html" title="Semantic and Syntacting Similarity" /><published>2023-03-02T00:00:00+00:00</published><updated>2023-03-02T00:00:00+00:00</updated><id>/intro/2023/03/02/lecture11</id><content type="html" xml:base="/intro/2023/03/02/lecture11.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the eleventh lecture in the course: “Semantic and Syntactic Similarity.”&lt;/p&gt;
+
+&lt;p&gt;Measuring textual similarity – either in terms of noisy duplicates or semantic similarity – is core to a variety of fascinating social science applications of NLP. We will also discuss bi-encoders and cross-encoders in depth.&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=FvK7xrucyu0&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/FvK7xrucyu0/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/s/oehhzqib5giwv5i/lecture_sts.pdf?dl=0&quot;&gt;Lecture notes&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-11-semantic-and-syntactic-similarity&quot;&gt;References Cited in Lecture 11: Semantic and Syntactic Similarity&lt;/h2&gt;
+
+&lt;p&gt;Reimers, Nils, and Iryna Gurevych. “&lt;a href=&quot;https://arxiv.org/pdf/1908.10084.pdf&quot;&gt;Sentence-bert: Sentence embeddings using siamese bert-networks.&lt;/a&gt;” arXiv preprint arXiv:1908.10084 (2019).&lt;/p&gt;
+
+&lt;p&gt;Johnson, Jeff, Matthijs Douze, and Hervé Jégou. “Billion-scale similarity search with gpus.” IEEE Transactions on Big Data 7, no. 3 (2019): 535-547. See also this &lt;a href=&quot;https://wangzwhu.github.io/home/file/acmmm-t-part3-ann.pdf&quot;&gt;slide deck&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Silcock, Emily, Luca D’Amico-Wong, Jinglin Yang, and Melissa Dell. “&lt;a href=&quot;https://scholar.harvard.edu/files/dell/files/iclr_samesource_revision_non_anonymous_1.pdf&quot;&gt;Noise-Robust De-Duplication at Scale&lt;/a&gt;”&lt;/p&gt;
+
+&lt;p&gt;David A Smith, Ryan Cordell, and Abby Mullen. &lt;a href=&quot;https://hollis.harvard.edu/permalink/f/1mdq5o5/TN_cdi_gale_infotracmisc_A438552874&quot;&gt;Computational methods for uncovering reprinted texts in antebellum newspapers&lt;/a&gt;. American Literary History, 27(3):E1–E15, 2015.&lt;/p&gt;
+
+&lt;h4 id=&quot;other-resources&quot;&gt;Other Resources&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.sbert.net/docs/package_reference/losses.html&quot;&gt;S-BERT Loss Functions&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.rapids.ai/api/cuml/stable/&quot;&gt;cuML documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: www.sbert.net&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_11.png" /><media:content medium="image" url="/assets/blogs/lecture_11.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Multimodal Learning</title><link href="/intro/2023/02/28/lecture10.html" rel="alternate" type="text/html" title="Multimodal Learning" /><published>2023-02-28T00:00:00+00:00</published><updated>2023-02-28T00:00:00+00:00</updated><id>/intro/2023/02/28/lecture10</id><content type="html" xml:base="/intro/2023/02/28/lecture10.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the tenth lecture in the course: “Multimodal Learning.”&lt;/p&gt;
+
+&lt;p&gt;Humans learn through multiple modalities, and combining modalities is also of relevance to a 
+variety of economic applications. This lecture focuses primarily on vision language models.&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=Ym8B2TvFlNQ&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/Ym8B2TvFlNQ/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/s/6ysmz113ulrdszj/lecture_multimodal.pdf?dl=0&quot;&gt;Lecture notes&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-9-multimodal-learning&quot;&gt;References Cited in Lecture 9: Multimodal Learning&lt;/h2&gt;
+
+&lt;p&gt;Goh, Gabriel, Nick Cammarata, Chelsea Voss, Shan Carter, Michael Petrov, Ludwig Schubert, Alec Radford, and Chris Olah. “&lt;a href=&quot;https://distill.pub/2021/multimodal-neurons/?utm_campaign=Dynamically%20Typed&amp;amp;utm_medium=email&amp;amp;utm_source=Revue%20newsletter&quot;&gt;Multimodal neurons in artificial neural networks.&lt;/a&gt;” Distill 6, no. 3 (2021): e30&lt;/p&gt;
+
+&lt;p&gt;Radford, Alec, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry et al. “&lt;a href=&quot;http://proceedings.mlr.press/v139/radford21a/radford21a.pdf&quot;&gt;Learning transferable visual models from natural language supervision.&lt;/a&gt;” International Conference on Machine Learning. PMLR, (2021).&lt;/p&gt;
+
+&lt;p&gt;Li, Liunian Harold, Mark Yatskar, Da Yin, Cho-Jui Hsieh, and Kai-Wei Chang. “&lt;a href=&quot;https://arxiv.org/pdf/1908.03557.pdf&amp;amp;quot&quot;&gt;VisualBERT: A simple and performant baseline for vision and language.&lt;/a&gt;” arXiv preprint arXiv:1908.03557 (2019).&lt;/p&gt;
+
+&lt;p&gt;Wang, Zirui, Jiahui Yu, Adams Wei Yu, Zihang Dai, Yulia Tsvetkov, and Yuan Cao. “&lt;a href=&quot;https://arxiv.org/pdf/2108.10904.pdf&quot;&gt;Simvlm: Simple visual language model pretraining with weak supervision.&lt;/a&gt;” arXiv preprint arXiv:2108.10904 (2021).&lt;/p&gt;
+
+&lt;p&gt;Tsimpoukelli, Maria, Jacob L. Menick, Serkan Cabi, S. M. Eslami, Oriol Vinyals, and Felix Hill. “&lt;a href=&quot;&quot;&gt;Multimodal few-shot learning with frozen language models.&lt;/a&gt;” Advances in Neural Information Processing Systems 34 (2021): 200-212.&lt;/p&gt;
+
+&lt;p&gt;Mokady, Ron, Amir Hertz, and Amit H. Bermano. “&lt;a href=&quot;https://proceedings.neurips.cc/paper/2021/file/01b7575c38dac42f3cfb7d500438b875-Paper.pdf&quot;&gt;Clipcap: Clip prefix for image captioning.&lt;/a&gt;” arXiv preprint arXiv:2111.09734 (2021).&lt;/p&gt;
+
+&lt;p&gt;Alayrac, Jean-Baptiste, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc et al. “&lt;a href=&quot;https://arxiv.org/pdf/2204.14198.pdf&quot;&gt;Flamingo: a visual language model for few-shot learning.&lt;/a&gt;” arXiv preprint arXiv:2204.14198 (2022).&lt;/p&gt;
+
+&lt;p&gt;Nagrani, Arsha, Shan Yang, Anurag Arnab, Aren Jansen, Cordelia Schmid, and Chen Sun. “&lt;a href=&quot;https://proceedings.neurips.cc/paper/2021/file/76ba9f564ebbc35b1014ac498fafadd0-Paper.pdf&quot;&gt;Attention bottlenecks for multimodal fusion.&lt;/a&gt;” Advances in Neural Information Processing Systems 34 (2021): 14200-14213. See also blog post &lt;a href=&quot;https://ai.googleblog.com/2022/03/multimodal-bottleneck-transformer-mbt.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Rust, Phillip, Jonas F. Lotz, Emanuele Bugliarello, Elizabeth Salesky, Miryam de Lhoneux, and Desmond Elliott. “&lt;a href=&quot;https://arxiv.org/pdf/2207.06991.pdf&quot;&gt;Language Modelling with Pixels.&lt;/a&gt;” arXiv preprint arXiv:2207.06991 (2022).&lt;/p&gt;
+
+&lt;h4 id=&quot;other-resources&quot;&gt;Other Resources&lt;/h4&gt;
+&lt;p&gt;Generalized Vision Language Models (a highly informative blog post overview) https://lilianweng.github.io/posts/2022-06-09-vlm/&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://openai.com/blog/clip/&quot;&gt;OpenAI blog about Clip&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/chrmanning/status/1572640802450604032?t=kWeOuXj7lk5kY-BTncSbyw&amp;amp;s=09&quot;&gt;Twitter thread by Christopher Manning&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: https://towardsdatascience.com/multimodal-deep-learning-ce7d1d994f4&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_10.png" /><media:content medium="image" url="/assets/blogs/lecture_10.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Prompt and Prefix Tuning</title><link href="/intro/2023/02/24/lecture9.html" rel="alternate" type="text/html" title="Prompt and Prefix Tuning" /><published>2023-02-24T00:00:00+00:00</published><updated>2023-02-24T00:00:00+00:00</updated><id>/intro/2023/02/24/lecture9</id><content type="html" xml:base="/intro/2023/02/24/lecture9.html">&lt;h2 id=&quot;topics&quot;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;This post covers the ninth lecture in the course: “Prompt and Prefix Tuning.”&lt;/p&gt;
+
+&lt;p&gt;Prompt tuning, the idea of framing everything as a text prediction task using an enormous, frozen LLM (i.e. GPT3) has gained a lot of popularity in recent years. This lecture covers both discrete prompt tuning and continuous prompt tuning, also called prefix tuning.&lt;/p&gt;
+
+&lt;h2 id=&quot;lecture-video&quot;&gt;Lecture Video&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=3vb2I44zKWI&amp;amp;ab_channel=MelissaDell&quot; target=&quot;_blank&quot;&gt;
+ &lt;img src=&quot;http://img.youtube.com/vi/3vb2I44zKWI/mqdefault.jpg&quot; alt=&quot;Watch the video&quot; width=&quot;560&quot; height=&quot;315&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/s/umbc2xwsqaxeq0n/lecture_prompting.pdf?dl=0&quot;&gt;Lecture notes&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references-cited-in-lecture-8-contrastive-learning&quot;&gt;References Cited in Lecture 8: Contrastive Learning&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Prompting and Prefix Tuning&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Liu, Pengfei, Weizhe Yuan, Jinlan Fu, Zhengbao Jiang, Hiroaki Hayashi, and Graham Neubig. “&lt;a href=&quot;https://dl.acm.org/doi/pdf/10.1145/3560815&quot;&gt;Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing.&lt;/a&gt;” ACM Computing Surveys 55, no. 9 (2023): 1-35.&lt;/p&gt;
+
+&lt;p&gt;Wei, Jason, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed Chi, Quoc Le, and Denny Zhou. “&lt;a href=&quot;https://arxiv.org/pdf/2201.11903.pdf?trk=public_post_comment-text&quot;&gt;Chain of thought prompting elicits reasoning in large language models.&lt;/a&gt;” arXiv preprint arXiv:2201.11903 (2022).&lt;/p&gt;
+
+&lt;p&gt;Khattab, Omar, Keshav Santhanam, Xiang Lisa Li, David Hall, Percy Liang, Christopher Potts, and Matei Zaharia. “&lt;a href=&quot;https://arxiv.org/pdf/2212.14024.pdf&quot;&gt;Demonstrate-Search-Predict: Composing retrieval and language models for knowledge-intensive NLP.&lt;/a&gt;” arXiv preprint arXiv:2212.14024 (2022).&lt;/p&gt;
+
+&lt;p&gt;Li, Xiang Lisa, and Percy Liang. “&lt;a href=&quot;https://arxiv.org/pdf/2101.00190.pdf&quot;&gt;Prefix-tuning: Optimizing continuous prompts for generation.&lt;/a&gt;” arXiv preprint arXiv:2101.00190 (2021).&lt;/p&gt;
+
+&lt;p&gt;Lester, Brian, Rami Al-Rfou, and Noah Constant. “&lt;a href=&quot;https://arxiv.org/pdf/2104.08691.pdf&quot;&gt;The power of scale for parameter-efficient prompt tuning.&lt;/a&gt;” arXiv preprint arXiv:2104.08691 (2021).&lt;/p&gt;
+
+&lt;h4 id=&quot;other-resources&quot;&gt;Other Resources&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Image Source&lt;/em&gt;: https://thumtblog.github.io/2022/04/05/robust-prefix-tuning/&lt;/p&gt;</content><author><name></name></author><category term="intro" /><category term="deep learning" /><summary type="html">Topics</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/blogs/lecture_9.png" /><media:content medium="image" url="/assets/blogs/lecture_9.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

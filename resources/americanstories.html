@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | American Stories</title>
+    <meta name="description" content="A Billion Scale Dataset of Structured Texts and Layouts from U.S. Public Domain Newspapers">
+
+    <meta property="og:title" content="American Stories">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/resources/americanstories">
+    <meta property="og:description" content="A Billion Scale Dataset of Structured Texts and Layouts from U.S. Public Domain Newspapers">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/resources/americanstories">
+    <meta name="twitter:title" content="American Stories">
+    <meta name="twitter:description" content="A Billion Scale Dataset of Structured Texts and Layouts from U.S. Public Domain Newspapers">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/resources/americanstories">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>American Stories</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        December 13, 2024
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        2 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/datasets" class="article-list-item">
+            Datasets
+        </a>
+        
+        
+    </span>
+    
+    <span class="field">
+        
+    </span>
+</div>
+        </header>
+        <p>Introducing American Stories, a new billion-scale dataset of structured texts/layouts from public domain newspapers (1780-1960) that we’ve built using our deep learning packages.</p>
+
+<p><a href="https://huggingface.co/datasets/dell-research-harvard/AmericanStories">Dataset</a></p>
+
+<p><a href="https://arxiv.org/abs/2308.12477">Paper</a></p>
+
+<p><a href="https://github.com/dell-research-harvard/americanstories">Github</a></p>
+
+<p>We detect 1.14 billion individual content regions in around 20M newspaper scans from Library of Congress’s Chronicling America collection. Headlines, articles, bylines, and captions are custom-OCRed. The dataset contains 438 million structured article texts.</p>
+
+<p><img src="/assets/projects/as_layouts.png" alt="" /></p>
+
+<p>It covers all 50 states, with content concentrated pre-1920.</p>
+
+<p><img src="/assets/projects/ca_map.png" alt="" /></p>
+
+<p>The pipeline is highly efficient to deploy and has been <a href="https://github.com/dell-research-harvard/americanstories">open-sourced</a>. We’ve also created open-source packages – LayoutParser and EfficientOCR – to help researchers develop similar pipelines for their own document collections.</p>
+
+<p>The existing Chronicling America OCR from Library of Congress doesn’t recognize layouts, scrambling articles, headlines, ads, etc. American Stories significantly improves accuracy on text classification (allowing it at the article level) and on detecting reproduced content.</p>
+
+<p><img src="/assets/projects/as_results.png" alt="" /></p>
+
+<p>Structured article texts also support analyses that are impossible with existing page level texts. We detect the biggest stories of the year, using a custom trained large language model to embed texts and then applying clustering to group articles into coherent stories.</p>
+
+<p><img src="/assets/projects/stories.png" alt="" /></p>
+
+<p>Another distinguishing feature of American Stories: after detecting text regions (articles, headlines, captions, bylines), we classify whether they are legible.</p>
+
+<p><img src="/assets/projects/illeg_ex.png" alt="" /></p>
+
+<p>This is important because there are lots of illegible scans, with illegibility varying across space and time. Illegibility could bias analyses if researchers include illegible content in the denominator when measuring the presence of different terms or textual features.</p>
+
+<p><img src="/assets/projects/illeg_map.png" alt="" /></p>
+
+<p>Our texts are high quality. This figure compares the non-word rate in our custom OCR to the Library of Congress OCR. Differences are due to a combination of our high-quality custom-OCR and filtering of illegible content and ads before OCRing.</p>
+
+<p><img src="/assets/projects/nwr_compare.png" alt="" /></p>
+
+<p>Interested in a later period? See our massive scale <a href="https://huggingface.co/datasets/dell-research-harvard/headlines-semantic-similarity">headlines dataset</a> (1920s-80s) and <a href="https://arxiv.org/pdf/2306.17810.pdf">paper</a>, consisting of locally written headlines from news wire articles</p>
+
+<p><img src="/assets/projects/headlines_main.png" alt="" /></p>
+
+<p>We’re pretty pumped to have a billion+ observations in a historical dataset description table.</p>
+
+<p><img src="/assets/projects/as_describe.png" alt="" /></p>
+
+<p>If you think <a href="https://huggingface.co/datasets/dell-research-harvard/AmericanStories">American Stories</a> may be useful for you, please like or download. It is challenging to fund dataset/open-source projects, and we need to show that people find our work useful so we can do more!</p>
+
+<p>Funding: Harvard Data Science Initiative, Harvard Catalyst, Harvard Griffin Fund, and MS Azure</p>
+
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

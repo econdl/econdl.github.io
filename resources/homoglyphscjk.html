@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | HomoglyphsCJK</title>
+    <meta name="description" content="A Python Package for Deep Learning-Assisted String Matching">
+
+    <meta property="og:title" content="HomoglyphsCJK">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/resources/homoglyphscjk">
+    <meta property="og:description" content="A Python Package for Deep Learning-Assisted String Matching">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/resources/homoglyphscjk">
+    <meta name="twitter:title" content="HomoglyphsCJK">
+    <meta name="twitter:description" content="A Python Package for Deep Learning-Assisted String Matching">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/resources/homoglyphscjk">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>HomoglyphsCJK</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        December 13, 2024
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        1 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/software" class="article-list-item">
+            Software
+        </a>
+        
+        
+    </span>
+    
+    <span class="field">
+        
+    </span>
+</div>
+        </header>
+        <p>Introducing HomoglyphsCJK, an easy-to-use python package for deep learning-assisted string matching. HomoglyphsCJK currently supports Simplified and Traditional Chinese, Korean, and Japanese.</p>
+
+<p><a href="https://pypi.org/project/HomoglyphsCJK/">Package</a></p>
+
+<p><a href="https://arxiv.org/abs/2305.14672">Paper</a></p>
+
+<p>The basic idea is to use vision transformers – a deep neural network – to quantify character visual similarity. The model is contrastively trained to learn a metric space where different augmentations of the same character (e.g., from different fonts) are represented nearby. This figure illustrates examples of the same character rendered with different fonts. Augmentations of these comprise positive examples in the homoglyphs training data.</p>
+
+<p><img src="/assets/projects/Homo_font.png" alt="" /></p>
+
+<p>The Homoglyphs model can be used to measure the similarity <em>between</em> different characters, which we show can significantly improve string matching accuracy for OCR’ed databases. This figure illustrates the five nearest neighbors in the HOMOGLYPH embedding space for representative characters.</p>
+
+<p><img src="/assets/projects/Homo_ex.png" alt="" /></p>
+
+<p>When homoglyphic matching fails, it is often because OCR has destroyed too much information for string matching to be a realistic solution.</p>
+
+<p><img src="/assets/projects/Homo_errors.png" alt="" /></p>
+
+<p>Our method for quantifying character similarity is purely self-supervised (it doesn’t require human-created labels), so it can be cheaply extended to any character set. Homoglyphs for ancient Chinese characters from over 3,000 years ago capture related abstract concepts noted in the archaeological literature. This figure shows homoglyph sets constructed for ancient Chinese, with the descendent modern Chinese character and a description of the ancient character’s meaning (which can differ from the descendent’s meaning).</p>
+
+<p><img src="/assets/projects/homo_ancient.png" alt="" /></p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Publication</title>
+    <meta name="description" content="">
+
+    <meta property="og:title" content="Publication">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/projects.html">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/projects.html">
+    <meta name="twitter:title" content="Publication">
+    <meta name="twitter:description" content="">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/projects.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <div class="container">
+  <script>
+    document.addEventListener("DOMContentLoaded", () =>{
+
+        const bulmaCollapsibleInstances = bulmaCollapsible.attach('.is-collapsible');
+
+        // Loop into instances
+        bulmaCollapsibleInstances.forEach(bulmaCollapsibleInstance => {
+            // Check if current state is collapsed or not
+            console.log(bulmaCollapsibleInstance.collapsed());
+        });
+
+    });
+
+    function changeIcon(ele) {
+        x=ele.getElementsByTagName('svg')[0];
+        x.classList.toggle("fa-caret-down");
+        x.classList.toggle("fa-caret-right");
+    }
+</script>
+
+<h3 class="title">Publications</h3>
+<div class="columns">
+    <!-- <div class="column is-2 is-hidden-mobile">
+        <aside class="menu">
+    <p class="menu-label">
+        all projects
+    </p>
+        
+    
+        <ul class="menu-list">
+            <li><a href="#Efficiently Digitizing World Knowledge">Efficiently Digitizing World Knowledge</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Quantifying Character Similarity with Vision Transformers">Quantifying Character Similarity with Vision Transformers</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Headlines">Headlines</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#American Stories">American Stories</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#NEWS-COPY">NEWS-COPY</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#OLALA">OLALA</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Layout Parser">Layout Parser</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#HJDataset">HJDataset</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#The Dutch Cultivation System">The Dutch Cultivation System</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Information Extraction with Complex Layouts">Information Extraction with Complex Layouts</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Trade-Induced Worker Displacement">Trade-Induced Worker Displacement</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Nation Building through Foreign Intervention">Nation Building through Foreign Intervention</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#The Historical State in Vietnam">The Historical State in Vietnam</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Trafficking Networks and the Mexican Drug War">Trafficking Networks and the Mexican Drug War</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#What Do We Learn from the Weather?">What Do We Learn from the Weather?</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Temperature Shocks and Economic Growth">Temperature Shocks and Economic Growth</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Productivity Differences">Productivity Differences</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Peru's Mining Mita">Peru's Mining Mita</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Tempearture and Income">Tempearture and Income</a></li>
+        </ul>
+    
+</aside>
+    </div> -->
+    <div class="column is-12">
+            
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/EffOCR_Package.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/388effocrpackage">Efficiently Digitizing World Knowledge</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">OCR</span>
+                        
+                        <span class="tag is-light"> open-source software</span>
+                        
+
+                        <p><p>Tom Bryan, Jacob Carlson, Abhishek Arora, and Melissa Dell. “EfficientOCR: An Extensible, Open-Source Package for Efficiently Digitizing World Knowledge”,<em>Empirical Methods on Natural Language Processing</em> (Systems Demonstrations Track), forthcoming <a href="https://arxiv.org/abs/2310.10050">Paper</a>.</p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/ancient.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/389homoglyphs">Quantifying Character Similarity with Vision Transformers</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">vision transformers</span>
+                        
+                        <span class="tag is-light"> record linkage</span>
+                        
+                        <span class="tag is-light"> contrastive learning</span>
+                        
+
+                        <p><p>Xinmei Yang, Abhishek Arora, Shao-Yu Jheng, and Melissa Dell. “Quantifying Character Similarity with Vision Transformers,” <a href="https://scholar.harvard.edu/sites/scholar.harvard.edu/files/dell/files/homoglyphs.pdf">Paper</a>. Forthcoming <em>Empirical Methods on Natural Language Processing.</em></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/SemanticSimilarity.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/392semantic">Headlines</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">semantic similarity</span>
+                        
+                        <span class="tag is-light"> contrastive learning</span>
+                        
+
+                        <p><p>Emily Silcock and Melissa Dell. “A Massive Scale Semantic Similarity Dataset of Historical English,” NeurIPS (Benchmarks and Datasets Track), forthcoming <a href="https://arxiv.org/pdf/2306.17810.pdf">Paper</a>, <a href="https://huggingface.co/datasets/dell-research-harvard/headlines-semantic-similarity">Dataset</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/as_layouts.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/393as">American Stories</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">historical newspapers</span>
+                        
+                        <span class="tag is-light"> layout detection</span>
+                        
+                        <span class="tag is-light"> OCR</span>
+                        
+
+                        <p><p>Melissa Dell, Jacob Carlson, Tom Bryan, Emily Silcock, Abhishek Arora, Zejiang Shen, Luca D’Amico-Wong, Quan Le, Pablo Querubin, Leander Heldring. “American Stories: A Large-Scale Structured Text Dataset of Historical U.S. Newspapers” NeurIPS (Benchmarks and Datasets Track), forthcoming <a href="https://arxiv.org/pdf/2308.12477.pdf">Paper</a>, <a href="https://huggingface.co/datasets/dell-research-harvard/AmericanStories">Dataset</a>, <a href="https://github.com/dell-research-harvard/americanstories">Github</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/dup.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/394dups">NEWS-COPY</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">text analysis</span>
+                        
+                        <span class="tag is-light"> contrastive learning</span>
+                        
+                        <span class="tag is-light"> massive corpora</span>
+                        
+
+                        <p><p>Silcock, Emily, Luca D’Amico-Wong, Jinglin Yang, and Melissa Dell. “Noise-Robust De-Duplication at Scale”, <em>International Conference on Learning Representations</em>, vol. 332 (2023). <a href="https://scholar.harvard.edu/files/dell/files/iclr_samesource_revision_non_anonymous_1.pdf">Paper</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/olala.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/395olala">OLALA</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">document image analysis</span>
+                        
+                        <span class="tag is-light"> annotation</span>
+                        
+                        <span class="tag is-light"> active learning</span>
+                        
+
+                        <p><p>Shen, Zejiang, Jian Zhao, Yaoliang Yu, Weining Li, and Melissa Dell. “OLALA: Object-Level Active Learning Based Layout Annotation.” <em>EMNLP Computational Social Science Workshop</em> (2023). <a href="https://scholar.harvard.edu/files/dell/files/nlpcss_1.pdf">Paper</a>; <a href="https://github.com/lolipopshock/detectron2_al">Code</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/LayoutParserFigure.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/398layoutparser">Layout Parser</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">object detection</span>
+                        
+                        <span class="tag is-light"> active learning</span>
+                        
+                        <span class="tag is-light"> OCR</span>
+                        
+                        <span class="tag is-light"> document image analysis</span>
+                        
+
+                        <p><p>Shen, Zejiang, Ruochen Zhang, Melissa Dell, Benjamin Lee, Jacob Carlson, and Weining Li. “LayoutParser: A Unified Toolkit for Deep Learning Based Document Image Analysis.” <em>International Conference on Document Analysis and Recognition</em> (2021), 131-146. <a href="https://arxiv.org/pdf/2103.15348.pdf">Article</a> <a href="https://github.com/Layout-Parser/layout-parser">Github</a> <a href="https://layout-parser.github.io/">Website</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/hjdata.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/399hjdataset">HJDataset</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">object detection</span>
+                        
+                        <span class="tag is-light"> document image analysis</span>
+                        
+
+                        <p><p>Shen, Zejiang, Kaixuan Zhang, and Melissa Dell. “A Large Dataset of Historical Japanese Documents with Complex Layouts.” <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops</em> (2020): 548-559. <a href="https://arxiv.org/pdf/2004.08686.pdf">Article</a>; <a href="https://dell-research-harvard.github.io/HJDataset/">Website</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/cultivation.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/489cultivation">The Dutch Cultivation System</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">long-run development</span>
+                        
+                        <span class="tag is-light"> colonialism</span>
+                        
+                        <span class="tag is-light"> economic organization</span>
+                        
+
+                        <p><p>Dell, Melissa, and Benjamin Olken. “The Development Effects of the Extractive Colonial Economy: The Dutch Cultivation System in Java.” <em>Review of Economic Studies</em> 87, no. 1 (2020): 164-203. <a href="https://scholar.harvard.edu/files/CSpaper.pdf">Paper</a>; <a href="https://scholar.harvard.edu/files/180918appendix.pdf">Appendix</a>; <a href="https://www.dropbox.com/sh/xpfzjx5pzfzgktv/AABDJli9oT88-fTEscyVIdfKa?dl=0">Data Files</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/extract.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/490extract">Information Extraction with Complex Layouts</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">layout analysis</span>
+                        
+                        <span class="tag is-light"> text extraction</span>
+                        
+                        <span class="tag is-light"> historical documents</span>
+                        
+
+                        <p><p>Zhang, Kaixuan, Zejiang Shen, Jie Zhou, and Melissa Dell. “Information Extraction from Text Regions with Complex Tabular Structure.” <em>Conference on Neural Information Processing Systems Document Intelligence Workshop</em> (2019). <a href="https://scholar.harvard.edu/files/dell/files/information_extraction_from_text_regions_with_complex_tabular_structure.pdf">Paper</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/MxTrade.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/491mxtrade">Trade-Induced Worker Displacement</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">violent crime</span>
+                        
+                        <span class="tag is-light"> drug trafficking</span>
+                        
+                        <span class="tag is-light"> unemployment</span>
+                        
+                        <span class="tag is-light"> trade</span>
+                        
+
+                        <p><p>Dell, Melissa, Benjamin Feigenberg, and Kensuke Teshima. “The Violent Consequences of Trade-Induced Worker Displacement in Mexico.” <em>American Economic Review: Insights</em> 1, no. 1 (2019): 43-58. <a href="https://scholar.harvard.edu/files/dell/files/aeri-2018-0063-manuscript.pdf">Paper</a>; <a href="https://scholar.harvard.edu/files/dell/files/aeri-2018-0063-appendix.pdf">Appendix</a>; <a href="https://scholar.harvard.edu/files/dell/files/aeri-2018-0063-replication.zip">Data files</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/bombing.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/492bombing">Nation Building through Foreign Intervention</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">military strategies</span>
+                        
+                        <span class="tag is-light"> foreign intervention</span>
+                        
+                        <span class="tag is-light"> nation building</span>
+                        
+
+                        <p><p>Dell, Melissa, and Pablo Querubin. “Nation Building Through Foreign Intervention: Evidence from Discontinuities in Military Strategies.” <em>Quarterly Journal of Economics</em> 133, no. 2 (2018): 701-764. <a href="https://scholar.harvard.edu/files/dell/files/nationbuilding.pdf">Paper</a>; <a href="https://scholar.harvard.edu/files/dell/files/appendix.pdf">Appendix</a>; <a href="https://scholar.harvard.edu/files/dell/files/replic.txt">Data files</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/DaiViet.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/493daiviet">The Historical State in Vietnam</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">long-run economic development</span>
+                        
+                        <span class="tag is-light"> historical states</span>
+                        
+                        <span class="tag is-light"> state capacity</span>
+                        
+
+                        <p><p>Dell, Melissa, Nathan Lane, and Pablo Querubin. “The Historical State, Local Collective Action, and Economic Development in Vietnam.” <em>Econometrica</em> 86, no. 6 (2018): 2083-2121. <a href="https://scholar.harvard.edu/files/dell/files/180509draft.pdf">Paper</a>; <a href="https://scholar.harvard.edu/files/dell/files/180509appendix.pdf">Published Appendix</a>; <a href="https://scholar.harvard.edu/files/dell/files/onlineappendix.pdf">Online Only Appendix</a>; <a href="https://scholar.harvard.edu/files/dell/files/final_code.zip">Data files</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/routes.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/494trafficking">Trafficking Networks and the Mexican Drug War</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">violence</span>
+                        
+                        <span class="tag is-light"> policing</span>
+                        
+                        <span class="tag is-light"> networks</span>
+                        
+
+                        <p><p>Dell, Melissa. “Trafficking Networks and the Mexican Drug War.” <em>American Economic Review</em> 105, no. 6 (2015): 1738-1779. <a href="https://scholar.harvard.edu/files/dell/files/traffickingnetwrks.pdf">Paper</a>; <a href="https://scholar.harvard.edu/files/dell/files/appendixestimation_0.pdf">appendix</a>; <a href="https://scholar.harvard.edu/files/dell/files/aer2012-1637data.zip">data files</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/climate_economy.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/495climate-economy">What Do We Learn from the Weather?</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">growth</span>
+                        
+                        <span class="tag is-light"> climate</span>
+                        
+                        <span class="tag is-light"> weather</span>
+                        
+
+                        <p><p>Dell, Melissa, Benjamin Jones, and Benjamin Olken. “What Do We Learn from the Weather? The New Climate-Economy Literature.” <em>Journal of Economic Literature</em> (2014). <a href="https://scholar.harvard.edu/files/dell/files/learnfromweather.pdf">Paper</a>; <a href="https://scholar.harvard.edu/files/dell/files/130823a_online_appendix.pdf">Appendix</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/tempshock.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/496tempshock">Temperature Shocks and Economic Growth</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">temperature</span>
+                        
+                        <span class="tag is-light"> growth</span>
+                        
+
+                        <p><p>Dell, Melissa, Benjamin Jones, and Benjamin Olken. “Temperature Shocks and Economic Growth: Evidence from the Last Half Century.” <em>American Economic Journal: Macroeconomics</em> 4, no. 3 (2012): 66-95. <a href="https://scholar.harvard.edu/files/dell/files/aej_temperature.pdf">Paper</a>; <a href="https://scholar.harvard.edu/files/dell/files/aej_temp_appendix.pdf">Appendix</a>; <a href="https://scholar.harvard.edu/files/dell/files/aej_mac2010-0092-reproduction.zip">Data files</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/prod.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/497prod">Productivity Differences</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">productivity</span>
+                        
+                        <span class="tag is-light"> human capital</span>
+                        
+                        <span class="tag is-light"> subnational income differences</span>
+                        
+
+                        <p><p>Dell, Melissa, and Daron Acemoglu. “Productivity Differences Between and Within Countries.” <em>American Economic Journal: Macroeconomics</em> 2, no. 1 (2010): 169–188. <a href="https://scholar.harvard.edu/files/dell/files/aej61748.pdf">Paper</a>; <a href="https://scholar.harvard.edu/files/dell/files/2009-0012_app.pdf">Appendix</a>; <a href="https://scholar.harvard.edu/files/dell/files/2010-0092_data.zip">Data files</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/mita.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/498mita">Peru's Mining Mita</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">extractive institutions</span>
+                        
+                        <span class="tag is-light"> land tenure</span>
+                        
+                        <span class="tag is-light"> public goods</span>
+                        
+
+                        <p><p>Dell, Melissa. “The Persistent Effects of Peru’s Mining Mita.” <em>Econometrica</em> 78, no. 6 (2010): 1863-1903.<a href="https://scholar.harvard.edu/files/dell/files/ecta8121_0.pdf">Article</a>; <a href="https://scholar.harvard.edu/files/dell/files/100103mita_datappendix_small_0.pdf">Appendix</a>; <a href="https://scholar.harvard.edu/files/dell/files/apuntes_68_articulo_7_melissa_dell_mita_minera_efe_0.pdf">Spanish translation</a>; <a href="https://scholar.harvard.edu/files/dell/files/files1.zip">Data files 1</a>; <a href="https://scholar.harvard.edu/files/dell/files/files2.zip">Data files 2</a>; <a href="https://scholar.harvard.edu/files/dell/files/files3.zip">Data files 3</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/tempincome.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/projects/499tempincome">Tempearture and Income</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">growth</span>
+                        
+                        <span class="tag is-light"> temperature</span>
+                        
+                        <span class="tag is-light"> Latin America</span>
+                        
+
+                        <p><p>Dell, Melissa, Benjamin Jones, and Benjamin Olken. “Temperature and Income: Reconciling New Cross-Sectional and Panel Estimates.” <em>American Economic Review Papers and Proceedings</em> 99, no. 2 (2009): 198-204. <a href="https://scholar.harvard.edu/files/dell/files/temperatureincome.pdf">Article</a>; <a href="https://scholar.harvard.edu/files/dell/files/climate_appendices.pdf">Appendix</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+    </div>
+</div>
+
+<h3 class="title">Working Papers</h3>
+<div class="columns">
+    <!-- <div class="column is-2 is-hidden-mobile">
+        <aside class="menu">
+    <p class="menu-label">
+        all projects
+    </p>
+        
+    
+        <ul class="menu-list">
+            <li><a href="#Efficiently Digitizing World Knowledge">Efficiently Digitizing World Knowledge</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Quantifying Character Similarity with Vision Transformers">Quantifying Character Similarity with Vision Transformers</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Headlines">Headlines</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#American Stories">American Stories</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#NEWS-COPY">NEWS-COPY</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#OLALA">OLALA</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Layout Parser">Layout Parser</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#HJDataset">HJDataset</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#The Dutch Cultivation System">The Dutch Cultivation System</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Information Extraction with Complex Layouts">Information Extraction with Complex Layouts</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Trade-Induced Worker Displacement">Trade-Induced Worker Displacement</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Nation Building through Foreign Intervention">Nation Building through Foreign Intervention</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#The Historical State in Vietnam">The Historical State in Vietnam</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Trafficking Networks and the Mexican Drug War">Trafficking Networks and the Mexican Drug War</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#What Do We Learn from the Weather?">What Do We Learn from the Weather?</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Temperature Shocks and Economic Growth">Temperature Shocks and Economic Growth</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Productivity Differences">Productivity Differences</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Peru's Mining Mita">Peru's Mining Mita</a></li>
+        </ul>
+    
+        <ul class="menu-list">
+            <li><a href="#Tempearture and Income">Tempearture and Income</a></li>
+        </ul>
+    
+</aside>
+    </div> -->
+    <div class="column is-12">
+            
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/rl.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/wp/390clippings">Linking Representations with Multimodal Contrastive Learning</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">multimodal learning</span>
+                        
+                        <span class="tag is-light"> contrastive learning</span>
+                        
+                        <span class="tag is-light"> record linkage</span>
+                        
+
+                        <p><p>Arora, Abhishek, Xinmei Yang, Shao-Yu Jheng, and Melissa Dell. “Linking Representations with Multimodal Contrastive Learning,” <a href="https://scholar.harvard.edu/sites/scholar.harvard.edu/files/dell/files/rl.pdf">Paper</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/lt_image.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/wp/392lt">LinkTransformer</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">transformers</span>
+                        
+                        <span class="tag is-light"> record linkage</span>
+                        
+                        <span class="tag is-light"> data wrangling</span>
+                        
+
+                        <p><p>Abhishek Arora and Melissa Dell.  “LinkTransformer: A Unified Package for Record Linkage with Transformer Language Models.” <a href="https://linktransformer.github.io/">Webpage</a>, <a href="https://scholar.harvard.edu/sites/scholar.harvard.edu/files/dell/files/linkt.pdf">Paper</a>, <a href="https://github.com/dell-research-harvard/linktransformer">Github</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/EffOCRArchitecture.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/wp/392effocr">Efficient OCR for Building a Diverse Digital History</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">ocr</span>
+                        
+                        <span class="tag is-light"> contrastive learning</span>
+                        
+                        <span class="tag is-light"> image retrieval</span>
+                        
+
+                        <p><p>Carlson, Jacob, Tom Bryan, and Melissa Dell. “Efficient OCR for Building a Diverse Digital History” <a href="https://scholar.harvard.edu/sites/scholar.harvard.edu/files/dell/files/effocr.pdf">Paper</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+            <div class="columns">
+                <div class="column is-3">
+                    <figure class="image is-16by9"><img src="/assets/publications/pathdep.png"></figure>
+                </div>
+                <div class="column is-9">
+                    <div class="content">
+                        <h3 class="publication-title">
+                            <a href="/wp/396mxrev">Path Dependence in Development</a>
+                        </h3>
+                        
+                        
+                        
+                        <span class="tag is-light">path dependence</span>
+                        
+                        <span class="tag is-light"> long-run development</span>
+                        
+                        <span class="tag is-light"> agrarian reform</span>
+                        
+
+                        <p><p>Dell, Melissa. “Path Dependence in Development: Evidence from the Mexican Revolution.” <a href="https://scholar.harvard.edu/files/dell/files/revolutiondraft.pdf">Paper</a>; <a href="https://scholar.harvard.edu/files/dell/files/data_construction_appendix_mxrev.pdf">Appendix</a></p>
+</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 1.5rem;"></div>
+        
+    </div>
+</div>
+
+</div>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

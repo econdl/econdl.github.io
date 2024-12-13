@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Multimodal Learning</title>
+    <meta name="description" content="Lecture 10: Multimodal Learning 
+">
+
+    <meta property="og:title" content="Multimodal Learning">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/intro/2023/02/28/lecture10.html">
+    <meta property="og:description" content="Lecture 10: Multimodal Learning 
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/intro/2023/02/28/lecture10.html">
+    <meta name="twitter:title" content="Multimodal Learning">
+    <meta name="twitter:description" content="Lecture 10: Multimodal Learning 
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/intro/2023/02/28/lecture10.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>Multimodal Learning</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        February 28, 2023
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        2 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/intro" class="article-list-item">
+            Intro
+        </a>
+        
+        
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Tags:</span>
+    
+    <span class="field">
+        
+        <a href="/tag/deep learning" class="article-list-item">
+            Deep learning
+        </a>
+        
+        
+    </span>
+</div>
+        </header>
+        <h2 id="topics">Topics</h2>
+
+<p>This post covers the tenth lecture in the course: “Multimodal Learning.”</p>
+
+<p>Humans learn through multiple modalities, and combining modalities is also of relevance to a 
+variety of economic applications. This lecture focuses primarily on vision language models.</p>
+
+<h2 id="lecture-video">Lecture Video</h2>
+
+<p><a href="https://www.youtube.com/watch?v=Ym8B2TvFlNQ&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/Ym8B2TvFlNQ/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><a href="https://www.dropbox.com/s/6ysmz113ulrdszj/lecture_multimodal.pdf?dl=0">Lecture notes</a></p>
+
+<h2 id="references-cited-in-lecture-9-multimodal-learning">References Cited in Lecture 9: Multimodal Learning</h2>
+
+<p>Goh, Gabriel, Nick Cammarata, Chelsea Voss, Shan Carter, Michael Petrov, Ludwig Schubert, Alec Radford, and Chris Olah. “<a href="https://distill.pub/2021/multimodal-neurons/?utm_campaign=Dynamically%20Typed&amp;utm_medium=email&amp;utm_source=Revue%20newsletter">Multimodal neurons in artificial neural networks.</a>” Distill 6, no. 3 (2021): e30</p>
+
+<p>Radford, Alec, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry et al. “<a href="http://proceedings.mlr.press/v139/radford21a/radford21a.pdf">Learning transferable visual models from natural language supervision.</a>” International Conference on Machine Learning. PMLR, (2021).</p>
+
+<p>Li, Liunian Harold, Mark Yatskar, Da Yin, Cho-Jui Hsieh, and Kai-Wei Chang. “<a href="https://arxiv.org/pdf/1908.03557.pdf&amp;quot">VisualBERT: A simple and performant baseline for vision and language.</a>” arXiv preprint arXiv:1908.03557 (2019).</p>
+
+<p>Wang, Zirui, Jiahui Yu, Adams Wei Yu, Zihang Dai, Yulia Tsvetkov, and Yuan Cao. “<a href="https://arxiv.org/pdf/2108.10904.pdf">Simvlm: Simple visual language model pretraining with weak supervision.</a>” arXiv preprint arXiv:2108.10904 (2021).</p>
+
+<p>Tsimpoukelli, Maria, Jacob L. Menick, Serkan Cabi, S. M. Eslami, Oriol Vinyals, and Felix Hill. “<a href="">Multimodal few-shot learning with frozen language models.</a>” Advances in Neural Information Processing Systems 34 (2021): 200-212.</p>
+
+<p>Mokady, Ron, Amir Hertz, and Amit H. Bermano. “<a href="https://proceedings.neurips.cc/paper/2021/file/01b7575c38dac42f3cfb7d500438b875-Paper.pdf">Clipcap: Clip prefix for image captioning.</a>” arXiv preprint arXiv:2111.09734 (2021).</p>
+
+<p>Alayrac, Jean-Baptiste, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc et al. “<a href="https://arxiv.org/pdf/2204.14198.pdf">Flamingo: a visual language model for few-shot learning.</a>” arXiv preprint arXiv:2204.14198 (2022).</p>
+
+<p>Nagrani, Arsha, Shan Yang, Anurag Arnab, Aren Jansen, Cordelia Schmid, and Chen Sun. “<a href="https://proceedings.neurips.cc/paper/2021/file/76ba9f564ebbc35b1014ac498fafadd0-Paper.pdf">Attention bottlenecks for multimodal fusion.</a>” Advances in Neural Information Processing Systems 34 (2021): 14200-14213. See also blog post <a href="https://ai.googleblog.com/2022/03/multimodal-bottleneck-transformer-mbt.html">here</a></p>
+
+<p>Rust, Phillip, Jonas F. Lotz, Emanuele Bugliarello, Elizabeth Salesky, Miryam de Lhoneux, and Desmond Elliott. “<a href="https://arxiv.org/pdf/2207.06991.pdf">Language Modelling with Pixels.</a>” arXiv preprint arXiv:2207.06991 (2022).</p>
+
+<h4 id="other-resources">Other Resources</h4>
+<p>Generalized Vision Language Models (a highly informative blog post overview) https://lilianweng.github.io/posts/2022-06-09-vlm/</p>
+
+<p><a href="https://openai.com/blog/clip/">OpenAI blog about Clip</a></p>
+
+<p><a href="https://twitter.com/chrmanning/status/1572640802450604032?t=kWeOuXj7lk5kY-BTncSbyw&amp;s=09">Twitter thread by Christopher Manning</a></p>
+
+<p><em>Image Source</em>: https://towardsdatascience.com/multimodal-deep-learning-ce7d1d994f4</p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
