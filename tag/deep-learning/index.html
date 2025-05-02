@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | deep learning</title>
+    <meta name="description" content="">
+
+    <meta property="og:title" content="deep learning">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/tag/deep-learning/">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/tag/deep-learning/">
+    <meta name="twitter:title" content="deep learning">
+    <meta name="twitter:description" content="">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/tag/deep-learning/">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            
+<div class="columns">
+    <div class="column is-3">
+        <h3 class="subtitle"><i>Posts with tag</i></h3>
+
+        <h1 class="title" 
+            style='font-family: "Cormorant Garamond", sans-serif;padding-bottom: 2rem'>
+            <a href="/tag/deep learning" class="has-text-black">
+                deep learning
+            </a>
+        </h1>
+    </div>
+
+    <div class="column is-9">
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/03/26/lecture18.html" title="Remote Sensing" >
+                    <span class="article-list-title">Remote Sensing</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    March 26, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/03/25/lecture17.html" title="Diffusion and GANs" >
+                    <span class="article-list-title">Diffusion and GANs</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    March 25, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/03/24/lecture16.html" title="OCR and Record Linkage" >
+                    <span class="article-list-title">OCR and Record Linkage</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    March 24, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/03/23/lecture15.html" title="Object Detection" >
+                    <span class="article-list-title">Object Detection</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    March 23, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/03/22/lecture14.html" title="Topic and Sentiment Classification" >
+                    <span class="article-list-title">Topic and Sentiment Classification</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    March 22, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/03/21/lecture13.html" title="Entity Linking" >
+                    <span class="article-list-title">Entity Linking</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    March 21, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/03/20/lecture12.html" title="Text Retrieval" >
+                    <span class="article-list-title">Text Retrieval</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    March 20, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/03/02/lecture11.html" title="Semantic and Syntacting Similarity" >
+                    <span class="article-list-title">Semantic and Syntacting Similarity</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    March 2, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/02/28/lecture10.html" title="Multimodal Learning" >
+                    <span class="article-list-title">Multimodal Learning</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    February 28, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/02/24/lecture9.html" title="Prompt and Prefix Tuning" >
+                    <span class="article-list-title">Prompt and Prefix Tuning</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    February 24, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/02/23/lecture8.html" title="Contrastive Learning" >
+                    <span class="article-list-title">Contrastive Learning</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    February 23, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/01/24/lecture7.html" title="Basics of Training and Optimizing Neural Networks" >
+                    <span class="article-list-title">Basics of Training and Optimizing Neural Networks</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    January 24, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/01/23/lecture6.html" title="Vision and Audio Transformers" >
+                    <span class="article-list-title">Vision and Audio Transformers</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    January 23, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/01/22/lecture5.html" title="More on Transformer Language Models" >
+                    <span class="article-list-title">More on Transformer Language Models</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    January 22, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/01/21/lecture4.html" title="The Transformer" >
+                    <span class="article-list-title">The Transformer</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    January 21, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/01/20/lecture3.html" title="Language Modeling, Recurrent Neural Nets and Seq2Seq" >
+                    <span class="article-list-title">Language Modeling, Recurrent Neural Nets and Seq2Seq</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    January 20, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/01/19/lecture2.html" title="Convolutional Neural Networks" >
+                    <span class="article-list-title">Convolutional Neural Networks</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    January 19, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+            <div class="content">
+                <span>
+                <a href="/intro/2023/01/18/lecture1.html" title="An Introduction to Deep Learning" >
+                    <span class="article-list-title">An Introduction to Deep Learning</span>
+                </a>
+                /
+                <span class="article-list-date">
+                    January 18, 2023
+                </span>
+            </span>
+            </div>
+            
+            <div class="is-divider" style="margin-top: -0.6rem; margin-bottom: 1rem;"></div>
+        
+    </div>
+</div>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

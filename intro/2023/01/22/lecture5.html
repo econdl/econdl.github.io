@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | More on Transformer Language Models</title>
+    <meta name="description" content="Lecture 5: Transformer language models 
+">
+
+    <meta property="og:title" content="More on Transformer Language Models">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/intro/2023/01/22/lecture5.html">
+    <meta property="og:description" content="Lecture 5: Transformer language models 
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/intro/2023/01/22/lecture5.html">
+    <meta name="twitter:title" content="More on Transformer Language Models">
+    <meta name="twitter:description" content="Lecture 5: Transformer language models 
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/intro/2023/01/22/lecture5.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>More on Transformer Language Models</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        January 22, 2023
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        2 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/intro" class="article-list-item">
+            Intro
+        </a>
+        
+        
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Tags:</span>
+    
+    <span class="field">
+        
+        <a href="/tag/deep learning" class="article-list-item">
+            Deep learning
+        </a>
+        
+        
+    </span>
+</div>
+        </header>
+        <h2 id="topics">Topics</h2>
+
+<p>This post covers the fifth lecture in the course: “More on Transformer Language Models.”</p>
+
+<p>This lecture will continue our discussion of transformer language models, focusing on interpretation and visualization of textual embeddings and the challenges – and interesting questions – raised by evolving language.</p>
+
+<h2 id="lecture-video">Lecture Video</h2>
+
+<p><em>Part 1</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=Pe67rtgqCqI&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/Pe67rtgqCqI/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><em>Part 2</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=GgajRRH8Efg&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/GgajRRH8Efg/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><a href="https://www.dropbox.com/s/huwe3209ybxiuzr/lecture_transformerLMs.pdf?dl=0">Lecture notes 1</a>
+<a href="https://www.dropbox.com/s/5k79dr2ctpy44a7/lecture_moreLMs.pdf?dl=0">Lecture notes 2</a></p>
+
+<h2 id="references-cited-in-lecture-5-more-on-transformer-language-models">References Cited in Lecture 5: More on Transformer Language Models</h2>
+
+<h4 id="academic-papers">Academic Papers</h4>
+
+<p><em>Interpreting Textual Embeddings</em></p>
+
+<ul>
+  <li>
+    <p>McInnes, Leland, John Healy, and James Melville. “<a href="https://arxiv.org/pdf/1802.03426.pdf">Umap: Uniform manifold approximation and projection for dimension reduction.</a>” arXiv preprint arXiv:1802.03426 (2018).</p>
+  </li>
+  <li>
+    <p>Köhn, Arne. “<a href="https://edoc.sub.uni-hamburg.de/informatik/volltexte/2015/213/pdf/Koehn_whatsinanembedding.pdf">What’s in an embedding? Analyzing word embeddings through multilingual evaluation.</a>” In Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing, pp. 2067-2073. 2015.</p>
+  </li>
+  <li>
+    <p>Rogers, Anna, Olga Kovaleva, and Anna Rumshisky. “<a href="https://watermark.silverchair.com/tacl_a_00349.pdf?">A primer in bertology: What we know about how bert works.</a>” Transactions of the Association for Computational Linguistics 8 (2020): 842-866.</p>
+  </li>
+  <li>
+    <p>Wiedemann, Gregor, Steffen Remus, Avi Chawla, and Chris Biemann. “<a href="https://arxiv.org/pdf/1909.10430.pdf">Does BERT make any sense? Interpretable word sense disambiguation with contextualized embeddings.</a>” arXiv preprint arXiv:1909.10430 (2019).</p>
+  </li>
+  <li>
+    <p>Coenen, Andy, Emily Reif, Ann Yuan, Been Kim, Adam Pearce, Fernanda Viégas, and Martin Wattenberg. “<a href="https://proceedings.neurips.cc/paper/2019/file/159c1ffe5b61b41b3c4d8f4c2150f6c4-Paper.pdf">Visualizing and measuring the geometry of bert.</a>” arXiv preprint arXiv:1906.02715 (2019).</p>
+  </li>
+  <li>
+    <p>Ethayarajh, Kawin. “<a href="https://arxiv.org/pdf/1909.00512.pdf">How contextual are contextualized word representations? comparing the geometry of BERT, ELMo, and GPT-2 embeddings.</a>” arXiv preprint arXiv:1909.00512 (2019).</p>
+  </li>
+  <li>
+    <p>Merchant, Amil, Elahe Rahimtoroghi, Ellie Pavlick, and Ian Tenney. “<a href="https://arxiv.org/pdf/2004.14448.pdf">What Happens to BERT Embeddings During Fine-tuning?</a>” arXiv preprint arXiv:2004.14448 (2020).</p>
+  </li>
+</ul>
+
+<p><em>Changing Language</em></p>
+
+<ul>
+  <li>
+    <p>Manjavacas, Enrique, and Lauren Fonteyn. “<a href="https://aclanthology.org/2021.nlp4dh-1.4.pdf">Macberth: Development and evaluation of a historically pre-trained language model for english (1450-1950).</a>” In Proceedings of the Workshop on Natural Language Processing for Digital Humanities, pp. 23-36. 2021.</p>
+  </li>
+  <li>
+    <p>Amba Hombaiah, Spurthi, Tao Chen, Mingyang Zhang, Michael Bendersky, and Marc Najork. “<a href="https://dl.acm.org/doi/pdf/10.1145/3447548.3467162">Dynamic language models for continuously evolving content.</a>” In Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery &amp; Data Mining, pp. 2514-2524. 2021.</p>
+  </li>
+  <li>
+    <p>Manjavacas, Enrique, and Lauren Fonteyn. “<a href="https://jdmdh.episciences.org/9690/pdf">Adapting vs Pre-training Language Models for Historical Languages.</a>” (2022).</p>
+  </li>
+  <li>
+    <p>Soni, Sandeep, David Bamman, and Jacob Eisenstein. “<a href="https://arxiv.org/pdf/2210.13628.pdf">Predicting Long-Term Citations from Short-Term Linguistic Influence.</a>” Findings of the Association for Computational Linguistics: EMNLP 2022 (2022).</p>
+  </li>
+</ul>
+
+<h4 id="other-resources">Other Resources</h4>
+
+<ul>
+  <li>Tensorflow Embedding Projector: http://projector.tensorflow.org</li>
+</ul>
+
+<h4 id="code-bases">Code Bases</h4>
+
+<p><em>Historical Language Models</em></p>
+
+<ul>
+  <li><a href="https://github.com/huggingface">Huggingface</a> open source library with large variety of NLP models. Includes MacBERTh and several other historically trained or finetuned language models</li>
+</ul>
+
+<p><em>Image Source</em>: Devlin, J., Chang, M., Lee, K., Toutanova, K. (2018) BERT: Pre-training of Deep Bidirectional Transformers for Lanaugage Understanding</p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Object Detection</title>
+    <meta name="description" content="Lecture 15: Object Detection and Document Image Analysis
+">
+
+    <meta property="og:title" content="Object Detection">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/intro/2023/03/23/lecture15.html">
+    <meta property="og:description" content="Lecture 15: Object Detection and Document Image Analysis
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/intro/2023/03/23/lecture15.html">
+    <meta name="twitter:title" content="Object Detection">
+    <meta name="twitter:description" content="Lecture 15: Object Detection and Document Image Analysis
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/intro/2023/03/23/lecture15.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>Object Detection</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        March 23, 2023
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        3 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/intro" class="article-list-item">
+            Intro
+        </a>
+        
+        
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Tags:</span>
+    
+    <span class="field">
+        
+        <a href="/tag/deep learning" class="article-list-item">
+            Deep learning
+        </a>
+        
+        
+    </span>
+</div>
+        </header>
+        <h2 id="topics">Topics</h2>
+
+<p>This post covers the fifteenth lecture in the course: “Object Detection and Document Image Analysis.”</p>
+
+<p>This lecture covers object detection models, covering the Fast R-CNN series, YOLO, transformer-based backbones, and document applications. Object detection is fundamental to working with documents, a common source of unstructured data in economics.</p>
+
+<h2 id="lecture-video">Lecture Video</h2>
+
+<p><em>Object Detection</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=l2GZKbWUaOo&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/l2GZKbWUaOo/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><em>Document Image Analysis</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=sUHvkkttaLA&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/sUHvkkttaLA/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<!-- [Lecture notes](https://www.dropbox.com/s/oehhzqib5giwv5i/lecture_sts.pdf?dl=0) -->
+
+<h2 id="references-cited-in-lecture-15-object-detection-and-document-image-analysis">References Cited in Lecture 15: Object Detection and Document Image Analysis</h2>
+
+<p><em>Region CNNs</em></p>
+
+<p>Girshick, Ross, Jeff Donahue, Trevor Darrell, and Jitendra Malik. “<a href="https://openaccess.thecvf.com/content_cvpr_2014/papers/Girshick_Rich_Feature_Hierarchies_2014_CVPR_paper.pdf">Rich feature hierarchies for accurate object detection and semantic segmentation</a>.” In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 580-587. 2014. https://doi.org/10.1109/CVPR.2014.81</p>
+
+<p>Girshick, Ross. “<a href="https://openaccess.thecvf.com/content_iccv_2015/papers/Girshick_Fast_R-CNN_ICCV_2015_paper.pdf">Fast R-CNN.</a>” In Proceedings of the IEEE international conference on computer vision, pp. 1440-1448. 2015. https://doi.org/10.1109/ICCV.2015.169.</p>
+
+<p>Ren, Shaoqing, Kaiming He, Ross Girshick, and Jian Sun. “<a href="https://proceedings.neurips.cc/paper/2015/file/14bfa6bb14875e45bba028a21ed38046-Paper.pdf">Faster R-CNN: Towards real-time object detection with region proposal networks.</a>” IEEE transactions on pattern analysis and machine intelligence, vol. 39, no. 6, pp. 1137-1149. 2017. https://doi.org/10.1109/TPAMI.2016.2577031.</p>
+
+<p>He, Kaiming, Georgia Gkioxari, Piotr Dollár, and Ross Girshick. “<a href="http://openaccess.thecvf.com/content_ICCV_2017/papers/He_Mask_R-CNN_ICCV_2017_paper.pdf">Mask R-CNN.</a>” In Proceedings of the IEEE international conference on computer vision, pp. 2961-2969. 2017. https://doi.org/10.1109/ICCV.2017.322.</p>
+
+<p>Kirillov, Alexander, Ross Girshick, Kaiming He, and Piotr Dollár. “<a href="http://openaccess.thecvf.com/content_CVPR_2019/papers/Kirillov_Panoptic_Feature_Pyramid_Networks_CVPR_2019_paper.pdf">Panoptic feature pyramid networks.</a>” In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 6399-6408. 2019.</p>
+
+<p>Cai, Z. and Vasconcelos, N., 2019. “<a href="https://arxiv.org/pdf/1906.09756">Cascade R-CNN: high quality object detection and instance segmentation.</a>” IEEE transactions on pattern analysis and machine intelligence, 43(5), pp.1483-1498.</p>
+
+<p><em>YOLO</em></p>
+
+<p>Redmon, Joseph, Santosh Divvala, Ross Girshick, and Ali Farhadi. “<a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf">You only look once: Unified, real-time object detection.</a>” In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 779-788. 2016.</p>
+
+<p>G. Jocher, <a href="https://github.com/ultralytics/yolov5">YOLOv5 by Ultralytics</a> (2020)</p>
+
+<p><em>Transformer Methods</em></p>
+
+<p>Carion, Nicolas, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, and Sergey Zagoruyko. “<a href="https://arxiv.org/pdf/2005.12872.pdf,">End-to-end object detection with transformers.</a>” In European Conference on Computer Vision, pp. 213-229. Springer, Cham, 2020. (DETR)</p>
+
+<p>Liu, Ze, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, and Baining Guo. “<a href="http://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Swin_Transformer_Hierarchical_Vision_Transformer_Using_Shifted_Windows_ICCV_2021_paper.pdf">Swin Transformer: Hierarchical vision transformer using shifted windows.</a>” arXiv preprint arXiv:2103.14030 (2021). (Swin)</p>
+
+<p><em>Semantic Segmentation</em></p>
+
+<p>Long, Jonathan, Evan Shelhamer, and Trevor Darrell. “<a href="https://openaccess.thecvf.com/content_cvpr_2015/papers/Long_Fully_Convolutional_Networks_2015_CVPR_paper.pdf">Fully convolutional networks for semantic segmentation</a>.” In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 3431-3440. 2015.</p>
+
+<p><em>Implementation</em></p>
+
+<p>Z. Shen, R. Zhang, M. Dell, B. C. G. Lee, J. Carlson, W. Li, <a href="https://arxiv.org/pdf/2103.15348">Layoutparser: A unified toolkit for deep learning based document image analysis</a>, International Conference on Document Analysis and Recognition 12821 (2021).</p>
+
+<p>Lin, Tsung-Yi, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Dollár, and C. Lawrence Zitnick. “<a href="https://arxiv.org/pdf/1405.0312.pdf%090.949">Microsoft coco: Common objects in context</a>.” In European conference on computer vision, pp. 740-755. Springer, Cham, 2014.</p>
+
+<p>Wu, Yuxin, Alexander Kirillov, Francisco Massa, Wan-Yen Lo, and Ross Girshick. “<a href="https://github.com/facebookresearch/detectron2">Detectron2.</a>” 2019.</p>
+
+<p>Chen, Kai, Jiaqi Wang, Jiangmiao Pang, Yuhang Cao, Yu Xiong, Xiaoxiao Li, Shuyang Sun et al. “<a href="https://arxiv.org/pdf/1906.07155.pdf">MMDetection: Open mmlab detection toolbox and benchmark</a>.” arXiv preprint arXiv:1906.07155 (2019).</p>
+
+<p>Shen, Zejiang, Kaixuan Zhang, and Melissa Dell. “<a href="http://openaccess.thecvf.com/content_CVPRW_2020/papers/w34/Shen_A_Large_Dataset_of_Historical_Japanese_Documents_With_Complex_Layouts_CVPRW_2020_paper.pdf">A Large Dataset of Historical Japanese Documents with Complex Layouts</a>.” In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops, pp. 548-549. 2020. https://doi.org/10.1109/CVPRW50498.2020.00282.</p>
+
+<p>Tkachenko, Maxim, Mikhail Malyuk, Nikita Shevchenko, Andrey Holmanyuk, and Nikolai Liubimov. “<a href="https://github.com/heartexlabs/label-studio">Label studio.</a>” Software. GitHub repository. 2020.</p>
+
+<p><em>Object discovery</em></p>
+
+<p>Hénaff, Olivier J., Skanda Koppula, Evan Shelhamer, Daniel Zoran, Andrew Jaegle, Andrew Zisserman, João Carreira, and Relja Arandjelović. “<a href="https://arxiv.org/pdf/2203.08777">Object discovery and representation networks</a>.” European conference on computer vision, pp.123-143. (2022)</p>
+
+<p><em>Image Source</em>: www.layout-parser.github.io</p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

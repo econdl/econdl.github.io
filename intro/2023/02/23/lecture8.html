@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>EconDL | Contrastive Learning</title>
+    <meta name="description" content="Lecture 8: Covers Contrastive Learning: Contrastive loss functions and associated model architectures. 
+">
+
+    <meta property="og:title" content="Contrastive Learning">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/intro/2023/02/23/lecture8.html">
+    <meta property="og:description" content="Lecture 8: Covers Contrastive Learning: Contrastive loss functions and associated model architectures. 
+">
+    <meta property="og:site_name" content="">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="/intro/2023/02/23/lecture8.html">
+    <meta name="twitter:title" content="Contrastive Learning">
+    <meta name="twitter:description" content="Lecture 8: Covers Contrastive Learning: Contrastive loss functions and associated model architectures. 
+">
+
+    <!-- TODO: Adding page thumbnail for social meida -->
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="/intro/2023/02/23/lecture8.html">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/bulma.css">
+    <link rel="stylesheet" href="/assets/css/syntax/manni.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$','$'] ],
+          displayMath: [ ['$$','$$'] ],
+          processEscapes: true,
+        }
+      });
+    </script>
+    
+    <script type="text/javascript"
+            src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Add link to h2 ... h6 -->
+    <!-- Ref: https://ben.balter.com/2014/03/13/pages-anchor-links/ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+      $(function() {
+        return $("h2, h3, h4, h5, h6").each(function(i, el) {
+          var $el, icon, id;
+          $el = $(el);
+          id = $el.attr('id');
+          icon = '<i class="fas fa-link"></i>';
+          if (id) {
+            return $el.append($("<a />").addClass("header-link").attr("href", "#" + id).html(icon));
+          }
+        });
+      });
+    </script>
+    
+    <script src="/assets/js/bulma-collapsible.min.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+</head>
+
+<body>
+
+    <div class="section">            
+        <div class="container">
+            
+                <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item site-title" href="/">
+            <strong>EconDL</strong>
+        </a>
+
+        <div class="navbar-burger" data-target="navbar-main"
+            onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div class="navbar-menu" id="navbar-main">
+        <div class="navbar-end">
+            <!-- navbar items -->
+            
+                
+                    <a href="/" class="navbar-item"></a>
+                
+            
+                
+                    <a href="/packages.html" class="navbar-item">Packages</a>
+                
+            
+                
+                    <a href="/datasets.html" class="navbar-item">Datasets</a>
+                
+            
+            <div class="navbar-item">
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="is-divider" style="margin-top: 0.5rem; margin-bottom: 3rem;"></div>
+  
+            
+            <article class="content" style="margin-top: 3rem">
+  <div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+    </div>
+    <div class="column is-8">
+        <header class="article-header">
+            <h1>Contrastive Learning</h1>
+            <div class="article-list-footer">
+    <span class="article-list-date">
+        February 23, 2023
+    </span>
+    <span class="article-list-divider">-</span>
+    <span class="article-list-minutes">
+        
+        
+        2 minute read
+        
+    </span>
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Category:</span>
+    
+    <span class="field">
+        
+        <a href="/category/intro" class="article-list-item">
+            Intro
+        </a>
+        
+        
+    </span>
+    
+    <span class="article-list-divider">-</span>
+    <span class="article-list-cat">Tags:</span>
+    
+    <span class="field">
+        
+        <a href="/tag/deep learning" class="article-list-item">
+            Deep learning
+        </a>
+        
+        
+    </span>
+</div>
+        </header>
+        <h2 id="topics">Topics</h2>
+
+<p>This post covers the eigth lecture in the course: “Contrastive Learning.”</p>
+
+<p>Contrastive learning has revolutionized deep learning and many of the applications covered later in this course will use it. This lecture covers contrastive loss, its potential problems, and what makes it work.</p>
+
+<h2 id="lecture-video">Lecture Video</h2>
+
+<p><a href="https://www.youtube.com/watch?v=663CtIO8lyc&amp;ab_channel=MelissaDell" target="_blank">
+ <img src="http://img.youtube.com/vi/663CtIO8lyc/mqdefault.jpg" alt="Watch the video" width="560" height="315" />
+</a></p>
+
+<p><a href="https://www.dropbox.com/s/lcw1jdk9tksomuo/lecture_contrastive.pdf?dl=0">Lecture notes</a></p>
+
+<h2 id="references-cited-in-lecture-8-contrastive-learning">References Cited in Lecture 8: Contrastive Learning</h2>
+
+<p><em>Contrastive Loss</em></p>
+
+<ul>
+  <li>Wang, Feng, and Huaping Liu. “<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Wang_Understanding_the_Behaviour_of_Contrastive_Loss_CVPR_2021_paper.pdf">Understanding the behaviour of contrastive loss.</a>” In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pp. 2495-2504. 2021.</li>
+</ul>
+
+<p><em>Varities of Contrastive Learning</em></p>
+
+<ul>
+  <li>
+    <p>Khosla, Prannay, Piotr Teterwak, Chen Wang, Aaron Sarna, Yonglong Tian, Phillip Isola, Aaron Maschinot, Ce Liu, and Dilip Krishnan. “<a href="https://proceedings.neurips.cc/paper/2020/file/d89a66c7c80a29b1bdbab0f2a1a94af8-Paper.pdf">Supervised contrastive learning.</a>” Advances in Neural Information Processing Systems 33 (2020): 18661-18673.</p>
+  </li>
+  <li>
+    <p>Hermans, Alexander, Lucas Beyer, and Bastian Leibe. “<a href="https://arxiv.org/pdf/1703.07737.pdf">In defense of the triplet loss for person re-identification.</a>” arXiv preprint arXiv:1703.07737 (2017).</p>
+  </li>
+  <li>
+    <p>Oord, Aaron van den, Yazhe Li, and Oriol Vinyals. “<a href="https://arxiv.org/pdf/1807.03748.pdf?fbclid=IwAR2G_jEkb54YSIvN0uY7JbW9kfhogUq9KhKrmHuXPi34KYOE8L5LD1RGPTo">Representation learning with contrastive predictive coding.</a>” arXiv preprint arXiv:1807.03748 (2018).</p>
+  </li>
+  <li>
+    <p>Sablayrolles, Alexandre, Matthijs Douze, Cordelia Schmid, and Hervé Jégou. “<a href="https://arxiv.org/pdf/1806.03198.pdf">Spreading vectors for similarity search.</a>” arXiv preprint arXiv:1806.03198 (2018).</p>
+  </li>
+  <li>
+    <p>Graf, Florian, Christoph Hofer, Marc Niethammer, and Roland Kwitt. “<a href="http://proceedings.mlr.press/v139/graf21a/graf21a.pdf">Dissecting supervised contrastive learning.</a>” In International Conference on Machine Learning, pp. 3821-3830. PMLR, 2021.</p>
+  </li>
+  <li>
+    <p>Jing, Li, Pascal Vincent, Yann LeCun, and Yuandong Tian. “<a href="https://arxiv.org/pdf/2110.09348.pdf">Understanding dimensional collapse in contrastive self-supervised learning.</a>” arXiv preprint arXiv:2110.09348 (2021).</p>
+  </li>
+</ul>
+
+<p><em>Siamese Representation Learning</em></p>
+
+<p>Chen, Xinlei, and Kaiming He. “<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Chen_Exploring_Simple_Siamese_Representation_Learning_CVPR_2021_paper.pdf">Exploring simple siamese representation learning.</a>” In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 15750-15758. 2021.</p>
+
+<h4 id="other-resources">Other Resources</h4>
+
+<ul>
+  <li>Contrastive Representation Learning: https://lilianweng.github.io/posts/2021-05-31-contrastive/</li>
+</ul>
+
+<p><em>Image Source</em>: https://crfm.stanford.edu/2022/04/14/contrastive-learning.html</p>
+
+    </div>
+  </div>
+</article>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
